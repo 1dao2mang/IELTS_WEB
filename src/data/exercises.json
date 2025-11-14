@@ -1,0 +1,141 @@
+{
+  "listening": [
+    {
+      "id": "l1",
+      "title": "Academic Lecture - Climate Change",
+      "difficulty": "Intermediate",
+      "duration": 5.5,
+      "audioUrl": "/audio/climate-lecture.mp3",
+      "questions": [
+        {
+          "id": 1,
+          "type": "multiple-choice",
+          "question": "What is the main topic of the lecture?",
+          "options": ["Global warming effects", "Climate policy", "Weather patterns", "Ocean currents"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 2,
+          "type": "fill-blank",
+          "question": "The professor mentions that carbon emissions have increased by ___% since 1990.",
+          "correctAnswer": "45"
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "title": "Conversation - University Enrollment",
+      "difficulty": "Beginner",
+      "duration": 4.25,
+      "audioUrl": "/audio/enrollment-conversation.mp3",
+      "questions": [
+        {
+          "id": 1,
+          "type": "true-false",
+          "question": "The student needs to submit their application by Friday.",
+          "correctAnswer": true
+        }
+      ]
+    }
+  ],
+  "reading": [
+    {
+      "id": "r1",
+      "title": "The History of Artificial Intelligence",
+      "difficulty": "Advanced",
+      "passage": "Artificial intelligence (AI) has evolved significantly since its inception in the 1950s. Early pioneers like Alan Turing laid the groundwork for what would become one of the most transformative technologies of the 21st century...",
+      "questions": [
+        {
+          "id": 1,
+          "type": "heading-match",
+          "question": "Choose the correct heading for paragraph 2",
+          "options": ["Early developments", "Modern applications", "Future prospects", "Ethical concerns"],
+          "correctAnswer": 0
+        },
+        {
+          "id": 2,
+          "type": "true-false-notgiven",
+          "question": "Alan Turing invented the first computer.",
+          "correctAnswer": "NOT GIVEN"
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "title": "Sustainable Tourism Practices",
+      "difficulty": "Intermediate",
+      "passage": "In recent years, the tourism industry has faced increasing pressure to adopt more sustainable practices. Environmental degradation, cultural commodification, and economic inequality have all been linked to mass tourism...",
+      "questions": [
+        {
+          "id": 1,
+          "type": "multiple-choice",
+          "question": "According to the passage, what is the main challenge facing tourism?",
+          "options": ["Cost", "Sustainability", "Accessibility", "Marketing"],
+          "correctAnswer": 1
+        }
+      ]
+    }
+  ],
+  "writing": [
+    {
+      "id": "w1",
+      "type": "Task 1",
+      "title": "Bar Chart - Energy Consumption",
+      "difficulty": "Intermediate",
+      "prompt": "The bar chart below shows the energy consumption of four countries in 2020. Summarize the information by selecting and reporting the main features.",
+      "imageUrl": "/images/energy-chart.png",
+      "wordLimit": 150,
+      "timeLimit": 20
+    },
+    {
+      "id": "w2",
+      "type": "Task 2",
+      "title": "Opinion Essay - Technology in Education",
+      "difficulty": "Advanced",
+      "prompt": "Some people believe that technology has made learning easier and more accessible. Others argue that it has made students lazy and dependent. Discuss both views and give your own opinion.",
+      "wordLimit": 250,
+      "timeLimit": 40
+    }
+  ],
+  "speaking": [
+    {
+      "id": "s1",
+      "part": 1,
+      "title": "Introduction - Work and Studies",
+      "difficulty": "Beginner",
+      "questions": [
+        "Do you work or are you a student?",
+        "What do you enjoy most about your work/studies?",
+        "What are your future career plans?"
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "title": "Describe a Memorable Journey",
+      "difficulty": "Intermediate",
+      "cueCard": {
+        "topic": "Describe a memorable journey you have made",
+        "points": [
+          "Where you went",
+          "When you went there",
+          "Who you went with",
+          "Why it was memorable"
+        ]
+      },
+      "preparationTime": 1,
+      "speakingTime": 2
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "title": "Discussion - Travel and Tourism",
+      "difficulty": "Advanced",
+      "questions": [
+        "How has tourism changed in your country over the years?",
+        "What are the benefits and drawbacks of international travel?",
+        "Do you think space tourism will become common in the future?"
+      ]
+    }
+  ]
+}

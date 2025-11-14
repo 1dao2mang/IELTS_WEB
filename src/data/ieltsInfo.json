@@ -1,0 +1,59 @@
+{
+  "bandScores": [
+    {
+      "band": 9,
+      "description": "Expert User",
+      "details": "Fully operational command of the language"
+    },
+    {
+      "band": 8,
+      "description": "Very Good User",
+      "details": "Fully operational command with occasional inaccuracies"
+    },
+    {
+      "band": 7,
+      "description": "Good User",
+      "details": "Operational command with occasional inaccuracies"
+    },
+    {
+      "band": 6,
+      "description": "Competent User",
+      "details": "Generally effective command despite inaccuracies"
+    },
+    {
+      "band": 5,
+      "description": "Modest User",
+      "details": "Partial command with frequent problems"
+    }
+  ],
+  "tips": {
+    "listening": [
+      "Read the questions before the audio starts",
+      "Listen for keywords and synonyms",
+      "Pay attention to word limits in answers",
+      "Practice with different accents",
+      "Don't leave any answers blank"
+    ],
+    "reading": [
+      "Skim the passage for main ideas first",
+      "Scan for specific information",
+      "Manage your time - 20 minutes per passage",
+      "Read the questions carefully",
+      "Look for paraphrased information"
+    ],
+    "writing": [
+      "Plan your essay before writing",
+      "Use clear paragraph structure",
+      "Support ideas with examples",
+      "Check grammar and spelling",
+      "Meet the word count requirement"
+    ],
+    "speaking": [
+      "Speak clearly and at a natural pace",
+      "Extend your answers with examples",
+      "Use a range of vocabulary",
+      "Practice pronunciation daily",
+      "Stay calm and confident"
+    ]
+  }
+}
