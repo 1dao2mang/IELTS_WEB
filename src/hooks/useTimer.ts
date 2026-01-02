@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 
 interface TimerOptions {
   initialTime?: number // in seconds
@@ -10,16 +10,20 @@ export function useTimer({ initialTime = 0, onComplete, autoStart = false }: Tim
   const [time, setTime] = useState(initialTime)
   const [isRunning, setIsRunning] = useState(autoStart)
   const [isPaused, setIsPaused] = useState(false)
+  
+  // Store callback in ref to avoid re-triggering effect
+  const onCompleteRef = useRef(onComplete)
+  onCompleteRef.current = onComplete
 
   useEffect(() => {
-    let interval: NodeJS.Timeout | null = null
+    let interval: ReturnType<typeof setInterval> | null = null
 
     if (isRunning && !isPaused) {
       interval = setInterval(() => {
         setTime(prevTime => {
           if (prevTime <= 1) {
             setIsRunning(false)
-            if (onComplete) onComplete()
+            onCompleteRef.current?.()
             return 0
           }
           return prevTime - 1
@@ -30,7 +34,7 @@ export function useTimer({ initialTime = 0, onComplete, autoStart = false }: Tim
     return () => {
       if (interval) clearInterval(interval)
     }
-  }, [isRunning, isPaused, onComplete])
+  }, [isRunning, isPaused])
 
   const start = useCallback(() => {
     setIsRunning(true)

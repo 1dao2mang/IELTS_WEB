@@ -1,10 +1,10 @@
-import React from 'react'
+import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, BookOpen } from 'lucide-react'
 import clsx from 'clsx'
 
-export const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = React.useState(false)
+export const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false)
   const location = useLocation()
 
   const navLinks = [

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 interface FetchState<T> {
   data: T | null
@@ -6,16 +6,29 @@ interface FetchState<T> {
   error: Error | null
 }
 
+/**
+ * Custom hook for fetching data
+ * Note: options are captured on first render only. If you need dynamic options,
+ * use a different approach (e.g., useCallback with fetch directly)
+ */
 export function useFetch<T>(url: string, options?: RequestInit): FetchState<T> {
   const [data, setData] = useState<T | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
+  
+  // Store options in ref to avoid dependency issues
+  const optionsRef = useRef(options)
 
   useEffect(() => {
+    const controller = new AbortController()
+
     const fetchData = async () => {
       try {
         setLoading(true)
-        const response = await fetch(url, options)
+        const response = await fetch(url, {
+          ...optionsRef.current,
+          signal: controller.signal,
+        })
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
@@ -23,14 +36,18 @@ export function useFetch<T>(url: string, options?: RequestInit): FetchState<T> {
         setData(json)
         setError(null)
       } catch (err) {
-        setError(err as Error)
-        setData(null)
+        if (err instanceof Error && err.name !== 'AbortError') {
+          setError(err)
+          setData(null)
+        }
       } finally {
         setLoading(false)
       }
     }
 
     fetchData()
+
+    return () => controller.abort()
   }, [url])
 
   return { data, loading, error }

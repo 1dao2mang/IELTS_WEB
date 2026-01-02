@@ -1,8 +1,7 @@
-import React from 'react'
 import { Card } from '@/components'
-import { Target, Users, Award, Heart } from 'lucide-react'
+import { Target, Award, Heart } from 'lucide-react'
 
-export const AboutPage: React.FC = () => {
+export const AboutPage = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="text-center mb-12">

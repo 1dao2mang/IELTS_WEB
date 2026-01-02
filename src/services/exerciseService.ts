@@ -1,13 +1,8 @@
 import { apiService } from './api'
+import type { Exercise as BaseExercise } from '@/types'
 
-export interface Exercise {
-  id: string
-  type: 'listening' | 'reading' | 'writing' | 'speaking'
-  title: string
-  description: string
-  difficulty: 'Beginner' | 'Intermediate' | 'Advanced'
-  duration?: number // in minutes
-  questions?: number
+/** Extended Exercise with content for API responses */
+export interface Exercise extends BaseExercise {
   content: unknown // Can be audio URL, text, prompts, etc.
 }
 

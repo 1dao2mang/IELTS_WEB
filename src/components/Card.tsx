@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 import clsx from 'clsx'
 
 interface CardProps {
@@ -11,7 +11,7 @@ interface CardProps {
   onClick?: () => void
 }
 
-export const Card: React.FC<CardProps> = ({
+export const Card = ({
   children,
   title,
   subtitle,
@@ -19,7 +19,7 @@ export const Card: React.FC<CardProps> = ({
   className,
   hover = false,
   onClick,
-}) => {
+}: CardProps) => {
   return (
     <div
       className={clsx(

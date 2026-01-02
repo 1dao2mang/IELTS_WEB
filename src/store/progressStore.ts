@@ -1,8 +1,10 @@
 import { create } from 'zustand'
+import type { SkillType } from '@/types'
 
-interface Exercise {
+/** Progress tracking for an exercise (different from Exercise in types/) */
+interface ExerciseProgress {
   id: string
-  type: 'listening' | 'reading' | 'writing' | 'speaking'
+  type: SkillType
   title: string
   completed: boolean
   score?: number
@@ -10,10 +12,10 @@ interface Exercise {
 }
 
 interface ProgressStore {
-  exercises: Exercise[]
-  addExercise: (exercise: Exercise) => void
+  exercises: ExerciseProgress[]
+  addExercise: (exercise: ExerciseProgress) => void
   completeExercise: (id: string, score: number) => void
-  getProgressByType: (type: Exercise['type']) => {
+  getProgressByType: (type: SkillType) => {
     total: number
     completed: number
     averageScore: number

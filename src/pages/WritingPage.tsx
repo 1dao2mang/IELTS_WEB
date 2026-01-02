@@ -1,8 +1,7 @@
-import React from 'react'
 import { Card, Button, Input } from '@/components'
-import { PenTool, FileText } from 'lucide-react'
+import { PenTool } from 'lucide-react'
 
-export const WritingPage: React.FC = () => {
+export const WritingPage = () => {
   const tasks = [
     {
       id: 1,

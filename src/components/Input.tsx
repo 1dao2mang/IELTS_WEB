@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from 'react'
+import { InputHTMLAttributes } from 'react'
 import clsx from 'clsx'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -7,14 +7,14 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   helperText?: string
 }
 
-export const Input: React.FC<InputProps> = ({
+export const Input = ({
   label,
   error,
   helperText,
   className,
   id,
   ...props
-}) => {
+}: InputProps) => {
   const inputId = id || label?.toLowerCase().replace(/\s+/g, '-')
 
   return (
