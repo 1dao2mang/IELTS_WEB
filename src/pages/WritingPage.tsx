@@ -1,7 +1,52 @@
+import React from 'react'
 import { Card, Button, Input } from '@/components'
 import { PenTool } from 'lucide-react'
 
 export const WritingPage = () => {
+  const [essayTitle, setEssayTitle] = React.useState('')
+  const [essayContent, setEssayContent] = React.useState('')
+  const [submitStatus, setSubmitStatus] = React.useState<'idle' | 'submitting' | 'success'>('idle')
+
+  const wordCount = React.useMemo(() => {
+    const trimmed = essayContent.trim()
+    return trimmed === '' ? 0 : trimmed.split(/\s+/).length
+  }, [essayContent])
+
+  const handleSaveDraft = () => {
+    localStorage.setItem('ielts_writing_draft', JSON.stringify({
+      title: essayTitle,
+      content: essayContent,
+      savedAt: new Date().toISOString(),
+    }))
+    alert('Draft saved successfully!')
+  }
+
+  const handleSubmit = () => {
+    if (!essayContent.trim()) return
+    setSubmitStatus('submitting')
+    // Simulate submission
+    setTimeout(() => {
+      setSubmitStatus('success')
+      setTimeout(() => {
+        setEssayTitle('')
+        setEssayContent('')
+        setSubmitStatus('idle')
+      }, 2000)
+    }, 1000)
+  }
+
+  // Load draft on mount
+  React.useEffect(() => {
+    try {
+      const draft = localStorage.getItem('ielts_writing_draft')
+      if (draft) {
+        const parsed = JSON.parse(draft)
+        setEssayTitle(parsed.title || '')
+        setEssayContent(parsed.content || '')
+      }
+    } catch { /* ignore invalid draft */ }
+  }, [])
+
   const tasks = [
     {
       id: 1,
@@ -105,19 +150,30 @@ export const WritingPage = () => {
                     <span>Time: {task.timeLimit}</span>
                   </div>
                 </div>
-                <Button className="ml-4">Start Writing</Button>
+                <Button
+                  className="ml-4"
+                  onClick={() => {
+                    setEssayTitle(task.title)
+                    setEssayContent('')
+                    document.getElementById('writing-area')?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                >
+                  Start Writing
+                </Button>
               </div>
             </Card>
           ))}
         </div>
       </section>
 
-      <section>
-        <Card title="Sample Writing Area" className="bg-gray-50">
+      <section id="writing-area">
+        <Card title="Writing Area" className="bg-gray-50">
           <div className="space-y-4">
             <Input 
               label="Essay Title" 
               placeholder="Enter your essay title..."
+              value={essayTitle}
+              onChange={e => setEssayTitle(e.target.value)}
             />
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -127,13 +183,30 @@ export const WritingPage = () => {
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
                 rows={12}
                 placeholder="Start writing your response here..."
+                value={essayContent}
+                onChange={e => setEssayContent(e.target.value)}
               />
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-600">Word count: 0</span>
+              <span className={`text-sm font-medium ${
+                wordCount >= 250 ? 'text-green-600' :
+                wordCount >= 150 ? 'text-yellow-600' :
+                'text-gray-600'
+              }`}>
+                Word count: {wordCount}
+              </span>
               <div className="space-x-2">
-                <Button variant="outline">Save Draft</Button>
-                <Button>Submit</Button>
+                <Button variant="outline" onClick={handleSaveDraft} disabled={!essayContent.trim()}>
+                  Save Draft
+                </Button>
+                <Button
+                  onClick={handleSubmit}
+                  disabled={!essayContent.trim() || submitStatus !== 'idle'}
+                >
+                  {submitStatus === 'submitting' ? 'Submitting...' :
+                   submitStatus === 'success' ? '✓ Submitted!' :
+                   'Submit'}
+                </Button>
               </div>
             </div>
           </div>

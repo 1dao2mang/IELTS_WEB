@@ -3,7 +3,7 @@ import { Card, Button } from '@/components'
 import { Headphones, PlayCircle, PauseCircle } from 'lucide-react'
 
 export const ListeningPage: React.FC = () => {
-  const [isPlaying, setIsPlaying] = React.useState(false)
+  const [playingId, setPlayingId] = React.useState<number | null>(null)
 
   const exercises = [
     {
@@ -28,6 +28,10 @@ export const ListeningPage: React.FC = () => {
       questions: 12,
     },
   ]
+
+  const togglePlay = (id: number) => {
+    setPlayingId(prev => (prev === id ? null : id))
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -76,10 +80,10 @@ export const ListeningPage: React.FC = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-4">
                   <button
-                    onClick={() => setIsPlaying(!isPlaying)}
+                    onClick={() => togglePlay(exercise.id)}
                     className="bg-primary-600 text-white p-3 rounded-full hover:bg-primary-700 transition-colors"
                   >
-                    {isPlaying ? (
+                    {playingId === exercise.id ? (
                       <PauseCircle className="h-6 w-6" />
                     ) : (
                       <PlayCircle className="h-6 w-6" />

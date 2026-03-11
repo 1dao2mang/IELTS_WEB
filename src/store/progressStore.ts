@@ -8,7 +8,7 @@ interface ExerciseProgress {
   title: string
   completed: boolean
   score?: number
-  completedAt?: Date
+  completedAt?: string
 }
 
 interface ProgressStore {
@@ -22,22 +22,45 @@ interface ProgressStore {
   }
 }
 
+const STORAGE_KEY = 'ielts_progress'
+
+function loadProgress(): ExerciseProgress[] {
+  try {
+    const data = localStorage.getItem(STORAGE_KEY)
+    return data ? JSON.parse(data) : []
+  } catch {
+    return []
+  }
+}
+
+function saveProgress(exercises: ExerciseProgress[]) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(exercises))
+}
+
 export const useProgressStore = create<ProgressStore>((set, get) => ({
-  exercises: [],
+  exercises: loadProgress(),
   
-  addExercise: exercise =>
-    set(state => ({
-      exercises: [...state.exercises, exercise],
-    })),
+  addExercise: exercise => {
+    const { exercises } = get()
+    // Prevent duplicate ids
+    if (exercises.some(ex => ex.id === exercise.id)) return
+    const updated = [...exercises, exercise]
+    saveProgress(updated)
+    set({ exercises: updated })
+  },
   
-  completeExercise: (id, score) =>
-    set(state => ({
-      exercises: state.exercises.map(ex =>
-        ex.id === id
-          ? { ...ex, completed: true, score, completedAt: new Date() }
-          : ex
-      ),
-    })),
+  completeExercise: (id, score) => {
+    const { exercises } = get()
+    // Only update if exercise exists and not already completed
+    if (!exercises.some(ex => ex.id === id)) return
+    const updated = exercises.map(ex =>
+      ex.id === id
+        ? { ...ex, completed: true, score, completedAt: new Date().toISOString() }
+        : ex
+    )
+    saveProgress(updated)
+    set({ exercises: updated })
+  },
   
   getProgressByType: type => {
     const { exercises } = get()

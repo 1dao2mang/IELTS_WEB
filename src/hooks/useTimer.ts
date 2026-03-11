@@ -42,12 +42,16 @@ export function useTimer({ initialTime = 0, onComplete, autoStart = false }: Tim
   }, [])
 
   const pause = useCallback(() => {
+    // Only allow pause when timer is actually running
+    if (!isRunning) return
     setIsPaused(true)
-  }, [])
+  }, [isRunning])
 
   const resume = useCallback(() => {
+    // Only allow resume when timer is running and paused
+    if (!isRunning || !isPaused) return
     setIsPaused(false)
-  }, [])
+  }, [isRunning, isPaused])
 
   const stop = useCallback(() => {
     setIsRunning(false)
@@ -57,6 +61,8 @@ export function useTimer({ initialTime = 0, onComplete, autoStart = false }: Tim
 
   const reset = useCallback(() => {
     setTime(initialTime)
+    setIsRunning(false)
+    setIsPaused(false)
   }, [initialTime])
 
   const formatTime = useCallback((seconds: number) => {

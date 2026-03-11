@@ -7,17 +7,18 @@ interface FetchState<T> {
 }
 
 /**
- * Custom hook for fetching data
- * Note: options are captured on first render only. If you need dynamic options,
- * use a different approach (e.g., useCallback with fetch directly)
+ * Custom hook for fetching data.
+ * The options parameter is tracked via ref and updated on each render,
+ * ensuring the latest options are always used for requests.
  */
 export function useFetch<T>(url: string, options?: RequestInit): FetchState<T> {
   const [data, setData] = useState<T | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
   
-  // Store options in ref to avoid dependency issues
+  // Update options ref on every render so latest options are used
   const optionsRef = useRef(options)
+  optionsRef.current = options
 
   useEffect(() => {
     const controller = new AbortController()

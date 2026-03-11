@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, BookOpen } from 'lucide-react'
 import clsx from 'clsx'
@@ -19,6 +19,22 @@ export const Navbar = () => {
   ]
 
   const isActive = (path: string) => location.pathname === path
+
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsOpen(false)
+      }
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false)
+  }, [location.pathname])
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
@@ -54,6 +70,8 @@ export const Navbar = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 hover:text-primary-600 focus:outline-none"
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -69,7 +87,6 @@ export const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                onClick={() => setIsOpen(false)}
                 className={clsx(
                   'block px-3 py-2 rounded-md text-base font-medium transition-colors',
                   isActive(link.path)

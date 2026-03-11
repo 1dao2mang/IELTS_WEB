@@ -1,6 +1,8 @@
 import React from 'react'
 import { Card, Button, Input } from '@/components'
-import { Mail, Phone, MapPin, Send } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react'
+
+type FormStatus = 'idle' | 'submitting' | 'success' | 'error'
 
 export const ContactPage: React.FC = () => {
   const [formData, setFormData] = React.useState({
@@ -9,18 +11,50 @@ export const ContactPage: React.FC = () => {
     subject: '',
     message: '',
   })
+  const [status, setStatus] = React.useState<FormStatus>('idle')
+  const [errors, setErrors] = React.useState<Record<string, string>>({})
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validate = (): boolean => {
+    const newErrors: Record<string, string> = {}
+    if (!formData.name.trim()) newErrors.name = 'Name is required'
+    if (!formData.email.trim()) newErrors.email = 'Email is required'
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
+      newErrors.email = 'Please enter a valid email'
+    if (!formData.subject.trim()) newErrors.subject = 'Subject is required'
+    if (!formData.message.trim()) newErrors.message = 'Message is required'
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log('Form submitted:', formData)
+    if (!validate()) return
+
+    setStatus('submitting')
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1500))
+      setStatus('success')
+      setFormData({ name: '', email: '', subject: '', message: '' })
+      setTimeout(() => setStatus('idle'), 3000)
+    } catch {
+      setStatus('error')
+      setTimeout(() => setStatus('idle'), 3000)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+    // Clear error on change
+    if (errors[name]) {
+      setErrors(prev => {
+        const next = { ...prev }
+        delete next[name]
+        return next
+      })
+    }
   }
 
   return (
@@ -69,6 +103,18 @@ export const ContactPage: React.FC = () => {
 
       <div className="max-w-2xl mx-auto">
         <Card title="Send us a Message">
+          {status === 'success' && (
+            <div className="mb-4 flex items-center gap-2 p-3 bg-green-50 text-green-700 rounded-lg">
+              <CheckCircle className="h-5 w-5" />
+              <span>Message sent successfully! We'll get back to you soon.</span>
+            </div>
+          )}
+          {status === 'error' && (
+            <div className="mb-4 flex items-center gap-2 p-3 bg-red-50 text-red-700 rounded-lg">
+              <AlertCircle className="h-5 w-5" />
+              <span>Something went wrong. Please try again.</span>
+            </div>
+          )}
           <form onSubmit={handleSubmit} className="space-y-4">
             <Input
               label="Name"
@@ -77,6 +123,7 @@ export const ContactPage: React.FC = () => {
               value={formData.name}
               onChange={handleChange}
               placeholder="Your full name"
+              error={errors.name}
               required
             />
             
@@ -87,6 +134,7 @@ export const ContactPage: React.FC = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="your.email@example.com"
+              error={errors.email}
               required
             />
             
@@ -97,6 +145,7 @@ export const ContactPage: React.FC = () => {
               value={formData.subject}
               onChange={handleChange}
               placeholder="What is this regarding?"
+              error={errors.subject}
               required
             />
             
@@ -110,15 +159,31 @@ export const ContactPage: React.FC = () => {
                 rows={6}
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent ${
+                  errors.message ? 'border-red-500 focus:ring-red-500' : 'border-gray-300'
+                }`}
                 placeholder="Tell us more about your inquiry..."
                 required
               />
+              {errors.message && (
+                <p className="mt-1 text-sm text-red-600">{errors.message}</p>
+              )}
             </div>
 
-            <Button type="submit" fullWidth size="lg">
-              <Send className="h-5 w-5 mr-2" />
-              Send Message
+            <Button
+              type="submit"
+              fullWidth
+              size="lg"
+              disabled={status === 'submitting'}
+            >
+              {status === 'submitting' ? (
+                <>Sending...</>
+              ) : (
+                <>
+                  <Send className="h-5 w-5 mr-2" />
+                  Send Message
+                </>
+              )}
             </Button>
           </form>
         </Card>
