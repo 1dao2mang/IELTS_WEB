@@ -64,17 +64,20 @@ export function useAudioPlayer(audioUrl: string) {
       }))
     }
 
+    const handleCanPlay = () => {
+      setState(prev => ({ ...prev, isLoading: false }))
+    }
+
     audio.addEventListener('timeupdate', updateTime)
     audio.addEventListener('loadedmetadata', handleLoaded)
-    audio.addEventListener('canplaythrough', () => {
-      setState(prev => ({ ...prev, isLoading: false }))
-    })
+    audio.addEventListener('canplaythrough', handleCanPlay)
     audio.addEventListener('ended', handleEnd)
     audio.addEventListener('error', handleError)
 
     return () => {
       audio.removeEventListener('timeupdate', updateTime)
       audio.removeEventListener('loadedmetadata', handleLoaded)
+      audio.removeEventListener('canplaythrough', handleCanPlay)
       audio.removeEventListener('ended', handleEnd)
       audio.removeEventListener('error', handleError)
       audio.pause()
@@ -105,7 +108,11 @@ export function useAudioPlayer(audioUrl: string) {
   }
 
   const togglePlay = () => {
-    state.isPlaying ? pause() : play()
+    if (state.isPlaying) {
+      pause()
+    } else {
+      play()
+    }
   }
 
   const seek = (time: number) => {

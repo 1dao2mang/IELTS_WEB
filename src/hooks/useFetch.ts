@@ -15,7 +15,7 @@ export function useFetch<T>(url: string, options?: RequestInit): FetchState<T> {
   const [data, setData] = useState<T | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
-  
+
   // Update options ref on every render so latest options are used
   const optionsRef = useRef(options)
   optionsRef.current = options

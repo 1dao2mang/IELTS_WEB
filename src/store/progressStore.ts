@@ -39,7 +39,7 @@ function saveProgress(exercises: ExerciseProgress[]) {
 
 export const useProgressStore = create<ProgressStore>((set, get) => ({
   exercises: loadProgress(),
-  
+
   addExercise: exercise => {
     const { exercises } = get()
     // Prevent duplicate ids
@@ -48,20 +48,18 @@ export const useProgressStore = create<ProgressStore>((set, get) => ({
     saveProgress(updated)
     set({ exercises: updated })
   },
-  
+
   completeExercise: (id, score) => {
     const { exercises } = get()
     // Only update if exercise exists and not already completed
     if (!exercises.some(ex => ex.id === id)) return
     const updated = exercises.map(ex =>
-      ex.id === id
-        ? { ...ex, completed: true, score, completedAt: new Date().toISOString() }
-        : ex
+      ex.id === id ? { ...ex, completed: true, score, completedAt: new Date().toISOString() } : ex
     )
     saveProgress(updated)
     set({ exercises: updated })
   },
-  
+
   getProgressByType: type => {
     const { exercises } = get()
     const filtered = exercises.filter(ex => ex.type === type)
@@ -70,7 +68,7 @@ export const useProgressStore = create<ProgressStore>((set, get) => ({
       completed.length > 0
         ? completed.reduce((sum, ex) => sum + (ex.score || 0), 0) / completed.length
         : 0
-    
+
     return {
       total: filtered.length,
       completed: completed.length,

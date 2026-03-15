@@ -10,7 +10,7 @@ export function useTimer({ initialTime = 0, onComplete, autoStart = false }: Tim
   const [time, setTime] = useState(initialTime)
   const [isRunning, setIsRunning] = useState(autoStart)
   const [isPaused, setIsPaused] = useState(false)
-  
+
   // Store callback in ref to avoid re-triggering effect
   const onCompleteRef = useRef(onComplete)
   onCompleteRef.current = onComplete

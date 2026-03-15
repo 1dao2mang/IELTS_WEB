@@ -1,23 +1,26 @@
-import React from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { Card, Button, Input } from '@/components'
 import { PenTool } from 'lucide-react'
 
 export const WritingPage = () => {
-  const [essayTitle, setEssayTitle] = React.useState('')
-  const [essayContent, setEssayContent] = React.useState('')
-  const [submitStatus, setSubmitStatus] = React.useState<'idle' | 'submitting' | 'success'>('idle')
+  const [essayTitle, setEssayTitle] = useState('')
+  const [essayContent, setEssayContent] = useState('')
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success'>('idle')
 
-  const wordCount = React.useMemo(() => {
+  const wordCount = useMemo(() => {
     const trimmed = essayContent.trim()
     return trimmed === '' ? 0 : trimmed.split(/\s+/).length
   }, [essayContent])
 
   const handleSaveDraft = () => {
-    localStorage.setItem('ielts_writing_draft', JSON.stringify({
-      title: essayTitle,
-      content: essayContent,
-      savedAt: new Date().toISOString(),
-    }))
+    localStorage.setItem(
+      'ielts_writing_draft',
+      JSON.stringify({
+        title: essayTitle,
+        content: essayContent,
+        savedAt: new Date().toISOString(),
+      })
+    )
     alert('Draft saved successfully!')
   }
 
@@ -36,7 +39,7 @@ export const WritingPage = () => {
   }
 
   // Load draft on mount
-  React.useEffect(() => {
+  useEffect(() => {
     try {
       const draft = localStorage.getItem('ielts_writing_draft')
       if (draft) {
@@ -44,7 +47,9 @@ export const WritingPage = () => {
         setEssayTitle(parsed.title || '')
         setEssayContent(parsed.content || '')
       }
-    } catch { /* ignore invalid draft */ }
+    } catch {
+      /* ignore invalid draft */
+    }
   }, [])
 
   const tasks = [
@@ -52,7 +57,8 @@ export const WritingPage = () => {
       id: 1,
       type: 'Task 1',
       title: 'Academic - Bar Chart Analysis',
-      description: 'Describe the information shown in the bar chart comparing energy consumption across countries.',
+      description:
+        'Describe the information shown in the bar chart comparing energy consumption across countries.',
       wordCount: 150,
       timeLimit: '20 min',
       difficulty: 'Intermediate',
@@ -70,7 +76,8 @@ export const WritingPage = () => {
       id: 3,
       type: 'Task 2',
       title: 'Opinion Essay - Technology in Education',
-      description: 'Some people believe technology has made learning easier. To what extent do you agree or disagree?',
+      description:
+        'Some people believe technology has made learning easier. To what extent do you agree or disagree?',
       wordCount: 250,
       timeLimit: '40 min',
       difficulty: 'Advanced',
@@ -127,18 +134,24 @@ export const WritingPage = () => {
               <div className="flex items-start justify-between">
                 <div className="flex-1">
                   <div className="flex items-center space-x-3 mb-2">
-                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                      task.type === 'Task 1' 
-                        ? 'bg-blue-100 text-blue-700' 
-                        : 'bg-purple-100 text-purple-700'
-                    }`}>
+                    <span
+                      className={`px-3 py-1 rounded-full text-sm font-medium ${
+                        task.type === 'Task 1'
+                          ? 'bg-blue-100 text-blue-700'
+                          : 'bg-purple-100 text-purple-700'
+                      }`}
+                    >
                       {task.type}
                     </span>
-                    <span className={`px-2 py-1 rounded text-xs ${
-                      task.difficulty === 'Beginner' ? 'bg-green-100 text-green-700' :
-                      task.difficulty === 'Intermediate' ? 'bg-yellow-100 text-yellow-700' :
-                      'bg-red-100 text-red-700'
-                    }`}>
+                    <span
+                      className={`px-2 py-1 rounded text-xs ${
+                        task.difficulty === 'Beginner'
+                          ? 'bg-green-100 text-green-700'
+                          : task.difficulty === 'Intermediate'
+                            ? 'bg-yellow-100 text-yellow-700'
+                            : 'bg-red-100 text-red-700'
+                      }`}
+                    >
                       {task.difficulty}
                     </span>
                   </div>
@@ -169,16 +182,14 @@ export const WritingPage = () => {
       <section id="writing-area">
         <Card title="Writing Area" className="bg-gray-50">
           <div className="space-y-4">
-            <Input 
-              label="Essay Title" 
+            <Input
+              label="Essay Title"
               placeholder="Enter your essay title..."
               value={essayTitle}
               onChange={e => setEssayTitle(e.target.value)}
             />
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Your Essay
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Your Essay</label>
               <textarea
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
                 rows={12}
@@ -188,11 +199,15 @@ export const WritingPage = () => {
               />
             </div>
             <div className="flex items-center justify-between">
-              <span className={`text-sm font-medium ${
-                wordCount >= 250 ? 'text-green-600' :
-                wordCount >= 150 ? 'text-yellow-600' :
-                'text-gray-600'
-              }`}>
+              <span
+                className={`text-sm font-medium ${
+                  wordCount >= 250
+                    ? 'text-green-600'
+                    : wordCount >= 150
+                      ? 'text-yellow-600'
+                      : 'text-gray-600'
+                }`}
+              >
                 Word count: {wordCount}
               </span>
               <div className="space-x-2">
@@ -203,9 +218,11 @@ export const WritingPage = () => {
                   onClick={handleSubmit}
                   disabled={!essayContent.trim() || submitStatus !== 'idle'}
                 >
-                  {submitStatus === 'submitting' ? 'Submitting...' :
-                   submitStatus === 'success' ? '✓ Submitted!' :
-                   'Submit'}
+                  {submitStatus === 'submitting'
+                    ? 'Submitting...'
+                    : submitStatus === 'success'
+                      ? '✓ Submitted!'
+                      : 'Submit'}
                 </Button>
               </div>
             </div>

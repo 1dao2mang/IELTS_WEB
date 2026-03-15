@@ -1,8 +1,7 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { BookOpen, Mail, Phone, MapPin } from 'lucide-react'
 
-export const Footer: React.FC = () => {
+export const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
@@ -24,10 +23,26 @@ export const Footer: React.FC = () => {
           <div>
             <h3 className="text-white font-semibold mb-4">Skills</h3>
             <ul className="space-y-2">
-              <li><Link to="/listening" className="hover:text-primary-400 transition-colors">Listening</Link></li>
-              <li><Link to="/reading" className="hover:text-primary-400 transition-colors">Reading</Link></li>
-              <li><Link to="/writing" className="hover:text-primary-400 transition-colors">Writing</Link></li>
-              <li><Link to="/speaking" className="hover:text-primary-400 transition-colors">Speaking</Link></li>
+              <li>
+                <Link to="/listening" className="hover:text-primary-400 transition-colors">
+                  Listening
+                </Link>
+              </li>
+              <li>
+                <Link to="/reading" className="hover:text-primary-400 transition-colors">
+                  Reading
+                </Link>
+              </li>
+              <li>
+                <Link to="/writing" className="hover:text-primary-400 transition-colors">
+                  Writing
+                </Link>
+              </li>
+              <li>
+                <Link to="/speaking" className="hover:text-primary-400 transition-colors">
+                  Speaking
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -35,9 +50,21 @@ export const Footer: React.FC = () => {
           <div>
             <h3 className="text-white font-semibold mb-4">Resources</h3>
             <ul className="space-y-2">
-              <li><Link to="/practice" className="hover:text-primary-400 transition-colors">Practice Tests</Link></li>
-              <li><Link to="/about" className="hover:text-primary-400 transition-colors">About Us</Link></li>
-              <li><Link to="/contact" className="hover:text-primary-400 transition-colors">Contact</Link></li>
+              <li>
+                <Link to="/practice" className="hover:text-primary-400 transition-colors">
+                  Practice Tests
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="hover:text-primary-400 transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-primary-400 transition-colors">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 

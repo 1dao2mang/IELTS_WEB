@@ -1,9 +1,8 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Card } from '@/components'
 import { Headphones, BookText, PenTool, Mic, Award, Users, Clock } from 'lucide-react'
 
-export const HomePage: React.FC = () => {
+export const HomePage = () => {
   const skills = [
     {
       title: 'Listening',
@@ -74,7 +73,11 @@ export const HomePage: React.FC = () => {
                 </Button>
               </Link>
               <Link to="/about">
-                <Button size="lg" variant="outline" className="bg-white text-primary-600 hover:bg-gray-100">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="bg-white text-primary-600 hover:bg-gray-100"
+                >
                   Learn More
                 </Button>
               </Link>
@@ -93,7 +96,9 @@ export const HomePage: React.FC = () => {
               return (
                 <Link key={skill.title} to={skill.link}>
                   <Card hover className="h-full">
-                    <div className={`${skill.bg} ${skill.color} w-16 h-16 rounded-lg flex items-center justify-center mb-4`}>
+                    <div
+                      className={`${skill.bg} ${skill.color} w-16 h-16 rounded-lg flex items-center justify-center mb-4`}
+                    >
                       <Icon className="h-8 w-8" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">{skill.title}</h3>

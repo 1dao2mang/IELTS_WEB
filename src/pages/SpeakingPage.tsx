@@ -1,14 +1,14 @@
-import React from 'react'
 import { Card, Button } from '@/components'
 import { Mic, Video } from 'lucide-react'
 
-export const SpeakingPage: React.FC = () => {
+export const SpeakingPage = () => {
   const parts = [
     {
       part: 'Part 1',
       title: 'Introduction & Interview',
       duration: '4-5 minutes',
-      description: 'Answer questions about yourself, your home, family, work, studies, and interests.',
+      description:
+        'Answer questions about yourself, your home, family, work, studies, and interests.',
       topics: ['Work/Studies', 'Home', 'Hobbies', 'Daily Routine'],
     },
     {
@@ -53,7 +53,12 @@ export const SpeakingPage: React.FC = () => {
             <div className="space-y-3">
               <div className="flex items-center text-sm text-gray-600">
                 <svg className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
                 {item.duration}
               </div>
@@ -62,7 +67,10 @@ export const SpeakingPage: React.FC = () => {
                 <p className="text-xs font-medium text-gray-500 mb-2">Common Topics:</p>
                 <div className="flex flex-wrap gap-1">
                   {item.topics.map(topic => (
-                    <span key={topic} className="px-2 py-1 bg-orange-50 text-orange-700 text-xs rounded">
+                    <span
+                      key={topic}
+                      className="px-2 py-1 bg-orange-50 text-orange-700 text-xs rounded"
+                    >
                       {topic}
                     </span>
                   ))}

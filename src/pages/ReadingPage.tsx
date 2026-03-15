@@ -1,8 +1,7 @@
-import React from 'react'
 import { Card, Button } from '@/components'
 import { BookText, Clock } from 'lucide-react'
 
-export const ReadingPage: React.FC = () => {
+export const ReadingPage = () => {
   const passages = [
     {
       id: 1,
@@ -82,11 +81,13 @@ export const ReadingPage: React.FC = () => {
             <Card key={passage.id} hover>
               <div className="mb-4">
                 <div className="flex items-center justify-between mb-2">
-                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                    passage.type === 'Academic' 
-                      ? 'bg-purple-100 text-purple-700' 
-                      : 'bg-blue-100 text-blue-700'
-                  }`}>
+                  <span
+                    className={`px-3 py-1 rounded-full text-sm font-medium ${
+                      passage.type === 'Academic'
+                        ? 'bg-purple-100 text-purple-700'
+                        : 'bg-blue-100 text-blue-700'
+                    }`}
+                  >
                     {passage.type}
                   </span>
                   <div className="flex items-center text-gray-600 text-sm">
@@ -97,18 +98,25 @@ export const ReadingPage: React.FC = () => {
                 <h3 className="text-lg font-semibold mb-2">{passage.title}</h3>
                 <div className="flex flex-wrap gap-2 mb-3">
                   {passage.topics.map(topic => (
-                    <span key={topic} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                    <span
+                      key={topic}
+                      className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
+                    >
                       {topic}
                     </span>
                   ))}
                 </div>
                 <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
                   <span>{passage.questions} questions</span>
-                  <span className={`px-2 py-1 rounded ${
-                    passage.difficulty === 'Beginner' ? 'bg-green-100 text-green-700' :
-                    passage.difficulty === 'Intermediate' ? 'bg-yellow-100 text-yellow-700' :
-                    'bg-red-100 text-red-700'
-                  }`}>
+                  <span
+                    className={`px-2 py-1 rounded ${
+                      passage.difficulty === 'Beginner'
+                        ? 'bg-green-100 text-green-700'
+                        : passage.difficulty === 'Intermediate'
+                          ? 'bg-yellow-100 text-yellow-700'
+                          : 'bg-red-100 text-red-700'
+                    }`}
+                  >
                     {passage.difficulty}
                   </span>
                 </div>

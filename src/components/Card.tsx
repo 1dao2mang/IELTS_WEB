@@ -37,11 +37,7 @@ export const Card = ({
         </div>
       )}
       <div className="px-6 py-4">{children}</div>
-      {footer && (
-        <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
-          {footer}
-        </div>
-      )}
+      {footer && <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">{footer}</div>}
     </div>
   )
 }

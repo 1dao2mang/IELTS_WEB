@@ -1,9 +1,9 @@
-import React from 'react'
+import { useState } from 'react'
 import { Card, Button } from '@/components'
 import { Headphones, PlayCircle, PauseCircle } from 'lucide-react'
 
-export const ListeningPage: React.FC = () => {
-  const [playingId, setPlayingId] = React.useState<number | null>(null)
+export const ListeningPage = () => {
+  const [playingId, setPlayingId] = useState<number | null>(null)
 
   const exercises = [
     {
@@ -96,11 +96,15 @@ export const ListeningPage: React.FC = () => {
                       <span>•</span>
                       <span>Questions: {exercise.questions}</span>
                       <span>•</span>
-                      <span className={`px-2 py-1 rounded ${
-                        exercise.difficulty === 'Beginner' ? 'bg-green-100 text-green-700' :
-                        exercise.difficulty === 'Intermediate' ? 'bg-yellow-100 text-yellow-700' :
-                        'bg-red-100 text-red-700'
-                      }`}>
+                      <span
+                        className={`px-2 py-1 rounded ${
+                          exercise.difficulty === 'Beginner'
+                            ? 'bg-green-100 text-green-700'
+                            : exercise.difficulty === 'Intermediate'
+                              ? 'bg-yellow-100 text-yellow-700'
+                              : 'bg-red-100 text-red-700'
+                        }`}
+                      >
                         {exercise.difficulty}
                       </span>
                     </div>

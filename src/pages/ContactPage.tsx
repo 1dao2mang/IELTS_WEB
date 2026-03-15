@@ -1,18 +1,18 @@
-import React from 'react'
+import { useState, type FormEvent, type ChangeEvent } from 'react'
 import { Card, Button, Input } from '@/components'
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react'
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error'
 
-export const ContactPage: React.FC = () => {
-  const [formData, setFormData] = React.useState({
+export const ContactPage = () => {
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: '',
   })
-  const [status, setStatus] = React.useState<FormStatus>('idle')
-  const [errors, setErrors] = React.useState<Record<string, string>>({})
+  const [status, setStatus] = useState<FormStatus>('idle')
+  const [errors, setErrors] = useState<Record<string, string>>({})
 
   const validate = (): boolean => {
     const newErrors: Record<string, string> = {}
@@ -27,7 +27,7 @@ export const ContactPage: React.FC = () => {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     if (!validate()) return
 
@@ -44,7 +44,7 @@ export const ContactPage: React.FC = () => {
     }
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
     // Clear error on change
@@ -62,7 +62,8 @@ export const ContactPage: React.FC = () => {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+          Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as
+          possible.
         </p>
       </div>
 
@@ -126,7 +127,7 @@ export const ContactPage: React.FC = () => {
               error={errors.name}
               required
             />
-            
+
             <Input
               label="Email"
               name="email"
@@ -137,7 +138,7 @@ export const ContactPage: React.FC = () => {
               error={errors.email}
               required
             />
-            
+
             <Input
               label="Subject"
               name="subject"
@@ -148,7 +149,7 @@ export const ContactPage: React.FC = () => {
               error={errors.subject}
               required
             />
-            
+
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                 Message
@@ -165,17 +166,10 @@ export const ContactPage: React.FC = () => {
                 placeholder="Tell us more about your inquiry..."
                 required
               />
-              {errors.message && (
-                <p className="mt-1 text-sm text-red-600">{errors.message}</p>
-              )}
+              {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
             </div>
 
-            <Button
-              type="submit"
-              fullWidth
-              size="lg"
-              disabled={status === 'submitting'}
-            >
+            <Button type="submit" fullWidth size="lg" disabled={status === 'submitting'}>
               {status === 'submitting' ? (
                 <>Sending...</>
               ) : (

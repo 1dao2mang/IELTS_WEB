@@ -20,8 +20,9 @@ export const AboutPage = () => {
             <div>
               <h3 className="text-xl font-semibold mb-2">Our Mission</h3>
               <p className="text-gray-600">
-                To provide accessible, high-quality IELTS preparation materials that empower students
-                to achieve their target scores and pursue their academic and professional goals.
+                To provide accessible, high-quality IELTS preparation materials that empower
+                students to achieve their target scores and pursue their academic and professional
+                goals.
               </p>
             </div>
           </div>
@@ -48,12 +49,14 @@ export const AboutPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Card title="Listening" className="text-center">
             <p className="text-gray-600">
-              Authentic audio materials covering various accents and topics to enhance your listening skills.
+              Authentic audio materials covering various accents and topics to enhance your
+              listening skills.
             </p>
           </Card>
           <Card title="Reading" className="text-center">
             <p className="text-gray-600">
-              Academic and general training passages with comprehensive question types and strategies.
+              Academic and general training passages with comprehensive question types and
+              strategies.
             </p>
           </Card>
           <Card title="Writing" className="text-center">
@@ -76,8 +79,8 @@ export const AboutPage = () => {
           </div>
           <h2 className="text-3xl font-bold mb-4">Our Commitment</h2>
           <p className="text-lg text-gray-700 mb-6">
-            We are dedicated to continuously improving our platform, updating content regularly,
-            and providing the best learning experience for our students. Your success is our success.
+            We are dedicated to continuously improving our platform, updating content regularly, and
+            providing the best learning experience for our students. Your success is our success.
           </p>
           <div className="flex items-center justify-center space-x-8 text-center">
             <div>

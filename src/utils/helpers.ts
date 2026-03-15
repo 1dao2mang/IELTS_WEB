@@ -20,7 +20,7 @@ export function formatTime(seconds: number): string {
 export function calculateScore(correct: number, total: number): number {
   if (total === 0) return 0
   const percentage = (correct / total) * 100
-  
+
   // IELTS band score approximation
   if (percentage >= 90) return 9
   if (percentage >= 80) return 8
@@ -37,14 +37,14 @@ export function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {
-  let timeout: NodeJS.Timeout | null = null
-  
+  let timeout: ReturnType<typeof setTimeout> | null = null
+
   return function executedFunction(...args: Parameters<T>) {
     const later = () => {
       timeout = null
       func(...args)
     }
-    
+
     if (timeout) clearTimeout(timeout)
     timeout = setTimeout(later, wait)
   }

@@ -1,9 +1,8 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { Card, Button } from '@/components'
 import { Headphones, BookText, PenTool, Mic, Trophy } from 'lucide-react'
 
-export const PracticePage: React.FC = () => {
+export const PracticePage = () => {
   const practiceModules = [
     {
       skill: 'Listening',
@@ -61,11 +60,13 @@ export const PracticePage: React.FC = () => {
         {practiceModules.map(module => {
           const Icon = module.icon
           const progress = (module.completed / module.tests) * 100
-          
+
           return (
             <Card key={module.skill} hover>
               <div className="text-center">
-                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-${module.color}-100 text-${module.color}-600 mb-4`}>
+                <div
+                  className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-${module.color}-100 text-${module.color}-600 mb-4`}
+                >
                   <Icon className="h-8 w-8" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{module.skill}</h3>
@@ -79,7 +80,9 @@ export const PracticePage: React.FC = () => {
                   />
                 </div>
                 <Link to={module.link}>
-                  <Button fullWidth size="sm">Continue Practice</Button>
+                  <Button fullWidth size="sm">
+                    Continue Practice
+                  </Button>
                 </Link>
               </div>
             </Card>
@@ -115,19 +118,29 @@ export const PracticePage: React.FC = () => {
             <p className="text-gray-600 mb-4">
               Take a complete IELTS practice test covering all four skills (approx. 3 hours)
             </p>
-            <Button fullWidth size="lg">Start Full Test</Button>
+            <Button fullWidth size="lg">
+              Start Full Test
+            </Button>
           </Card>
-          
+
           <Card className="mt-4">
             <h3 className="text-lg font-semibold mb-4">Mini Test</h3>
             <p className="text-gray-600 mb-4">
               Quick 30-minute practice session focusing on one skill
             </p>
             <div className="grid grid-cols-2 gap-2">
-              <Button variant="outline" size="sm">Listening</Button>
-              <Button variant="outline" size="sm">Reading</Button>
-              <Button variant="outline" size="sm">Writing</Button>
-              <Button variant="outline" size="sm">Speaking</Button>
+              <Button variant="outline" size="sm">
+                Listening
+              </Button>
+              <Button variant="outline" size="sm">
+                Reading
+              </Button>
+              <Button variant="outline" size="sm">
+                Writing
+              </Button>
+              <Button variant="outline" size="sm">
+                Speaking
+              </Button>
             </div>
           </Card>
         </section>

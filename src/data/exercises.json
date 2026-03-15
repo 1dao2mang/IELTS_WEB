@@ -11,7 +11,12 @@
           "id": 1,
           "type": "multiple-choice",
           "question": "What is the main topic of the lecture?",
-          "options": ["Global warming effects", "Climate policy", "Weather patterns", "Ocean currents"],
+          "options": [
+            "Global warming effects",
+            "Climate policy",
+            "Weather patterns",
+            "Ocean currents"
+          ],
           "correctAnswer": 0
         },
         {
@@ -49,7 +54,12 @@
           "id": 1,
           "type": "heading-match",
           "question": "Choose the correct heading for paragraph 2",
-          "options": ["Early developments", "Modern applications", "Future prospects", "Ethical concerns"],
+          "options": [
+            "Early developments",
+            "Modern applications",
+            "Future prospects",
+            "Ethical concerns"
+          ],
           "correctAnswer": 0
         },
         {
