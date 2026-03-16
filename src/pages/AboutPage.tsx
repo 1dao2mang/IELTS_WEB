@@ -1,100 +1,83 @@
-import { Card } from '@/components'
-import { Target, Award, Heart } from 'lucide-react'
+import { Target, Users, Award, BookOpen, Globe, Heart } from 'lucide-react'
+
+const values = [
+  { icon: Target, title: 'Focused Practice', text: 'Every exercise targets real IELTS question types and formats.' },
+  { icon: Users, title: 'Expert-Designed', text: 'Materials created by experienced IELTS examiners and tutors.' },
+  { icon: Award, title: 'Proven Results', text: 'Our learners consistently achieve their target band scores.' },
+  { icon: BookOpen, title: 'Comprehensive', text: 'Full coverage of all four skills with detailed explanations.' },
+  { icon: Globe, title: 'Accessible', text: 'Study anytime, anywhere with our web-based platform.' },
+  { icon: Heart, title: 'Community', text: 'Join a growing community of dedicated IELTS learners.' },
+]
+
+const stats = [
+  { value: '10,000+', label: 'Active Learners' },
+  { value: '500+', label: 'Practice Exercises' },
+  { value: '50+', label: 'Mock Tests' },
+  { value: '8.0', label: 'Average Band Score' },
+]
 
 export const AboutPage = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">About IELTS Web</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Your trusted partner in IELTS preparation, helping students worldwide achieve their dreams
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-        <Card>
-          <div className="flex items-start space-x-4">
-            <div className="bg-primary-100 text-primary-600 p-3 rounded-lg">
-              <Target className="h-8 w-8" />
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Our Mission</h3>
-              <p className="text-gray-600">
-                To provide accessible, high-quality IELTS preparation materials that empower
-                students to achieve their target scores and pursue their academic and professional
-                goals.
-              </p>
-            </div>
-          </div>
-        </Card>
-
-        <Card>
-          <div className="flex items-start space-x-4">
-            <div className="bg-secondary-100 text-secondary-600 p-3 rounded-lg">
-              <Award className="h-8 w-8" />
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Our Vision</h3>
-              <p className="text-gray-600">
-                To become the world's leading online IELTS learning platform, recognized for
-                innovative teaching methods and exceptional student success rates.
-              </p>
-            </div>
-          </div>
-        </Card>
-      </div>
-
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold text-center mb-8">What We Offer</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card title="Listening" className="text-center">
-            <p className="text-gray-600">
-              Authentic audio materials covering various accents and topics to enhance your
-              listening skills.
-            </p>
-          </Card>
-          <Card title="Reading" className="text-center">
-            <p className="text-gray-600">
-              Academic and general training passages with comprehensive question types and
-              strategies.
-            </p>
-          </Card>
-          <Card title="Writing" className="text-center">
-            <p className="text-gray-600">
-              Model answers, templates, and feedback for both Task 1 and Task 2 writing assignments.
-            </p>
-          </Card>
-          <Card title="Speaking" className="text-center">
-            <p className="text-gray-600">
-              Sample questions, tips, and techniques to boost your confidence in speaking tests.
-            </p>
-          </Card>
+    <div>
+      {/* Header */}
+      <section className="relative hero-gradient py-20 sm:py-24 overflow-hidden">
+        <div className="absolute top-10 right-1/3 w-64 h-64 bg-violet-500/10 rounded-full blur-3xl animate-float" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+          <h1 className="text-4xl sm:text-5xl font-display font-extrabold tracking-tight animate-fade-in-up">
+            About <span className="gradient-text">IELTS Web</span>
+          </h1>
+          <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-300 animate-fade-in-up stagger-1">
+            We're on a mission to make world-class IELTS preparation accessible to every learner.
+          </p>
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-2xl p-12">
-        <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-600 text-white mb-6">
-            <Heart className="h-8 w-8" />
+      {/* Mission */}
+      <section className="py-20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="glass p-10">
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-white mb-4">Our Mission</h2>
+            <p className="text-gray-300 leading-relaxed">
+              IELTS Web was created to bridge the gap between expensive test-prep courses and free but unreliable resources.
+              We provide structured, high-quality practice materials that help learners systematically improve across all four IELTS skills.
+            </p>
           </div>
-          <h2 className="text-3xl font-bold mb-4">Our Commitment</h2>
-          <p className="text-lg text-gray-700 mb-6">
-            We are dedicated to continuously improving our platform, updating content regularly, and
-            providing the best learning experience for our students. Your success is our success.
-          </p>
-          <div className="flex items-center justify-center space-x-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-primary-600">10K+</div>
-              <div className="text-gray-600">Students</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-primary-600">500+</div>
-              <div className="text-gray-600">Exercises</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-primary-600">95%</div>
-              <div className="text-gray-600">Success Rate</div>
-            </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="py-16 border-t border-b border-white/5">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, i) => (
+              <div key={stat.label} className={`text-center opacity-0 animate-fade-in-up stagger-${i + 1}`}>
+                <p className="text-3xl sm:text-4xl font-display font-bold gradient-text">{stat.value}</p>
+                <p className="text-sm text-gray-400 mt-2">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-center text-white mb-14">
+            What Sets Us <span className="gradient-text">Apart</span>
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {values.map((val, i) => {
+              const Icon = val.icon
+              return (
+                <div key={val.title} className={`glass-hover p-6 opacity-0 animate-fade-in-up stagger-${(i % 6) + 1}`}>
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center mb-4">
+                    <Icon className="h-6 w-6 text-cyan-400" />
+                  </div>
+                  <h3 className="text-white font-display font-semibold mb-2">{val.title}</h3>
+                  <p className="text-sm text-gray-400">{val.text}</p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>

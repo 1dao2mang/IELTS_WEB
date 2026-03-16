@@ -1,43 +1,38 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import clsx from 'clsx'
 
 interface CardProps {
   children: ReactNode
   title?: string
-  subtitle?: string
-  footer?: ReactNode
-  className?: string
   hover?: boolean
-  onClick?: () => void
+  className?: string
+  glowColor?: 'cyan' | 'blue' | 'violet' | 'emerald' | 'amber'
 }
 
-export const Card = ({
-  children,
-  title,
-  subtitle,
-  footer,
-  className,
-  hover = false,
-  onClick,
-}: CardProps) => {
+const glowMap = {
+  cyan: 'hover:shadow-glow-cyan',
+  blue: 'hover:shadow-glow-blue',
+  violet: 'hover:shadow-glow-violet',
+  emerald: 'hover:shadow-glow-emerald',
+  amber: 'hover:shadow-glow-amber',
+}
+
+export const Card = ({ children, title, hover, className, glowColor = 'cyan' }: CardProps) => {
   return (
     <div
       className={clsx(
-        'bg-white rounded-lg shadow-soft overflow-hidden',
-        hover && 'transition-all duration-300 hover:shadow-medium hover:-translate-y-1',
-        onClick && 'cursor-pointer',
+        'bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 transition-all duration-300',
+        hover && [
+          'hover:bg-white/10 hover:border-white/20 hover:-translate-y-1',
+          glowMap[glowColor],
+        ],
         className
       )}
-      onClick={onClick}
     >
-      {(title || subtitle) && (
-        <div className="px-6 py-4 border-b border-gray-200">
-          {title && <h3 className="text-xl font-semibold text-gray-900">{title}</h3>}
-          {subtitle && <p className="mt-1 text-sm text-gray-600">{subtitle}</p>}
-        </div>
+      {title && (
+        <h3 className="text-lg font-display font-semibold text-white mb-4">{title}</h3>
       )}
-      <div className="px-6 py-4">{children}</div>
-      {footer && <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">{footer}</div>}
+      {children}
     </div>
   )
 }

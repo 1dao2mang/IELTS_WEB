@@ -1,150 +1,141 @@
 import { Link } from 'react-router-dom'
-import { Card, Button } from '@/components'
-import { Headphones, BookText, PenTool, Mic, Trophy } from 'lucide-react'
+import { Headphones, BookOpenText, PenTool, Mic, Clock, Target, ArrowRight, Trophy, CheckCircle2 } from 'lucide-react'
+import { listeningExercises, readingExercises, writingExercises, speakingExercises } from '@/data/mockData'
+import { useProgressStore } from '@/store/progressStore'
+
+const modules = [
+  {
+    title: 'Listening',
+    icon: Headphones,
+    gradient: 'from-blue-500 to-cyan-400',
+    glow: 'shadow-glow-cyan',
+    path: '/listening',
+    count: listeningExercises.length,
+    time: '30-40 min each',
+  },
+  {
+    title: 'Reading',
+    icon: BookOpenText,
+    gradient: 'from-emerald-500 to-teal-400',
+    glow: 'shadow-glow-emerald',
+    path: '/reading',
+    count: readingExercises.length,
+    time: '60 min each',
+  },
+  {
+    title: 'Writing',
+    icon: PenTool,
+    gradient: 'from-violet-500 to-purple-400',
+    glow: 'shadow-glow-violet',
+    path: '/writing',
+    count: writingExercises.length,
+    time: '60 min each',
+  },
+  {
+    title: 'Speaking',
+    icon: Mic,
+    gradient: 'from-amber-500 to-orange-400',
+    glow: 'shadow-glow-amber',
+    path: '/speaking',
+    count: speakingExercises.length,
+    time: '11-14 min each',
+  },
+]
 
 export const PracticePage = () => {
-  const practiceModules = [
-    {
-      skill: 'Listening',
-      icon: Headphones,
-      color: 'blue',
-      tests: 12,
-      completed: 5,
-      link: '/listening',
-    },
-    {
-      skill: 'Reading',
-      icon: BookText,
-      color: 'green',
-      tests: 15,
-      completed: 8,
-      link: '/reading',
-    },
-    {
-      skill: 'Writing',
-      icon: PenTool,
-      color: 'purple',
-      tests: 10,
-      completed: 3,
-      link: '/writing',
-    },
-    {
-      skill: 'Speaking',
-      icon: Mic,
-      color: 'orange',
-      tests: 8,
-      completed: 2,
-      link: '/speaking',
-    },
-  ]
-
-  const recentTests = [
-    { title: 'Listening Test 5', score: '7.5', date: '2024-01-10' },
-    { title: 'Reading Practice 8', score: '8.0', date: '2024-01-08' },
-    { title: 'Writing Task 2', score: '6.5', date: '2024-01-05' },
-  ]
+  const { exercises: completed } = useProgressStore()
+  const completedCount = completed.filter(e => e.completed).length
+  const totalExercises = listeningExercises.length + readingExercises.length + writingExercises.length + speakingExercises.length
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="text-center mb-12">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary-100 text-primary-600 mb-4">
-          <Trophy className="h-10 w-10" />
+    <div>
+      {/* Header */}
+      <section className="relative hero-gradient py-20 sm:py-24 overflow-hidden">
+        <div className="absolute top-20 right-1/4 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-float" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-glow-cyan mb-6">
+            <Trophy className="h-8 w-8 text-white" />
+          </div>
+          <h1 className="text-4xl sm:text-5xl font-display font-extrabold tracking-tight animate-fade-in-up">
+            <span className="gradient-text">Practice</span> Hub
+          </h1>
+          <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-300 animate-fade-in-up stagger-1">
+            Choose a skill and start your exam-format practice sessions.
+          </p>
         </div>
-        <h1 className="text-4xl font-bold mb-4">Practice Tests</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Track your progress and master all four IELTS skills
-        </p>
-      </div>
+      </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-        {practiceModules.map(module => {
-          const Icon = module.icon
-          const progress = (module.completed / module.tests) * 100
-
-          return (
-            <Card key={module.skill} hover>
-              <div className="text-center">
-                <div
-                  className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-${module.color}-100 text-${module.color}-600 mb-4`}
-                >
-                  <Icon className="h-8 w-8" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{module.skill}</h3>
-                <p className="text-gray-600 mb-4">
-                  {module.completed} / {module.tests} tests completed
+      {/* Progress summary */}
+      {completedCount > 0 && (
+        <section className="py-10">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="glass p-6 flex flex-col sm:flex-row items-center gap-6">
+              <CheckCircle2 className="h-8 w-8 text-emerald-400 flex-shrink-0" />
+              <div className="flex-1">
+                <p className="text-white font-display font-semibold text-lg">
+                  {completedCount} of {totalExercises} exercises completed
                 </p>
-                <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
+                <div className="mt-2 h-2 rounded-full bg-white/10 overflow-hidden">
                   <div
-                    className={`bg-${module.color}-600 h-2 rounded-full transition-all`}
-                    style={{ width: `${progress}%` }}
+                    className="h-full rounded-full bg-gradient-to-r from-cyan-400 to-emerald-400 transition-all duration-500"
+                    style={{ width: `${Math.round((completedCount / totalExercises) * 100)}%` }}
                   />
                 </div>
-                <Link to={module.link}>
-                  <Button fullWidth size="sm">
-                    Continue Practice
-                  </Button>
-                </Link>
               </div>
-            </Card>
-          )
-        })}
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <section>
-          <h2 className="text-2xl font-bold mb-6">Recent Tests</h2>
-          <div className="space-y-4">
-            {recentTests.map((test, index) => (
-              <Card key={index}>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="font-semibold">{test.title}</h3>
-                    <p className="text-sm text-gray-600">{test.date}</p>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-primary-600">{test.score}</div>
-                    <p className="text-xs text-gray-600">Band Score</p>
-                  </div>
-                </div>
-              </Card>
-            ))}
+              <p className="text-2xl font-display font-bold text-white">
+                {Math.round((completedCount / totalExercises) * 100)}%
+              </p>
+            </div>
           </div>
         </section>
+      )}
 
-        <section>
-          <h2 className="text-2xl font-bold mb-6">Quick Start</h2>
-          <Card>
-            <h3 className="text-lg font-semibold mb-4">Full Practice Test</h3>
-            <p className="text-gray-600 mb-4">
-              Take a complete IELTS practice test covering all four skills (approx. 3 hours)
+      {/* Modules */}
+      <section className="py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {modules.map((mod, i) => {
+              const Icon = mod.icon
+              return (
+                <Link
+                  key={mod.title}
+                  to={mod.path}
+                  className={`group glass-hover p-8 opacity-0 animate-fade-in-up stagger-${i + 1}`}
+                >
+                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${mod.gradient} flex items-center justify-center mb-5 ${mod.glow} transition-all duration-300 group-hover:scale-110`}>
+                    <Icon className="h-7 w-7 text-white" />
+                  </div>
+                  <h3 className="text-xl font-display font-bold text-white mb-2">{mod.title}</h3>
+                  <div className="flex items-center space-x-4 text-sm text-gray-400 mb-4">
+                    <span className="flex items-center"><Target className="h-4 w-4 mr-1" />{mod.count} exercises</span>
+                    <span className="flex items-center"><Clock className="h-4 w-4 mr-1" />{mod.time}</span>
+                  </div>
+                  <span className="inline-flex items-center text-sm text-cyan-400 group-hover:translate-x-1 transition-transform">
+                    Go to practice <ArrowRight className="h-4 w-4 ml-1" />
+                  </span>
+                </Link>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Full Mock CTA */}
+      <section className="pb-20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="glass p-10 border-cyan-500/20">
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-white mb-3">
+              Take a Full Mock Test
+            </h2>
+            <p className="text-gray-400 mb-6 max-w-lg mx-auto">
+              Simulate the real IELTS experience with timed tests across all four skills.
             </p>
-            <Button fullWidth size="lg">
+            <button className="btn-gradient px-8 py-3 text-base font-semibold rounded-xl animate-glow-pulse">
               Start Full Test
-            </Button>
-          </Card>
-
-          <Card className="mt-4">
-            <h3 className="text-lg font-semibold mb-4">Mini Test</h3>
-            <p className="text-gray-600 mb-4">
-              Quick 30-minute practice session focusing on one skill
-            </p>
-            <div className="grid grid-cols-2 gap-2">
-              <Button variant="outline" size="sm">
-                Listening
-              </Button>
-              <Button variant="outline" size="sm">
-                Reading
-              </Button>
-              <Button variant="outline" size="sm">
-                Writing
-              </Button>
-              <Button variant="outline" size="sm">
-                Speaking
-              </Button>
-            </div>
-          </Card>
-        </section>
-      </div>
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

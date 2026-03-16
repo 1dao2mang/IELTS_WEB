@@ -1,3 +1,10 @@
+/**
+ * User store — client-only, localStorage-backed.
+ *
+ * hydrate() reads from localStorage on mount. This is incompatible with SSR
+ * and will fail in environments without window/localStorage (e.g., Next.js
+ * server components). For SSR, wrap hydrate() in a client-only effect.
+ */
 import { create } from 'zustand'
 
 interface User {

@@ -1,187 +1,112 @@
-import { useState, type FormEvent, type ChangeEvent } from 'react'
-import { Card, Button, Input } from '@/components'
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react'
+import { useState, type FormEvent } from 'react'
+import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react'
+import { Input } from '@/components'
 
-type FormStatus = 'idle' | 'submitting' | 'success' | 'error'
+const contactInfo = [
+  { icon: Mail, title: 'Email', value: 'info@ieltsweb.com' },
+  { icon: Phone, title: 'Phone', value: '+1 (234) 567-890' },
+  { icon: MapPin, title: 'Address', value: '123 Learning Street' },
+]
 
 export const ContactPage = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  })
-  const [status, setStatus] = useState<FormStatus>('idle')
-  const [errors, setErrors] = useState<Record<string, string>>({})
+  const [submitted, setSubmitted] = useState(false)
 
-  const validate = (): boolean => {
-    const newErrors: Record<string, string> = {}
-    if (!formData.name.trim()) newErrors.name = 'Name is required'
-    if (!formData.email.trim()) newErrors.email = 'Email is required'
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
-      newErrors.email = 'Please enter a valid email'
-    if (!formData.subject.trim()) newErrors.subject = 'Subject is required'
-    if (!formData.message.trim()) newErrors.message = 'Message is required'
-
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
-
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-    if (!validate()) return
-
-    setStatus('submitting')
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500))
-      setStatus('success')
-      setFormData({ name: '', email: '', subject: '', message: '' })
-      setTimeout(() => setStatus('idle'), 3000)
-    } catch {
-      setStatus('error')
-      setTimeout(() => setStatus('idle'), 3000)
-    }
-  }
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-    // Clear error on change
-    if (errors[name]) {
-      setErrors(prev => {
-        const next = { ...prev }
-        delete next[name]
-        return next
-      })
-    }
+    setSubmitted(true)
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as
-          possible.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-        <Card>
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-600 mb-3">
-              <Mail className="h-6 w-6" />
-            </div>
-            <h3 className="font-semibold mb-2">Email</h3>
-            <p className="text-gray-600 text-sm">info@ieltsweb.com</p>
-            <p className="text-gray-600 text-sm">support@ieltsweb.com</p>
+    <div>
+      {/* Header */}
+      <section className="relative hero-gradient py-20 sm:py-24 overflow-hidden">
+        <div className="absolute bottom-10 left-1/4 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-float" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-glow-cyan mb-6">
+            <MessageSquare className="h-8 w-8 text-white" />
           </div>
-        </Card>
+          <h1 className="text-4xl sm:text-5xl font-display font-extrabold tracking-tight animate-fade-in-up">
+            <span className="gradient-text">Contact</span> Us
+          </h1>
+          <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-300 animate-fade-in-up stagger-1">
+            Have a question or feedback? We'd love to hear from you.
+          </p>
+        </div>
+      </section>
 
-        <Card>
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-600 mb-3">
-              <Phone className="h-6 w-6" />
+      {/* Content */}
+      <section className="py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            {/* Contact info */}
+            <div className="lg:col-span-2 space-y-4">
+              {contactInfo.map((info, i) => {
+                const Icon = info.icon
+                return (
+                  <div key={info.title} className={`glass p-5 flex items-start space-x-4 opacity-0 animate-fade-in-up stagger-${i + 1}`}>
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center flex-shrink-0">
+                      <Icon className="h-5 w-5 text-cyan-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-white font-display font-semibold text-sm">{info.title}</h3>
+                      <p className="text-gray-400 text-sm mt-0.5">{info.value}</p>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
-            <h3 className="font-semibold mb-2">Phone</h3>
-            <p className="text-gray-600 text-sm">+1 (234) 567-890</p>
-            <p className="text-gray-600 text-sm">Mon-Fri 9am-6pm EST</p>
+
+            {/* Form */}
+            <div className="lg:col-span-3">
+              <div className="glass p-8">
+                {submitted ? (
+                  <div className="text-center py-10">
+                    <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center mb-4">
+                      <Send className="h-8 w-8 text-emerald-400" />
+                    </div>
+                    <h3 className="text-xl font-display font-bold text-white mb-2">Message Saved (Demo)</h3>
+                    <p className="text-gray-400">
+                      This is a demo — no backend is connected, so your message was not actually sent.
+                    </p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    {/* Honeypot — hidden from humans, caught by bots */}
+                    <div aria-hidden="true" className="absolute -left-[9999px]">
+                      <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <Input label="First Name" name="firstName" placeholder="John" required />
+                      <Input label="Last Name" name="lastName" placeholder="Doe" required />
+                    </div>
+                    <Input label="Email" name="email" type="email" placeholder="john@example.com" required />
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1.5">
+                        Message
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows={4}
+                        required
+                        placeholder="How can we help?"
+                        className="w-full px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-transparent hover:border-white/20 resize-none"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      className="btn-gradient w-full px-6 py-3 text-sm font-semibold rounded-xl flex items-center justify-center space-x-2"
+                    >
+                      <span>Send Message</span>
+                      <Send className="h-4 w-4" />
+                    </button>
+                  </form>
+                )}
+              </div>
+            </div>
           </div>
-        </Card>
-
-        <Card>
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-600 mb-3">
-              <MapPin className="h-6 w-6" />
-            </div>
-            <h3 className="font-semibold mb-2">Office</h3>
-            <p className="text-gray-600 text-sm">123 Learning Street</p>
-            <p className="text-gray-600 text-sm">Education City, EC 12345</p>
-          </div>
-        </Card>
-      </div>
-
-      <div className="max-w-2xl mx-auto">
-        <Card title="Send us a Message">
-          {status === 'success' && (
-            <div className="mb-4 flex items-center gap-2 p-3 bg-green-50 text-green-700 rounded-lg">
-              <CheckCircle className="h-5 w-5" />
-              <span>Message sent successfully! We'll get back to you soon.</span>
-            </div>
-          )}
-          {status === 'error' && (
-            <div className="mb-4 flex items-center gap-2 p-3 bg-red-50 text-red-700 rounded-lg">
-              <AlertCircle className="h-5 w-5" />
-              <span>Something went wrong. Please try again.</span>
-            </div>
-          )}
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <Input
-              label="Name"
-              name="name"
-              type="text"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Your full name"
-              error={errors.name}
-              required
-            />
-
-            <Input
-              label="Email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="your.email@example.com"
-              error={errors.email}
-              required
-            />
-
-            <Input
-              label="Subject"
-              name="subject"
-              type="text"
-              value={formData.subject}
-              onChange={handleChange}
-              placeholder="What is this regarding?"
-              error={errors.subject}
-              required
-            />
-
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={6}
-                value={formData.message}
-                onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent ${
-                  errors.message ? 'border-red-500 focus:ring-red-500' : 'border-gray-300'
-                }`}
-                placeholder="Tell us more about your inquiry..."
-                required
-              />
-              {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
-            </div>
-
-            <Button type="submit" fullWidth size="lg" disabled={status === 'submitting'}>
-              {status === 'submitting' ? (
-                <>Sending...</>
-              ) : (
-                <>
-                  <Send className="h-5 w-5 mr-2" />
-                  Send Message
-                </>
-              )}
-            </Button>
-          </form>
-        </Card>
-      </div>
+        </div>
+      </section>
     </div>
   )
 }

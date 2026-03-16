@@ -3,18 +3,21 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-A modern, open-source IELTS practice platform built with React, TypeScript, and TailwindCSS. Practice all four IELTS skills — Listening, Reading, Writing, and Speaking — in one beautiful interface.
+A client-side IELTS practice demo built with React, TypeScript, and TailwindCSS. Practice all four IELTS skills — Listening, Reading, Writing, and Speaking — in one interface.
 
-## ✨ Features
+> **⚠️ This is a static frontend demo.** There is no backend, no database, no server-side auth, and no AI evaluation. All exercises are served from bundled mock data. See [Status & Limitations](#-status--limitations) below.
 
-| Feature | Description |
-|---------|-------------|
-| 🎧 **Listening** | Full tests with audio playback, MCQ, fill-in-the-blank, matching |
-| 📖 **Reading** | Academic & General Training passages with real-time scoring |
-| ✍️ **Writing** | Task 1 & 2 with AI evaluation and band score feedback |
-| 🎤 **Speaking** | Audio recording with pronunciation and fluency feedback |
-| 📊 **Progress** | Dashboard with stats, history, and skill-level analytics |
-| 🛡️ **Error Handling** | ErrorBoundary, 404 page, loading states |
+## ✨ What It Actually Does
+
+| Feature | What's Implemented | What's Not |
+|---------|-------------------|------------|
+| 🎧 **Listening** | Audio playback UI, MCQ & fill-in-the-blank forms, client-side scoring | No real audio files, no server-stored results |
+| 📖 **Reading** | Passage display, timed practice, client-side scoring | Exercises are static mock data, not from a database |
+| ✍️ **Writing** | Task prompts, text input with word counter, timer | **No AI evaluation**, no band score feedback, no server submission |
+| 🎤 **Speaking** | Cue card display, timer | **No audio recording**, no pronunciation feedback, no fluency analysis |
+| 📊 **Progress** | Local-only progress saved in `localStorage` | No cross-device sync, no analytics, data lost on browser clear |
+| 🔐 **Auth** | Demo login flow (mock tokens in `localStorage`) | **Not production auth** — no server verification, no httpOnly cookies |
+| 📬 **Contact** | Form UI with validation | **Does not send messages** — no backend endpoint connected |
 
 ## 🛠 Tech Stack
 
@@ -28,18 +31,42 @@ A modern, open-source IELTS practice platform built with React, TypeScript, and 
 | [React Router 6](https://reactrouter.com/) | Client-side routing |
 | [Lucide React](https://lucide.dev/) | Icons |
 
+## ⚠️ Status & Limitations
+
+This is a **Vite client-only SPA** deployed as a static build (Vercel/Netlify/Docker+Nginx). It is **not** a Next.js application, and has:
+
+- **No backend server** — all data is bundled mock JSON
+- **No database** — progress is stored in `localStorage` only
+- **No real authentication** — tokens are mock strings in `localStorage`
+- **No AI/ML features** — writing evaluation and speaking analysis are not implemented
+- **No server-side rendering** — pure client-side React SPA
+- **Minimal test coverage** — one utility test file; no integration/e2e tests
+
+### What's Needed to Make This Production-Ready
+
+| Capability | Requirement |
+|-----------|-------------|
+| Real auth | Server-issued httpOnly cookies, session rotation, CSRF protection |
+| Exercise data | PostgreSQL + API server replacing static mock imports |
+| AI evaluation | Backend integration with OpenAI/Claude for writing scoring |
+| Speaking practice | MediaRecorder API + audio processing service |
+| Progress sync | Database-backed user progress with API endpoints |
+| Abuse prevention | Rate limiting, CAPTCHA (e.g., Cloudflare Turnstile), honeypots |
+| Observability | Sentry or equivalent error tracking with release tags |
+| Test coverage | Integration, component, and e2e tests across all flows |
+
 ## 📁 Project Structure
 
 ```
 src/
 ├── assets/          # Images, SVGs, static files
 ├── components/      # Reusable UI components (Button, Card, Navbar…)
-├── data/            # Static test data and question banks
+├── data/            # Static mock exercise data (bundled into client)
 ├── hooks/           # Custom React hooks (useTimer, useAudio…)
 ├── layouts/         # Page layouts (MainLayout)
 ├── pages/           # Route-level page components
-├── services/        # API service layer (native fetch)
-├── store/           # Zustand stores (progress, auth)
+├── services/        # API service layer (scaffolding — no real backend)
+├── store/           # Zustand stores (progress, auth — localStorage only)
 ├── styles/          # Global CSS and Tailwind config
 ├── types/           # TypeScript type definitions
 └── utils/           # Helper functions and utilities
@@ -88,6 +115,8 @@ The app will open at [http://localhost:3000](http://localhost:3000).
 
 ## 🌐 Deployment
 
+This is a static SPA — deploy the `dist/` output to any static host.
+
 ### Vercel (Recommended)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/khoazanay/ielts-web)
@@ -113,9 +142,9 @@ docker run -p 8080:80 ielts-web
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `VITE_API_URL` | Backend API URL | `https://api.ieltsweb.com` |
+| `VITE_API_URL` | Backend API URL (no backend exists yet) | `https://api.ieltsweb.com` |
 
-> All client-side env vars must be prefixed with `VITE_`.
+> All client-side env vars must be prefixed with `VITE_`. The default value is a placeholder — no API server exists at that URL.
 
 ## 🤝 Contributing
 

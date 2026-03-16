@@ -1,121 +1,107 @@
 import { useState } from 'react'
-import { Card, Button } from '@/components'
-import { Headphones, PlayCircle, PauseCircle } from 'lucide-react'
+import { Headphones, Clock, BarChart3, Play, BookOpen, Volume2 } from 'lucide-react'
+import { listeningExercises } from '@/data/mockData'
+import { ExerciseView } from '@/components/ExerciseView'
+import type { Exercise } from '@/types'
+
+const tips = [
+  { icon: Volume2, title: 'Listen Actively', text: 'Focus on keywords, names, numbers, and signal phrases.' },
+  { icon: Clock, title: 'Time Awareness', text: 'You hear each recording only once — stay alert throughout.' },
+  { icon: BookOpen, title: 'Read Ahead', text: 'Use the time given to read questions before each recording.' },
+]
+
+const difficultyColors: Record<string, string> = {
+  Beginner: 'bg-emerald-500/20 text-emerald-400',
+  Intermediate: 'bg-amber-500/20 text-amber-400',
+  Advanced: 'bg-rose-500/20 text-rose-400',
+}
 
 export const ListeningPage = () => {
-  const [playingId, setPlayingId] = useState<number | null>(null)
-
-  const exercises = [
-    {
-      id: 1,
-      title: 'Academic Lecture - Climate Change',
-      duration: '5:30',
-      difficulty: 'Intermediate',
-      questions: 10,
-    },
-    {
-      id: 2,
-      title: 'Conversation - University Enrollment',
-      duration: '4:15',
-      difficulty: 'Beginner',
-      questions: 8,
-    },
-    {
-      id: 3,
-      title: 'Monologue - City Tour Guide',
-      duration: '6:00',
-      difficulty: 'Advanced',
-      questions: 12,
-    },
-  ]
-
-  const togglePlay = (id: number) => {
-    setPlayingId(prev => (prev === id ? null : id))
-  }
+  const [activeExercise, setActiveExercise] = useState<Exercise | null>(null)
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="text-center mb-12">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-100 text-blue-600 mb-4">
-          <Headphones className="h-10 w-10" />
+    <div>
+      {/* Header */}
+      <section className="relative hero-gradient py-20 sm:py-24 overflow-hidden">
+        <div className="absolute top-10 left-1/3 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-float" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-400 shadow-glow-cyan mb-6">
+            <Headphones className="h-8 w-8 text-white" />
+          </div>
+          <h1 className="text-4xl sm:text-5xl font-display font-extrabold tracking-tight animate-fade-in-up">
+            <span className="gradient-text">Listening</span> Practice
+          </h1>
+          <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-300 animate-fade-in-up stagger-1">
+            Train your ear with real IELTS-format audio recordings across all four test sections.
+          </p>
         </div>
-        <h1 className="text-4xl font-bold mb-4">IELTS Listening Practice</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Enhance your listening skills with authentic IELTS practice materials
-        </p>
-      </div>
+      </section>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-        <Card title="Section Types">
-          <ul className="space-y-2 text-gray-700">
-            <li>• Section 1: Social conversation</li>
-            <li>• Section 2: Monologue (social context)</li>
-            <li>• Section 3: Academic discussion</li>
-            <li>• Section 4: Academic lecture</li>
-          </ul>
-        </Card>
-        <Card title="Question Types">
-          <ul className="space-y-2 text-gray-700">
-            <li>• Multiple choice</li>
-            <li>• Matching</li>
-            <li>• Plan/map/diagram labeling</li>
-            <li>• Form/note/table completion</li>
-          </ul>
-        </Card>
-        <Card title="Tips">
-          <ul className="space-y-2 text-gray-700">
-            <li>• Read questions beforehand</li>
-            <li>• Listen for keywords</li>
-            <li>• Pay attention to word limits</li>
-            <li>• Check spelling carefully</li>
-          </ul>
-        </Card>
-      </div>
+      {/* Tips */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {tips.map((tip, i) => {
+              const Icon = tip.icon
+              return (
+                <div key={tip.title} className={`glass p-6 opacity-0 animate-fade-in-up stagger-${i + 1}`}>
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center mb-3">
+                    <Icon className="h-5 w-5 text-cyan-400" />
+                  </div>
+                  <h3 className="text-white font-display font-semibold mb-1">{tip.title}</h3>
+                  <p className="text-sm text-gray-400">{tip.text}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
 
-      <section>
-        <h2 className="text-3xl font-bold mb-6">Practice Exercises</h2>
-        <div className="space-y-4">
-          {exercises.map(exercise => (
-            <Card key={exercise.id} hover>
-              <div className="flex items-center justify-between">
+      {/* Exercises */}
+      <section className="py-16 border-t border-white/5">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-display font-bold text-white mb-8">
+            Practice <span className="gradient-text">Exercises</span>
+          </h2>
+          <div className="space-y-4">
+            {listeningExercises.map(ex => (
+              <div
+                key={ex.id}
+                className="glass-hover p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+              >
                 <div className="flex items-center space-x-4">
-                  <button
-                    onClick={() => togglePlay(exercise.id)}
-                    className="bg-primary-600 text-white p-3 rounded-full hover:bg-primary-700 transition-colors"
-                  >
-                    {playingId === exercise.id ? (
-                      <PauseCircle className="h-6 w-6" />
-                    ) : (
-                      <PlayCircle className="h-6 w-6" />
-                    )}
-                  </button>
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center flex-shrink-0">
+                    <Play className="h-5 w-5 text-white" />
+                  </div>
                   <div>
-                    <h3 className="text-lg font-semibold">{exercise.title}</h3>
-                    <div className="flex items-center space-x-4 text-sm text-gray-600">
-                      <span>Duration: {exercise.duration}</span>
-                      <span>•</span>
-                      <span>Questions: {exercise.questions}</span>
-                      <span>•</span>
-                      <span
-                        className={`px-2 py-1 rounded ${
-                          exercise.difficulty === 'Beginner'
-                            ? 'bg-green-100 text-green-700'
-                            : exercise.difficulty === 'Intermediate'
-                              ? 'bg-yellow-100 text-yellow-700'
-                              : 'bg-red-100 text-red-700'
-                        }`}
-                      >
-                        {exercise.difficulty}
-                      </span>
+                    <h3 className="text-white font-medium">{ex.title}</h3>
+                    <div className="flex items-center space-x-3 text-sm text-gray-400 mt-0.5">
+                      <span className="flex items-center"><Clock className="h-3.5 w-3.5 mr-1" />{ex.duration} min</span>
+                      <span className="flex items-center"><BarChart3 className="h-3.5 w-3.5 mr-1" />{ex.questions.length} questions</span>
                     </div>
                   </div>
                 </div>
-                <Button>Start Exercise</Button>
+                <div className="flex items-center space-x-3">
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${difficultyColors[ex.difficulty] ?? 'bg-blue-500/20 text-blue-400'}`}>
+                    {ex.difficulty}
+                  </span>
+                  <button
+                    onClick={() => setActiveExercise(ex)}
+                    className="btn-gradient px-4 py-2 text-sm rounded-lg"
+                  >
+                    Start
+                  </button>
+                </div>
               </div>
-            </Card>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* Exercise Overlay */}
+      {activeExercise && (
+        <ExerciseView exercise={activeExercise} onClose={() => setActiveExercise(null)} />
+      )}
     </div>
   )
 }

@@ -1,3 +1,16 @@
+/**
+ * Auth Service — DEMO ONLY.
+ *
+ * ⚠️  This is client-side mock authentication using localStorage tokens.
+ * It does NOT provide real security and must NOT be used in production.
+ *
+ * For production, replace with:
+ * - Server-issued httpOnly cookies
+ * - CSRF protection
+ * - Session rotation on login/logout
+ * - A real identity provider (Auth0, Supabase Auth, NextAuth, etc.)
+ */
+
 import { apiService } from './api'
 
 interface LoginCredentials {
@@ -51,8 +64,15 @@ class AuthService {
     return !!this.getToken()
   }
 
-  // Mock authentication for demo purposes
+  /**
+   * Mock authentication for demo/development purposes.
+   * ⚠️  This generates a fake token — it is NOT authenticated by any server.
+   */
   async mockLogin(email: string): Promise<AuthResponse> {
+    if (import.meta.env.DEV) {
+      console.warn('[AuthService] mockLogin() used — this is NOT real authentication.')
+    }
+
     return new Promise(resolve => {
       setTimeout(() => {
         const mockResponse: AuthResponse = {

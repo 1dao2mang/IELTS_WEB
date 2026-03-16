@@ -1,100 +1,80 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, BookOpen } from 'lucide-react'
-import clsx from 'clsx'
+
+const navLinks = [
+  { name: 'Home', path: '/' },
+  { name: 'Listening', path: '/listening' },
+  { name: 'Reading', path: '/reading' },
+  { name: 'Writing', path: '/writing' },
+  { name: 'Speaking', path: '/speaking' },
+  { name: 'Practice', path: '/practice' },
+  { name: 'About', path: '/about' },
+  { name: 'Contact', path: '/contact' },
+]
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const location = useLocation()
 
-  const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About' },
-    { path: '/listening', label: 'Listening' },
-    { path: '/reading', label: 'Reading' },
-    { path: '/writing', label: 'Writing' },
-    { path: '/speaking', label: 'Speaking' },
-    { path: '/practice', label: 'Practice' },
-    { path: '/contact', label: 'Contact' },
-  ]
-
   const isActive = (path: string) => location.pathname === path
 
-  // Close mobile menu on resize to desktop
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsOpen(false)
-      }
-    }
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsOpen(false)
-  }, [location.pathname])
-
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className="sticky top-0 z-50 bg-slate-950/60 backdrop-blur-xl border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-2">
-              <BookOpen className="h-8 w-8 text-primary-600" />
-              <span className="text-2xl font-bold text-primary-600">IELTS Web</span>
-            </Link>
-          </div>
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-2 group">
+            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center shadow-glow-cyan transition-shadow duration-300 group-hover:shadow-glow-lg">
+              <BookOpen className="h-5 w-5 text-white" />
+            </div>
+            <span className="text-xl font-display font-bold gradient-text">IELTS Web</span>
+          </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop links */}
           <div className="hidden md:flex items-center space-x-1">
             {navLinks.map(link => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={clsx(
-                  'px-3 py-2 rounded-md text-sm font-medium transition-colors',
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   isActive(link.path)
-                    ? 'bg-primary-100 text-primary-700'
-                    : 'text-gray-700 hover:bg-gray-100'
-                )}
+                    ? 'text-cyan-400 bg-white/10'
+                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                }`}
               >
-                {link.label}
+                {link.name}
               </Link>
             ))}
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-primary-600 focus:outline-none"
-              aria-label={isOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={isOpen}
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
+          {/* Mobile toggle */}
+          <button
+            className="md:hidden p-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
-          <div className="px-2 pt-2 pb-3 space-y-1">
+        <div className="md:hidden animate-slide-down bg-slate-900/95 backdrop-blur-xl border-b border-white/10">
+          <div className="px-4 py-3 space-y-1">
             {navLinks.map(link => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={clsx(
-                  'block px-3 py-2 rounded-md text-base font-medium transition-colors',
+                onClick={() => setIsOpen(false)}
+                className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                   isActive(link.path)
-                    ? 'bg-primary-100 text-primary-700'
-                    : 'text-gray-700 hover:bg-gray-100'
-                )}
+                    ? 'text-cyan-400 bg-white/10'
+                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                }`}
               >
-                {link.label}
+                {link.name}
               </Link>
             ))}
           </div>
