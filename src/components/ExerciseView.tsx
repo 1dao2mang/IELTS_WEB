@@ -38,12 +38,33 @@ export const ExerciseView = ({ exercise, onClose }: Props) => {
     addExercise({ id: exercise.id, type: exercise.type, title: exercise.title, completed: false })
   }, [exercise.id, exercise.type, exercise.title, addExercise])
 
+  /* ── body scroll lock while overlay is open ──────────────────────── */
+  useEffect(() => {
+    const prev = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = prev }
+  }, [])
+
+  /* ── Escape key to close ─────────────────────────────────────────── */
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [onClose])
+
   /* ── countdown timer ─────────────────────────────────────────────── */
   useEffect(() => {
     if (timer <= 0) return
-    intervalRef.current = setInterval(() => setTimer(t => (t > 0 ? t - 1 : 0)), 1000)
+    intervalRef.current = setInterval(() => {
+      setTimer(t => {
+        if (t <= 1) { if (intervalRef.current) clearInterval(intervalRef.current); return 0 }
+        return t - 1
+      })
+    }, 1000)
     return () => { if (intervalRef.current) clearInterval(intervalRef.current) }
-  }, [timer > 0]) // eslint-disable-line react-hooks/exhaustive-deps
+  // Run once on mount — the interval self-clears when timer reaches 0
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const fmtTime = (s: number) => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`
 
@@ -327,10 +348,7 @@ export const ExerciseView = ({ exercise, onClose }: Props) => {
                   ))}
                   {currentFollowUp < exercise.followUpQuestions.length && (
                     <button
-                      onClick={() => {
-                        setCurrentFollowUp(f => f + 1)
-                        setShowSampleAnswer(false)
-                      }}
+                      onClick={() => setCurrentFollowUp(f => f + 1)}
                       className={`text-sm ${c.text} hover:underline`}
                     >
                       Show sample answer for Q{currentFollowUp + 1}

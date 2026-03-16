@@ -1,3 +1,2 @@
-export { useFetch } from './useFetch'
-export { useAudioPlayer } from './useAudioPlayer'
-export { useTimer } from './useTimer'
+// All hooks were unused and have been removed.
+// This barrel file is kept for future hooks.
