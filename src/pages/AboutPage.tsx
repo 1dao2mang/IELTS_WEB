@@ -1,86 +1,92 @@
-import { Target, Users, Award, BookOpen, Globe, Heart } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Target, Users, Sparkles, ArrowRight } from 'lucide-react'
 
 const values = [
-  { icon: Target, title: 'Focused Practice', text: 'Every exercise targets real IELTS question types and formats.' },
-  { icon: Users, title: 'Expert-Designed', text: 'Materials created by experienced IELTS examiners and tutors.' },
-  { icon: Award, title: 'Proven Results', text: 'Our learners consistently achieve their target band scores.' },
-  { icon: BookOpen, title: 'Comprehensive', text: 'Full coverage of all four skills with detailed explanations.' },
-  { icon: Globe, title: 'Accessible', text: 'Study anytime, anywhere with our web-based platform.' },
-  { icon: Heart, title: 'Community', text: 'Join a growing community of dedicated IELTS learners.' },
-]
-
-const stats = [
-  { value: '10,000+', label: 'Active Learners' },
-  { value: '500+', label: 'Practice Exercises' },
-  { value: '50+', label: 'Mock Tests' },
-  { value: '8.0', label: 'Average Band Score' },
+  {
+    icon: Target,
+    title: 'Exam-Focused',
+    desc: 'Every exercise mirrors real IELTS question types and difficulty levels.',
+  },
+  {
+    icon: Users,
+    title: 'Community Driven',
+    desc: 'Built by IELTS trainers and refined by thousands of student interactions.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Always Free',
+    desc: 'Quality IELTS preparation should be accessible to everyone, everywhere.',
+  },
 ]
 
 export const AboutPage = () => {
   return (
-    <div>
-      {/* Header */}
-      <section className="relative hero-gradient py-20 sm:py-24 overflow-hidden">
-        <div className="absolute top-10 right-1/3 w-64 h-64 bg-violet-500/10 rounded-full blur-3xl animate-float" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <h1 className="text-4xl sm:text-5xl font-display font-extrabold tracking-tight animate-fade-in-up">
+    <div className="min-h-screen">
+      {/* ─── Hero ─────────────────────────── */}
+      <section className="hero-gradient relative pt-32 pb-20 sm:pt-36 sm:pb-24 px-4">
+        <div className="orb orb-violet w-[350px] h-[350px] -top-28 -left-28 animate-float opacity-35" />
+
+        <div className="max-w-3xl mx-auto text-center relative z-10">
+          <h1 className="text-3xl sm:text-5xl font-display font-bold text-heading">
             About <span className="gradient-text">IELTS Web</span>
           </h1>
-          <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-300 animate-fade-in-up stagger-1">
-            We're on a mission to make world-class IELTS preparation accessible to every learner.
+          <p className="mt-5 text-body max-w-xl mx-auto leading-relaxed">
+            We believe everyone deserves access to high-quality IELTS preparation. Our platform combines proven exam strategies with modern technology to help you reach your target band score.
           </p>
         </div>
       </section>
 
-      {/* Mission */}
-      <section className="py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="glass p-10">
-            <h2 className="text-2xl sm:text-3xl font-display font-bold text-white mb-4">Our Mission</h2>
-            <p className="text-gray-300 leading-relaxed">
-              IELTS Web was created to bridge the gap between expensive test-prep courses and free but unreliable resources.
-              We provide structured, high-quality practice materials that help learners systematically improve across all four IELTS skills.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-16 border-t border-b border-white/5">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, i) => (
-              <div key={stat.label} className={`text-center opacity-0 animate-fade-in-up stagger-${i + 1}`}>
-                <p className="text-3xl sm:text-4xl font-display font-bold gradient-text">{stat.value}</p>
-                <p className="text-sm text-gray-400 mt-2">{stat.label}</p>
+      <div className="max-w-4xl mx-auto px-4 py-14 sm:py-20 space-y-16">
+        {/* ─── Our Values ─────────────────── */}
+        <div>
+          <h2 className="text-2xl font-display font-semibold text-heading text-center mb-10">Our Values</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {values.map((v, i) => (
+              <div
+                key={i}
+                className="glass-hover p-7 text-center opacity-0 animate-fade-in-up"
+                style={{ animationDelay: `${i * 120 + 100}ms` }}
+              >
+                <div className="w-12 h-12 rounded-xl bg-theme-card flex items-center justify-center mx-auto mb-5">
+                  <v.icon className="h-6 w-6 text-cyan-400" />
+                </div>
+                <h3 className="text-base font-semibold text-heading mb-2">{v.title}</h3>
+                <p className="text-sm text-muted leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>
         </div>
-      </section>
 
-      {/* Values */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-center text-white mb-14">
-            What Sets Us <span className="gradient-text">Apart</span>
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {values.map((val, i) => {
-              const Icon = val.icon
-              return (
-                <div key={val.title} className={`glass-hover p-6 opacity-0 animate-fade-in-up stagger-${(i % 6) + 1}`}>
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center mb-4">
-                    <Icon className="h-6 w-6 text-cyan-400" />
-                  </div>
-                  <h3 className="text-white font-display font-semibold mb-2">{val.title}</h3>
-                  <p className="text-sm text-gray-400">{val.text}</p>
-                </div>
-              )
-            })}
+        {/* ─── Story ──────────────────────── */}
+        <div className="glass p-8 sm:p-10">
+          <h2 className="text-xl font-display font-semibold text-heading mb-4">Our Story</h2>
+          <div className="prose prose-sm prose-invert max-w-none">
+            <p className="text-body leading-relaxed">
+              IELTS Web started as a simple idea: create the best free IELTS practice platform on the internet.
+              Too many students around the world face barriers — expensive courses, limited access to quality materials,
+              and outdated preparation methods.
+            </p>
+            <p className="text-body leading-relaxed mt-4">
+              Our team of experienced IELTS trainers, software engineers, and language specialists work together to
+              create exercises that accurately reflect the real exam experience. Every question is carefully
+              crafted to build the skills you need for test day and beyond.
+            </p>
           </div>
         </div>
-      </section>
+
+        {/* ─── CTA ────────────────────────── */}
+        <div className="text-center">
+          <Link
+            to="/practice"
+            className="btn-gradient px-8 py-3.5 text-sm inline-flex items-center space-x-2"
+          >
+            <span>Start Practicing</span>
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </div>
     </div>
   )
 }
+
+

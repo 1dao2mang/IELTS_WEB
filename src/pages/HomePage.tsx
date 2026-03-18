@@ -1,194 +1,211 @@
 import { Link } from 'react-router-dom'
-import { Headphones, BookOpenText, PenTool, Mic, ArrowRight, Star, Users, Award, CheckCircle } from 'lucide-react'
+import {
+  Headphones, BookOpen, PenTool, MessageCircle,
+  Star, Target, ArrowRight, Zap, Award, TrendingUp, Users, Clock
+} from 'lucide-react'
 
 const skills = [
   {
-    title: 'Listening',
-    description: 'Sharpen your ear with real IELTS-style audio exercises and practice tests.',
-    icon: Headphones,
-    path: '/listening',
-    gradient: 'from-blue-500 to-cyan-400',
-    glow: 'shadow-glow-cyan',
-    delay: 'stagger-1',
+    icon: Headphones, label: 'Listening', path: '/listening',
+    desc: 'Train your ears with authentic IELTS audio exercises.',
+    gradient: 'from-cyan-500 to-blue-600',
+    glow: 'group-hover:shadow-glow-cyan',
   },
   {
-    title: 'Reading',
-    description: 'Boost comprehension speed and accuracy with Academic & General passages.',
-    icon: BookOpenText,
-    path: '/reading',
-    gradient: 'from-emerald-500 to-teal-400',
-    glow: 'shadow-glow-emerald',
-    delay: 'stagger-2',
+    icon: BookOpen, label: 'Reading', path: '/reading',
+    desc: 'Boost comprehension with real exam-style passages.',
+    gradient: 'from-emerald-500 to-teal-600',
+    glow: 'group-hover:shadow-glow-emerald',
   },
   {
-    title: 'Writing',
-    description: 'Master Task 1 & Task 2 essays with structured guidance and model answers.',
-    icon: PenTool,
-    path: '/writing',
-    gradient: 'from-violet-500 to-purple-400',
-    glow: 'shadow-glow-violet',
-    delay: 'stagger-3',
+    icon: PenTool, label: 'Writing', path: '/writing',
+    desc: 'Perfect Task 1 & 2 with structured practice.',
+    gradient: 'from-violet-500 to-purple-600',
+    glow: 'group-hover:shadow-glow-violet',
   },
   {
-    title: 'Speaking',
-    description: 'Build confidence for all three parts with prompts and sample responses.',
-    icon: Mic,
-    path: '/speaking',
-    gradient: 'from-amber-500 to-orange-400',
-    glow: 'shadow-glow-amber',
-    delay: 'stagger-4',
+    icon: MessageCircle, label: 'Speaking', path: '/speaking',
+    desc: 'Build fluency for all three speaking parts.',
+    gradient: 'from-amber-500 to-orange-600',
+    glow: 'group-hover:shadow-glow-amber',
   },
 ]
 
+const stats = [
+  { icon: Users, value: '10K+', label: 'Active learners' },
+  { icon: Target, value: '500+', label: 'Practice exercises' },
+  { icon: Award, value: '7.5+', label: 'Avg band score' },
+  { icon: Clock, value: '24/7', label: 'Always available' },
+]
+
 const features = [
-  { icon: Star, title: 'Expert Content', text: 'Materials designed by IELTS examiners and language experts.' },
-  { icon: Users, title: 'Community', text: 'Join thousands of learners preparing for their IELTS exam.' },
-  { icon: Award, title: 'Band 7+ Focus', text: 'Targeted strategies to help you reach your desired band score.' },
-  { icon: CheckCircle, title: 'Full Coverage', text: 'All four skills covered with real exam-format practice.' },
+  {
+    icon: Zap,
+    title: 'Instant Feedback',
+    desc: 'Get real-time scores and detailed explanations after every exercise.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Progress Tracking',
+    desc: 'Visualize your improvement over time with detailed analytics.',
+  },
+  {
+    icon: Star,
+    title: 'Exam-Realistic',
+    desc: 'Practice with real IELTS format questions across all difficulty levels.',
+  },
 ]
 
 export const HomePage = () => {
   return (
-    <div>
-      {/* ─── Hero Section ─── */}
-      <section className="relative hero-gradient py-24 sm:py-32 overflow-hidden">
-        {/* Decorative blobs */}
-        <div className="absolute top-20 left-1/4 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-violet-500/10 rounded-full blur-3xl animate-float-delayed" />
+    <div className="min-h-screen">
+      {/* ─── Hero ────────────────────────────────── */}
+      <section className="hero-gradient relative pt-32 pb-24 sm:pt-40 sm:pb-32 px-4">
+        {/* Decorative orbs */}
+        <div className="orb orb-cyan w-[500px] h-[500px] -top-40 -left-40 animate-float opacity-50" />
+        <div className="orb orb-violet w-[400px] h-[400px] top-20 -right-32 animate-float-delayed opacity-40" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="animate-fade-in-up">
-            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-medium bg-white/10 text-cyan-400 border border-cyan-400/20 mb-6 backdrop-blur-sm">
-              🎓 Your Path to IELTS Success
-            </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-display font-extrabold tracking-tight text-balance">
-              Master Your{' '}
-              <span className="gradient-text">IELTS Skills</span>
-            </h1>
-            <p className="mt-6 max-w-2xl mx-auto text-lg sm:text-xl text-gray-300 leading-relaxed">
-              Comprehensive practice materials for Listening, Reading, Writing, and Speaking — everything you need to achieve your target band score.
-            </p>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          {/* Badge */}
+          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border border-cyan-500/20 bg-cyan-500/[0.06] mb-8 animate-fade-in">
+            <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-glow-pulse" />
+            <span className="text-xs font-medium text-cyan-400 tracking-wide uppercase">Free IELTS Prep Platform</span>
           </div>
 
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up stagger-2">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold text-heading leading-tight tracking-tight opacity-0 animate-fade-in-up">
+            Achieve Your <span className="gradient-text">Dream</span> Band Score
+          </h1>
+
+          <p className="mt-6 text-lg sm:text-xl text-body max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in-up stagger-2">
+            Master all four IELTS skills with interactive exercises, real-time feedback, and personalized progress tracking.
+          </p>
+
+          {/* CTAs */}
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in-up stagger-3">
             <Link
               to="/practice"
-              className="btn-gradient inline-flex items-center space-x-2 px-8 py-3.5 text-base font-semibold rounded-xl"
+              className="btn-gradient px-8 py-3.5 text-sm w-full sm:w-auto inline-flex items-center justify-center space-x-2"
             >
               <span>Start Practicing</span>
-              <ArrowRight className="h-5 w-5" />
+              <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/about"
-              className="inline-flex items-center space-x-2 px-8 py-3.5 text-base font-semibold rounded-xl border border-white/20 text-white hover:bg-white/10 transition-all duration-300"
+              className="btn-outline px-8 py-3.5 text-sm w-full sm:w-auto justify-center"
             >
               <span>Learn More</span>
             </Link>
           </div>
+        </div>
+      </section>
 
-          {/* Stats strip */}
-          <div className="mt-16 grid grid-cols-3 gap-4 max-w-xl mx-auto animate-fade-in-up stagger-3">
-            {[
-              { value: '10K+', label: 'Learners' },
-              { value: '500+', label: 'Exercises' },
-              { value: '8.0', label: 'Avg. Band' },
-            ].map(stat => (
-              <div key={stat.label} className="text-center">
-                <p className="text-2xl sm:text-3xl font-display font-bold gradient-text">{stat.value}</p>
-                <p className="text-sm text-gray-400 mt-1">{stat.label}</p>
+      {/* ─── Stats ───────────────────────────────── */}
+      <section className="relative -mt-12 z-10 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="glass rounded-2xl p-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((stat, i) => (
+              <div key={i} className="text-center group">
+                <stat.icon className="h-5 w-5 text-cyan-400 mx-auto mb-2 transition-transform duration-300 group-hover:scale-110" />
+                <div className="text-2xl sm:text-3xl font-display font-bold text-heading text-glow-cyan">
+                  {stat.value}
+                </div>
+                <div className="text-xs text-sub mt-1">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ─── Skills Grid ─── */}
-      <section className="py-20 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-white">
-              All Four Skills,{' '}
-              <span className="gradient-text">One Platform</span>
+      {/* ─── Skill Cards ─────────────────────────── */}
+      <section className="py-24 sm:py-32 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-heading">
+              Four Skills, <span className="gradient-text">One Platform</span>
             </h2>
-            <p className="mt-4 text-gray-400 max-w-xl mx-auto">
-              Focused practice modules for every section of the IELTS exam.
+            <p className="mt-4 text-sub max-w-lg mx-auto">
+              Comprehensive practice modules designed to match the real IELTS exam format.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {skills.map(skill => {
-              const Icon = skill.icon
-              return (
-                <Link
-                  key={skill.title}
-                  to={skill.path}
-                  className={`group glass-hover p-6 opacity-0 animate-fade-in-up ${skill.delay}`}
-                >
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${skill.gradient} flex items-center justify-center mb-4 ${skill.glow} transition-shadow duration-300 group-hover:scale-110`}>
-                    <Icon className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-lg font-display font-semibold text-white mb-2">{skill.title}</h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">{skill.description}</p>
-                  <span className="inline-flex items-center text-sm text-cyan-400 mt-4 group-hover:translate-x-1 transition-transform">
-                    Practice <ArrowRight className="h-4 w-4 ml-1" />
-                  </span>
-                </Link>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Features ─── */}
-      <section className="py-20 sm:py-24 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-white">
-              Why Choose{' '}
-              <span className="gradient-text">IELTS Web</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feat, i) => {
-              const Icon = feat.icon
-              return (
-                <div
-                  key={feat.title}
-                  className={`glass p-6 text-center opacity-0 animate-fade-in-up stagger-${i + 1}`}
-                >
-                  <div className="w-12 h-12 mx-auto rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center mb-4">
-                    <Icon className="h-6 w-6 text-cyan-400" />
-                  </div>
-                  <h3 className="text-white font-display font-semibold mb-2">{feat.title}</h3>
-                  <p className="text-sm text-gray-400">{feat.text}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {skills.map((skill, i) => (
+              <Link
+                key={skill.path}
+                to={skill.path}
+                className={`group gradient-border-card glass-hover p-6 flex flex-col opacity-0 animate-fade-in-up`}
+                style={{ animationDelay: `${i * 100 + 200}ms` }}
+              >
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${skill.gradient} flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110 ${skill.glow}`}>
+                  <skill.icon className="h-6 w-6 text-white" />
                 </div>
-              )
-            })}
+                <h3 className="text-lg font-semibold text-heading mb-2">{skill.label}</h3>
+                <p className="text-sm text-sub leading-relaxed flex-1">{skill.desc}</p>
+                <div className="mt-4 flex items-center text-sm font-medium text-body group-hover:text-cyan-400 transition-colors">
+                  <span>Practice now</span>
+                  <ArrowRight className="h-3.5 w-3.5 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" />
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ─── CTA ─── */}
-      <section className="py-20 sm:py-24">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="glass p-10 sm:p-14 border-cyan-500/20">
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
-              Ready to Boost Your Score?
+      {/* ─── Features ────────────────────────────── */}
+      <section className="py-24 px-4 relative">
+        <div className="orb orb-emerald w-[300px] h-[300px] bottom-10 -left-20 animate-float-slow opacity-30" />
+
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-heading">
+              Why Choose <span className="gradient-text">IELTS Web</span>
             </h2>
-            <p className="text-gray-400 mb-8 max-w-lg mx-auto">
-              Start your IELTS preparation today with our expert-designed practice materials.
-            </p>
-            <Link
-              to="/practice"
-              className="btn-gradient inline-flex items-center space-x-2 px-8 py-3.5 text-base font-semibold rounded-xl animate-glow-pulse"
-            >
-              <span>Begin Practice Tests</span>
-              <ArrowRight className="h-5 w-5" />
-            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {features.map((f, i) => (
+              <div
+                key={i}
+                className="glass-hover p-7 text-center opacity-0 animate-fade-in-up"
+                style={{ animationDelay: `${i * 120 + 200}ms` }}
+              >
+                <div className="w-12 h-12 rounded-xl bg-white/[0.05] flex items-center justify-center mx-auto mb-5 group">
+                  <f.icon className="h-6 w-6 text-cyan-400" />
+                </div>
+                <h3 className="text-base font-semibold text-heading mb-2">{f.title}</h3>
+                <p className="text-sm text-sub leading-relaxed">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── CTA ─────────────────────────────────── */}
+      <section className="py-24 px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="gradient-border-card p-10 sm:p-14 relative overflow-hidden">
+            {/* Background glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/[0.04] to-violet-500/[0.04]" />
+            <div className="relative z-10">
+              <h2 className="text-2xl sm:text-3xl font-display font-bold text-heading mb-4">
+                Ready to Start Your Journey?
+              </h2>
+              <p className="text-body mb-8 max-w-md mx-auto">
+                Join thousands of students who have improved their IELTS scores with our platform.
+              </p>
+              <Link
+                to="/practice"
+                className="btn-gradient px-8 py-3.5 text-sm inline-flex items-center space-x-2"
+              >
+                <span>Get Started Free</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
     </div>
   )
 }
+
+

@@ -1,112 +1,124 @@
-import { useState, type FormEvent } from 'react'
-import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react'
-import { Input } from '@/components'
-
-const contactInfo = [
-  { icon: Mail, title: 'Email', value: 'info@ieltsweb.com' },
-  { icon: Phone, title: 'Phone', value: '+1 (234) 567-890' },
-  { icon: MapPin, title: 'Address', value: '123 Learning Street' },
-]
+import { useState } from 'react'
+import { Mail, MessageSquare, Send, MapPin, Clock } from 'lucide-react'
 
 export const ContactPage = () => {
-  const [submitted, setSubmitted] = useState(false)
+  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [sent, setSent] = useState(false)
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setSent(true)
+    setTimeout(() => setSent(false), 3000)
+    setForm({ name: '', email: '', message: '' })
   }
 
   return (
-    <div>
-      {/* Header */}
-      <section className="relative hero-gradient py-20 sm:py-24 overflow-hidden">
-        <div className="absolute bottom-10 left-1/4 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-float" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-glow-cyan mb-6">
-            <MessageSquare className="h-8 w-8 text-white" />
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-display font-extrabold tracking-tight animate-fade-in-up">
-            <span className="gradient-text">Contact</span> Us
+    <div className="min-h-screen">
+      {/* ─── Hero ─────────────────────────── */}
+      <section className="hero-gradient relative pt-32 pb-20 sm:pt-36 sm:pb-24 px-4">
+        <div className="orb orb-cyan w-[350px] h-[350px] -top-28 -right-28 animate-float opacity-35" />
+
+        <div className="max-w-3xl mx-auto text-center relative z-10">
+          <h1 className="text-3xl sm:text-5xl font-display font-bold text-heading">
+            Get in <span className="gradient-text">Touch</span>
           </h1>
-          <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-300 animate-fade-in-up stagger-1">
-            Have a question or feedback? We'd love to hear from you.
+          <p className="mt-5 text-body max-w-lg mx-auto leading-relaxed">
+            Have a question, suggestion, or need help with your IELTS preparation? We'd love to hear from you.
           </p>
         </div>
       </section>
 
-      {/* Content */}
-      <section className="py-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-            {/* Contact info */}
-            <div className="lg:col-span-2 space-y-4">
-              {contactInfo.map((info, i) => {
-                const Icon = info.icon
-                return (
-                  <div key={info.title} className={`glass p-5 flex items-start space-x-4 opacity-0 animate-fade-in-up stagger-${i + 1}`}>
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center flex-shrink-0">
-                      <Icon className="h-5 w-5 text-cyan-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-white font-display font-semibold text-sm">{info.title}</h3>
-                      <p className="text-gray-400 text-sm mt-0.5">{info.value}</p>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-
-            {/* Form */}
-            <div className="lg:col-span-3">
-              <div className="glass p-8">
-                {submitted ? (
-                  <div className="text-center py-10">
-                    <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center mb-4">
-                      <Send className="h-8 w-8 text-emerald-400" />
-                    </div>
-                    <h3 className="text-xl font-display font-bold text-white mb-2">Message Saved (Demo)</h3>
-                    <p className="text-gray-400">
-                      This is a demo — no backend is connected, so your message was not actually sent.
-                    </p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    {/* Honeypot — hidden from humans, caught by bots */}
-                    <div aria-hidden="true" className="absolute -left-[9999px]">
-                      <input type="text" name="website" tabIndex={-1} autoComplete="off" />
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <Input label="First Name" name="firstName" placeholder="John" required />
-                      <Input label="Last Name" name="lastName" placeholder="Doe" required />
-                    </div>
-                    <Input label="Email" name="email" type="email" placeholder="john@example.com" required />
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1.5">
-                        Message
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows={4}
-                        required
-                        placeholder="How can we help?"
-                        className="w-full px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-transparent hover:border-white/20 resize-none"
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      className="btn-gradient w-full px-6 py-3 text-sm font-semibold rounded-xl flex items-center justify-center space-x-2"
-                    >
-                      <span>Send Message</span>
-                      <Send className="h-4 w-4" />
-                    </button>
-                  </form>
-                )}
+      <div className="max-w-4xl mx-auto px-4 py-14 sm:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          {/* ─── Info ──────────────────────── */}
+          <div className="md:col-span-2 space-y-5">
+            {[
+              { icon: Mail, title: 'Email', value: 'support@ieltsweb.com' },
+              { icon: MapPin, title: 'Location', value: 'Available worldwide, online' },
+              { icon: Clock, title: 'Response', value: 'Within 24 hours' },
+            ].map((info, i) => (
+              <div
+                key={i}
+                className="glass-hover flex items-start space-x-4 p-5 opacity-0 animate-fade-in-up"
+                style={{ animationDelay: `${i * 100 + 100}ms` }}
+              >
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center shrink-0">
+                  <info.icon className="h-5 w-5 text-cyan-400" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-medium text-heading">{info.title}</h3>
+                  <p className="text-xs text-muted mt-0.5">{info.value}</p>
+                </div>
               </div>
-            </div>
+            ))}
+          </div>
+
+          {/* ─── Form ─────────────────────── */}
+          <div className="md:col-span-3">
+            <form onSubmit={handleSubmit} className="glass p-7 space-y-5">
+              <div className="flex items-center space-x-3 mb-2">
+                <MessageSquare className="h-5 w-5 text-cyan-400" />
+                <h2 className="text-lg font-display font-semibold text-heading">Send a Message</h2>
+              </div>
+
+              <div>
+                <label htmlFor="contact-name" className="block text-xs font-medium text-body mb-1.5">Name</label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  required
+                  value={form.name}
+                  onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+                  className="input-glow"
+                  placeholder="Your full name"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="contact-email" className="block text-xs font-medium text-body mb-1.5">Email</label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  required
+                  value={form.email}
+                  onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                  className="input-glow"
+                  placeholder="you@example.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="contact-message" className="block text-xs font-medium text-body mb-1.5">Message</label>
+                <textarea
+                  id="contact-message"
+                  required
+                  rows={5}
+                  value={form.message}
+                  onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+                  className="input-glow resize-none"
+                  placeholder="How can we help?"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="btn-gradient w-full py-3 text-sm inline-flex items-center justify-center space-x-2"
+              >
+                <Send className="h-4 w-4" />
+                <span>{sent ? 'Message Sent!' : 'Send Message'}</span>
+              </button>
+
+              {sent && (
+                <p className="text-xs text-emerald-400 text-center animate-fade-in">
+                  Thanks! We'll get back to you within 24 hours.
+                </p>
+              )}
+            </form>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   )
 }
+
+

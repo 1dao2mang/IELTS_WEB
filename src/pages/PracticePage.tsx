@@ -1,141 +1,186 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Headphones, BookOpenText, PenTool, Mic, Clock, Target, ArrowRight, Trophy, CheckCircle2 } from 'lucide-react'
-import { listeningExercises, readingExercises, writingExercises, speakingExercises } from '@/data/mockData'
-import { useProgressStore } from '@/store/progressStore'
+import {
+  Headphones, BookOpen, PenTool, MessageCircle,
+  ArrowRight, Target, Clock, ChevronRight
+} from 'lucide-react'
+import {
+  listeningExercises, readingExercises,
+  writingExercises, speakingExercises
+} from '../data/mockData'
+import { ExerciseView } from '../components/ExerciseView'
+import type { Exercise } from '../types'
 
-const modules = [
+const categories = [
   {
-    title: 'Listening',
+    id: 'listening',
+    label: 'Listening',
     icon: Headphones,
-    gradient: 'from-blue-500 to-cyan-400',
-    glow: 'shadow-glow-cyan',
-    path: '/listening',
-    count: listeningExercises.length,
-    time: '30-40 min each',
+    color: 'cyan',
+    gradient: 'from-cyan-500 to-blue-600',
+    exercises: listeningExercises,
   },
   {
-    title: 'Reading',
-    icon: BookOpenText,
-    gradient: 'from-emerald-500 to-teal-400',
-    glow: 'shadow-glow-emerald',
-    path: '/reading',
-    count: readingExercises.length,
-    time: '60 min each',
+    id: 'reading',
+    label: 'Reading',
+    icon: BookOpen,
+    color: 'emerald',
+    gradient: 'from-emerald-500 to-teal-600',
+    exercises: readingExercises,
   },
   {
-    title: 'Writing',
+    id: 'writing',
+    label: 'Writing',
     icon: PenTool,
-    gradient: 'from-violet-500 to-purple-400',
-    glow: 'shadow-glow-violet',
-    path: '/writing',
-    count: writingExercises.length,
-    time: '60 min each',
+    color: 'violet',
+    gradient: 'from-violet-500 to-purple-600',
+    exercises: writingExercises,
   },
   {
-    title: 'Speaking',
-    icon: Mic,
-    gradient: 'from-amber-500 to-orange-400',
-    glow: 'shadow-glow-amber',
-    path: '/speaking',
-    count: speakingExercises.length,
-    time: '11-14 min each',
+    id: 'speaking',
+    label: 'Speaking',
+    icon: MessageCircle,
+    color: 'amber',
+    gradient: 'from-amber-500 to-orange-600',
+    exercises: speakingExercises,
   },
 ]
 
+const colorClasses: Record<string, { bg: string; text: string; glow: string }> = {
+  cyan: { bg: 'bg-cyan-500/10', text: 'text-cyan-400', glow: 'shadow-glow-cyan' },
+  emerald: { bg: 'bg-emerald-500/10', text: 'text-emerald-400', glow: 'shadow-glow-emerald' },
+  violet: { bg: 'bg-violet-500/10', text: 'text-violet-400', glow: 'shadow-glow-violet' },
+  amber: { bg: 'bg-amber-500/10', text: 'text-amber-400', glow: 'shadow-glow-amber' },
+}
+
 export const PracticePage = () => {
-  const { exercises: completed } = useProgressStore()
-  const completedCount = completed.filter(e => e.completed).length
-  const totalExercises = listeningExercises.length + readingExercises.length + writingExercises.length + speakingExercises.length
+  const [selectedExercise, setSelectedExercise] = useState<Exercise | null>(null)
+  const [filter, setFilter] = useState<string | null>(null)
+
+  const filteredCategories = filter
+    ? categories.filter(c => c.id === filter)
+    : categories
 
   return (
-    <div>
-      {/* Header */}
-      <section className="relative hero-gradient py-20 sm:py-24 overflow-hidden">
-        <div className="absolute top-20 right-1/4 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-float" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-glow-cyan mb-6">
-            <Trophy className="h-8 w-8 text-white" />
+    <div className="min-h-screen">
+      {/* ─── Hero ─────────────────────────── */}
+      <section className="hero-gradient relative pt-32 pb-20 sm:pt-36 sm:pb-24 px-4">
+        <div className="orb orb-cyan w-[350px] h-[350px] -top-28 -left-28 animate-float opacity-35" />
+        <div className="orb orb-violet w-[300px] h-[300px] -top-10 -right-24 animate-float-delayed opacity-30" />
+
+        <div className="max-w-4xl mx-auto relative z-10">
+          <div className="flex items-center space-x-4 mb-6">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-violet-600 flex items-center justify-center">
+              <Target className="h-7 w-7 text-white" />
+            </div>
+            <div>
+              <h1 className="text-3xl sm:text-4xl font-display font-bold text-heading">Practice Hub</h1>
+              <p className="text-muted text-sm mt-0.5">All exercises in one place</p>
+            </div>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-display font-extrabold tracking-tight animate-fade-in-up">
-            <span className="gradient-text">Practice</span> Hub
-          </h1>
-          <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-300 animate-fade-in-up stagger-1">
-            Choose a skill and start your exam-format practice sessions.
+          <p className="text-body max-w-2xl leading-relaxed">
+            Browse and practice exercises across all four IELTS skills. Filter by skill type and track your progress as you complete each one.
           </p>
         </div>
       </section>
 
-      {/* Progress summary */}
-      {completedCount > 0 && (
-        <section className="py-10">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="glass p-6 flex flex-col sm:flex-row items-center gap-6">
-              <CheckCircle2 className="h-8 w-8 text-emerald-400 flex-shrink-0" />
-              <div className="flex-1">
-                <p className="text-white font-display font-semibold text-lg">
-                  {completedCount} of {totalExercises} exercises completed
-                </p>
-                <div className="mt-2 h-2 rounded-full bg-white/10 overflow-hidden">
-                  <div
-                    className="h-full rounded-full bg-gradient-to-r from-cyan-400 to-emerald-400 transition-all duration-500"
-                    style={{ width: `${Math.round((completedCount / totalExercises) * 100)}%` }}
-                  />
+      <div className="max-w-5xl mx-auto px-4 py-14 sm:py-20">
+        {/* ─── Filters ────────────────────── */}
+        <div className="flex flex-wrap items-center gap-2 mb-10">
+          <button
+            onClick={() => setFilter(null)}
+            className={`px-4 py-2 text-xs font-medium rounded-lg border transition-all duration-200 ${
+              !filter
+                ? 'bg-theme-card border-theme-border text-heading'
+                : 'border-theme-border text-muted hover:text-heading hover:bg-theme-card-hover'
+            }`}
+          >
+            All Skills
+          </button>
+          {categories.map(cat => {
+            const c = colorClasses[cat.color]
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setFilter(cat.id)}
+                className={`px-4 py-2 text-xs font-medium rounded-lg border transition-all duration-200 flex items-center space-x-1.5 ${
+                  filter === cat.id
+                    ? `${c.bg} border-transparent ${c.text}`
+                    : 'border-theme-border text-muted hover:text-heading hover:bg-theme-card-hover'
+                }`}
+              >
+                <cat.icon className="h-3.5 w-3.5" />
+                <span>{cat.label}</span>
+              </button>
+            )
+          })}
+        </div>
+
+        {/* ─── Category Sections ──────────── */}
+        <div className="space-y-16">
+          {filteredCategories.map(cat => {
+            const c = colorClasses[cat.color]
+            return (
+              <section key={cat.id}>
+                <div className="flex items-center justify-between mb-5">
+                  <div className="flex items-center space-x-3">
+                    <div className={`w-8 h-8 rounded-lg ${c.bg} flex items-center justify-center`}>
+                      <cat.icon className={`h-4 w-4 ${c.text}`} />
+                    </div>
+                    <h2 className="text-lg font-display font-semibold text-heading">{cat.label}</h2>
+                    <span className="text-xs text-muted">({cat.exercises.length})</span>
+                  </div>
+                  <Link
+                    to={`/${cat.id}`}
+                    className={`text-xs font-medium ${c.text} hover:underline flex items-center space-x-1`}
+                  >
+                    <span>View all</span>
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
                 </div>
-              </div>
-              <p className="text-2xl font-display font-bold text-white">
-                {Math.round((completedCount / totalExercises) * 100)}%
-              </p>
-            </div>
-          </div>
-        </section>
+
+                <div className="space-y-2.5">
+                  {cat.exercises.map(ex => (
+                    <button
+                      key={ex.id}
+                      onClick={() => setSelectedExercise(ex)}
+                      className="w-full group gradient-border-card glass-hover flex items-center justify-between p-4 sm:p-5 text-left"
+                    >
+                      <div className="flex items-center space-x-3 min-w-0">
+                        <div className={`w-9 h-9 rounded-lg ${c.bg} flex items-center justify-center shrink-0`}>
+                          <cat.icon className={`h-4 w-4 ${c.text}`} />
+                        </div>
+                        <div className="min-w-0">
+                          <h3 className={`text-sm font-medium text-heading truncate group-hover:${c.text} transition-colors`}>
+                            {ex.title}
+                          </h3>
+                          <div className="flex items-center space-x-3 mt-0.5">
+                            <span className="text-xs text-muted flex items-center space-x-1">
+                              <Clock className="h-3 w-3" />
+                              <span>{ex.duration}m</span>
+                            </span>
+                            <span className="text-xs text-muted">{ex.difficulty}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <ChevronRight className="h-4 w-4 text-muted group-hover:text-heading group-hover:translate-x-0.5 transition-all shrink-0 ml-3" />
+                    </button>
+                  ))}
+                </div>
+              </section>
+            )
+          })}
+        </div>
+      </div>
+
+      {selectedExercise && (
+        <ExerciseView
+          exercise={selectedExercise}
+          onClose={() => setSelectedExercise(null)}
+        />
       )}
-
-      {/* Modules */}
-      <section className="py-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {modules.map((mod, i) => {
-              const Icon = mod.icon
-              return (
-                <Link
-                  key={mod.title}
-                  to={mod.path}
-                  className={`group glass-hover p-8 opacity-0 animate-fade-in-up stagger-${i + 1}`}
-                >
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${mod.gradient} flex items-center justify-center mb-5 ${mod.glow} transition-all duration-300 group-hover:scale-110`}>
-                    <Icon className="h-7 w-7 text-white" />
-                  </div>
-                  <h3 className="text-xl font-display font-bold text-white mb-2">{mod.title}</h3>
-                  <div className="flex items-center space-x-4 text-sm text-gray-400 mb-4">
-                    <span className="flex items-center"><Target className="h-4 w-4 mr-1" />{mod.count} exercises</span>
-                    <span className="flex items-center"><Clock className="h-4 w-4 mr-1" />{mod.time}</span>
-                  </div>
-                  <span className="inline-flex items-center text-sm text-cyan-400 group-hover:translate-x-1 transition-transform">
-                    Go to practice <ArrowRight className="h-4 w-4 ml-1" />
-                  </span>
-                </Link>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Full Mock CTA */}
-      <section className="pb-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="glass p-10 border-cyan-500/20">
-            <h2 className="text-2xl sm:text-3xl font-display font-bold text-white mb-3">
-              Take a Full Mock Test
-            </h2>
-            <p className="text-gray-400 mb-6 max-w-lg mx-auto">
-              Simulate the real IELTS experience with timed tests across all four skills.
-            </p>
-            <button className="btn-gradient px-8 py-3 text-base font-semibold rounded-xl animate-glow-pulse">
-              Start Full Test
-            </button>
-          </div>
-        </div>
-      </section>
     </div>
   )
 }
+
+
