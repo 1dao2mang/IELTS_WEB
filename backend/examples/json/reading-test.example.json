@@ -1,0 +1,47 @@
+{
+  "title": "IELTS Reading Practice Test 1",
+  "description": "Reading practice test",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "READING",
+      "title": "Reading Practice Test 1",
+      "passages": [
+        { "title": "Passage 1", "content": "Full passage 1 text here..." },
+        { "title": "Passage 2", "content": "Full passage 2 text here..." },
+        { "title": "Passage 3", "content": "Full passage 3 text here..." }
+      ],
+      "questions": [
+        {
+          "questionNumber": 1,
+          "questionText": "Question 1 text",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": ["A", "B", "C", "D"],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 2,
+          "questionText": "Question 2 text",
+          "questionType": "TRUE_FALSE_NOTGIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "correctAnswer": "TRUE"
+        },
+        {
+          "questionNumber": 3,
+          "questionText": "Question 3 text",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": ["A", "B", "C", "D"],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 4,
+          "questionText": "Question 4 text",
+          "questionType": "MATCHING_HEADINGS",
+          "options": [],
+          "correctAnswer": "IV"
+        }
+      ]
+    }
+  ]
+}

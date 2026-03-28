@@ -1,0 +1,414 @@
+{
+  "title": "IELTS Listening Sample 13",
+  "description": "Full listening test with 4 sections (Sample 13)",
+  "level": "INTERMEDIATE",
+  "source": "Sample",
+  "sections": [
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 13. Section 1",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-13-section-1.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 1,
+          "questionText": "Temperature: Up to _____ C.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "19"
+        },
+        {
+          "questionNumber": 2,
+          "questionText": "Normally transfer to the airport takes about _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "40 minutes"
+        },
+        {
+          "questionNumber": 3,
+          "questionText": "Facilities: en-suite facilities and a _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Balcony"
+        },
+        {
+          "questionNumber": 4,
+          "questionText": "Facilities: three standard _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Tennis courts"
+        },
+        {
+          "questionNumber": 5,
+          "questionText": "Tuesdays: learning to make _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Fish dishes"
+        },
+        {
+          "questionNumber": 6,
+          "questionText": "Tuesdays: having a _____ concert.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Piano"
+        },
+        {
+          "questionNumber": 7,
+          "questionText": "Wednesdays transport",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Helicopter"
+        },
+        {
+          "questionNumber": 8,
+          "questionText": "Wednesdays: exploring a tropical _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Cretan garden"
+        },
+        {
+          "questionNumber": 9,
+          "questionText": "Thursdays: watching a spectacular display of _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Fireworks"
+        },
+        {
+          "questionNumber": 10,
+          "questionText": "Thursdays transport",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Cable car"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 13. Section 2",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-13-section-2.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 11,
+          "questionText": "The website is organised by",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) family members.",
+            "B) friends.",
+            "C) businessmen."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 12,
+          "questionText": "How long has the website been operated?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) about 3 weeks.",
+            "B) about 3 months.",
+            "C) about 6 months."
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 13,
+          "questionText": "How many registered users are there in the website?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) 1000.",
+            "B) 1500.",
+            "C) 2000."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 14,
+          "questionText": "Which country has the most users in the website?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Ireland.",
+            "B) UK.",
+            "C) Canada."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 15,
+          "questionText": "Which TWO things are most popular among users?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Children's books",
+            "B) Textbooks",
+            "C) Computer games",
+            "D) Toys",
+            "E) Tools"
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 16,
+          "questionText": "Which TWO things are most popular among users?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Children's books",
+            "B) Textbooks",
+            "C) Computer games",
+            "D) Toys",
+            "E) Tools"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 17,
+          "questionText": "The website will sort out _____ items to help those who can't decide what to exchange.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Popular"
+        },
+        {
+          "questionNumber": 18,
+          "questionText": "Do not bother because everyone's _____ is different.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Taste"
+        },
+        {
+          "questionNumber": 19,
+          "questionText": "Users will give _____ on the completion of exchanges.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Feedback"
+        },
+        {
+          "questionNumber": 20,
+          "questionText": "Criteria: the _____ of delivering",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Speed"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 13. Section 3",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-13-section-3.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 21,
+          "questionText": "What should be firstly included in the reflective journal?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Topics he is going to talk about.",
+            "B) Study aims for the module.",
+            "C) Suggestions from others."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 22,
+          "questionText": "The woman has got",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) a lot of friends to help her.",
+            "B) several books that may be useful.",
+            "C) sufficient resources showing she is a good technology user."
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 23,
+          "questionText": "What was the man's biggest achievement in the past?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) He worked as a waiter in a restaurant.",
+            "B) He got an offer to lead a team.",
+            "C) He became a chairman of the Students Union."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 24,
+          "questionText": "The man decides to",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) do it by himself.",
+            "B) find a tutor.",
+            "C) listen to others."
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 25,
+          "questionText": "What is the man's attitude after the discussion?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) He thinks it is useless.",
+            "B) He is looking forward to it.",
+            "C) He feels uncertain about it."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 26,
+          "questionText": "What should be shown in the man's reflective journal?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Self-awareness.",
+            "B) Mistakes.",
+            "C) Achievements."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 27,
+          "questionText": "What is the woman's attitude towards each activity of study?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) define a problem",
+            "B) independent learning",
+            "C) develop study skills",
+            "D) gain confidence",
+            "E) find it difficult"
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 28,
+          "questionText": "What is the woman's attitude towards each activity of study?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) define a problem",
+            "B) independent learning",
+            "C) develop study skills",
+            "D) gain confidence",
+            "E) find it difficult"
+          ],
+          "correctAnswer": "D"
+        },
+        {
+          "questionNumber": 29,
+          "questionText": "What is the woman's attitude towards each activity of study?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) define a problem",
+            "B) independent learning",
+            "C) develop study skills",
+            "D) gain confidence",
+            "E) find it difficult"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 30,
+          "questionText": "What is the woman's attitude towards each activity of study?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) define a problem",
+            "B) independent learning",
+            "C) develop study skills",
+            "D) gain confidence",
+            "E) find it difficult"
+          ],
+          "correctAnswer": "E"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 13. Section 4",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-13-section-4.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 31,
+          "questionText": "Current research: rule out _____ and biological factors.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Genetic"
+        },
+        {
+          "questionNumber": 32,
+          "questionText": "Learn through _____ of other chimps' behaviour.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Observation"
+        },
+        {
+          "questionNumber": 33,
+          "questionText": "Discovery suggests that chimpanzees know how to use _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Tools"
+        },
+        {
+          "questionNumber": 34,
+          "questionText": "Chimpanzees in Senegal can _____ the shell of the coconut.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Open"
+        },
+        {
+          "questionNumber": 35,
+          "questionText": "Use a _____ hammer to crush nuts.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Stone"
+        },
+        {
+          "questionNumber": 36,
+          "questionText": "Capable of learning _____ and understanding human language.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Symbols"
+        },
+        {
+          "questionNumber": 37,
+          "questionText": "Bonobos live on the other side of _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "River"
+        },
+        {
+          "questionNumber": 38,
+          "questionText": "Both are reducing alarmingly in population _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Density"
+        },
+        {
+          "questionNumber": 39,
+          "questionText": "Which TWO topics about chimpanzees will the students discuss next week?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) They are slower than human in different ways.",
+            "B) They learn things by copying humans' behaviour.",
+            "C) They develop behaviours generation by generation.",
+            "D) They have very strong ability of logical thinking.",
+            "E) They could be modified to adapt to the environment."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 40,
+          "questionText": "Which TWO topics about chimpanzees will the students discuss next week?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) They are slower than human in different ways.",
+            "B) They learn things by copying humans' behaviour.",
+            "C) They develop behaviours generation by generation.",
+            "D) They have very strong ability of logical thinking.",
+            "E) They could be modified to adapt to the environment."
+          ],
+          "correctAnswer": "C"
+        }
+      ]
+    }
+  ]
+}

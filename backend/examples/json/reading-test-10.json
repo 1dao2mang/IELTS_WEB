@@ -1,0 +1,83 @@
+{
+  "title": "IELTS Reading Practice Test 10",
+  "description": "Academic reading on food systems and agriculture",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "READING",
+      "title": "Reading Passage 10",
+      "passages": [
+        {
+          "title": "Passage 1",
+          "content": "Sustainable agriculture practices are essential for food security and environmental protection. Conventional farming relies heavily on chemical pesticides and fertilizers causing environmental degradation. Organic farming reduces chemical use and improves soil health. Crop rotation and intercropping enhance biodiversity and reduce pest problems. Precision agriculture uses technology to optimize resource use and minimize waste. Sustainable farming methods provide nutritious food while preserving ecosystems for future generations."
+        },
+        {
+          "title": "Passage 2",
+          "content": "Food waste is a global problem with significant environmental and economic consequences. Approximately one-third of food produced globally is wasted. Food waste contributes to greenhouse gas emissions and depletes natural resources. Waste reduction strategies include improved storage, processing efficiency, and consumer awareness. Redistribution of surplus food to those in need addresses both food waste and food insecurity. Technological innovations such as food preservation and packaging advances help reduce waste."
+        },
+        {
+          "title": "Passage 3",
+          "content": "Plant-based diets offer environmental and health benefits compared to conventional meat consumption. Livestock farming requires substantial land and water resources. Reducing meat consumption decreases carbon emissions and environmental impact. Plant-based alternatives have improved significantly in taste and nutritional value. However, dietary choices are influenced by cultural preferences, accessibility, and cost factors. Transitioning to more sustainable food systems requires multiple approaches including sustainable agriculture, reduced meat consumption, and food waste reduction."
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 46,
+          "questionText": "What is a benefit of crop rotation in sustainable agriculture?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Increases chemical pesticide use",
+            "B) Enhances biodiversity and reduces pests",
+            "C) Depletes soil nutrients",
+            "D) Increases water consumption"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 47,
+          "questionText": "According to the passage, approximately one-third of food produced is wasted. True or False?",
+          "questionType": "TRUE_FALSE_NOTGIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "correctAnswer": "TRUE"
+        },
+        {
+          "questionNumber": 48,
+          "questionText": "What resource demands does livestock farming place on the environment?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Energy only",
+            "B) Land and water resources",
+            "C) Air space only",
+            "D) Mineral resources"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 49,
+          "questionText": "Which method is mentioned for reducing food waste?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Increasing production",
+            "B) Improved storage and processing efficiency",
+            "C) Removing nutritional value",
+            "D) Encouraging waste"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 50,
+          "questionText": "What factors influence dietary choices according to the passage?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Only health considerations",
+            "B) Cultural preferences, accessibility, and cost",
+            "C) Government mandates only",
+            "D) Peer pressure exclusively"
+          ],
+          "correctAnswer": "B"
+        }
+      ]
+    }
+  ]
+}

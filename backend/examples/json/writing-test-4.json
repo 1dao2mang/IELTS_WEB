@@ -1,0 +1,22 @@
+{
+  "title": "IELTS Writing Practice Test 4",
+  "description": "Writing task on health and lifestyle",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "WRITING",
+      "title": "Writing Task 1 & 2",
+      "writingTasks": [
+        {
+          "taskType": "TASK_1",
+          "prompt": "The bar chart below shows the percentage of population in different age groups in four European countries. Summarise the information and make comparisons where relevant."
+        },
+        {
+          "taskType": "TASK_2",
+          "prompt": "In today's world, many people are living longer than ever before. Some people say an aging population creates problems, while others think it brings advantages. Discuss both views and give your own opinion."
+        }
+      ]
+    }
+  ]
+}

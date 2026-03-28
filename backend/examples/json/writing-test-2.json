@@ -1,0 +1,22 @@
+{
+  "title": "IELTS Writing Practice Test 2",
+  "description": "Writing task on education and employment",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "WRITING",
+      "title": "Writing Task 1 & 2",
+      "writingTasks": [
+        {
+          "taskType": "TASK_1",
+          "prompt": "The table below gives information about the unemployment rate and average income levels in four cities. Summarise the information by selecting and reporting the main features."
+        },
+        {
+          "taskType": "TASK_2",
+          "prompt": "Higher education is thought by some people to be the only route to success in life. To what extent do you agree or disagree with this opinion?"
+        }
+      ]
+    }
+  ]
+}

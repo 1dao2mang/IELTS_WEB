@@ -1,0 +1,22 @@
+{
+  "title": "IELTS Writing Practice Test 3",
+  "description": "Writing task on climate change and environment",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "WRITING",
+      "title": "Writing Task 1 & 2",
+      "writingTasks": [
+        {
+          "taskType": "TASK_1",
+          "prompt": "The line graph below shows energy consumption in four different countries from 1990 to 2010. Summarise the information by selecting and reporting the main features, and make comparisons where relevant."
+        },
+        {
+          "taskType": "TASK_2",
+          "prompt": "Some people believe that environmental protection is the responsibility of the government, while others think it is the responsibility of individuals. Discuss both views and give your own opinion."
+        }
+      ]
+    }
+  ]
+}

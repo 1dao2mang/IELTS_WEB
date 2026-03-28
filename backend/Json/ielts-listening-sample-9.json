@@ -1,0 +1,403 @@
+{
+  "title": "IELTS Listening Sample 9",
+  "description": "Full listening test with 4 sections (Sample 9)",
+  "level": "INTERMEDIATE",
+  "source": "Sample",
+  "sections": [
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 9. Section 1",
+      "instructions": "Listen to the audio and answer the questions. Write NO MORE THAN TWO WORDS for each answer.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-9-section-1.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 1,
+          "questionText": "Total number of visits",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Three"
+        },
+        {
+          "questionNumber": 2,
+          "questionText": "Best thing about the city",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Amazing weather"
+        },
+        {
+          "questionNumber": 3,
+          "questionText": "Favourite attraction",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Town Hall"
+        },
+        {
+          "questionNumber": 4,
+          "questionText": "Best thing about the destination's dining options",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Variety"
+        },
+        {
+          "questionNumber": 5,
+          "questionText": "Method of transport to destination",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Plane"
+        },
+        {
+          "questionNumber": 6,
+          "questionText": "Age group",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Over forty"
+        },
+        {
+          "questionNumber": 7,
+          "questionText": "Income level",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Mid-range"
+        },
+        {
+          "questionNumber": 8,
+          "questionText": "Purpose of visit (not business)",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Tourism"
+        },
+        {
+          "questionNumber": 9,
+          "questionText": "Occupation",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Computer programmer"
+        },
+        {
+          "questionNumber": 10,
+          "questionText": "Opinion of cost of accommodation",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Good value"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 9. Section 2",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-9-section-2.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 11,
+          "questionText": "Label the map below (choose A-E).",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) A",
+            "B) B",
+            "C) C",
+            "D) D",
+            "E) E"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 12,
+          "questionText": "Label the map below (choose A-E).",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) A",
+            "B) B",
+            "C) C",
+            "D) D",
+            "E) E"
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 13,
+          "questionText": "Label the map below (choose A-E).",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) A",
+            "B) B",
+            "C) C",
+            "D) D",
+            "E) E"
+          ],
+          "correctAnswer": "E"
+        },
+        {
+          "questionNumber": 14,
+          "questionText": "Label the map below (choose A-E).",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) A",
+            "B) B",
+            "C) C",
+            "D) D",
+            "E) E"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 15,
+          "questionText": "Label the map below (choose A-E).",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) A",
+            "B) B",
+            "C) C",
+            "D) D",
+            "E) E"
+          ],
+          "correctAnswer": "D"
+        },
+        {
+          "questionNumber": 16,
+          "questionText": "What is the improvement of each main point of interest in the area?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) New entrance",
+            "B) Free lunch provided",
+            "C) Free information provided",
+            "D) Increase in size",
+            "E) Additional signs",
+            "F) New exhibitions",
+            "G) New structure"
+          ],
+          "correctAnswer": "E"
+        },
+        {
+          "questionNumber": 17,
+          "questionText": "What is the improvement of each main point of interest in the area?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) New entrance",
+            "B) Free lunch provided",
+            "C) Free information provided",
+            "D) Increase in size",
+            "E) Additional signs",
+            "F) New exhibitions",
+            "G) New structure"
+          ],
+          "correctAnswer": "G"
+        },
+        {
+          "questionNumber": 18,
+          "questionText": "What is the improvement of each main point of interest in the area?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) New entrance",
+            "B) Free lunch provided",
+            "C) Free information provided",
+            "D) Increase in size",
+            "E) Additional signs",
+            "F) New exhibitions",
+            "G) New structure"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 19,
+          "questionText": "What is the improvement of each main point of interest in the area?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) New entrance",
+            "B) Free lunch provided",
+            "C) Free information provided",
+            "D) Increase in size",
+            "E) Additional signs",
+            "F) New exhibitions",
+            "G) New structure"
+          ],
+          "correctAnswer": "D"
+        },
+        {
+          "questionNumber": 20,
+          "questionText": "What is the improvement of each main point of interest in the area?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) New entrance",
+            "B) Free lunch provided",
+            "C) Free information provided",
+            "D) Increase in size",
+            "E) Additional signs",
+            "F) New exhibitions",
+            "G) New structure"
+          ],
+          "correctAnswer": "A"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 9. Section 3",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-9-section-3.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 21,
+          "questionText": "The proposal will",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) be reviewed by two examiners.",
+            "B) be added to the final grade.",
+            "C) be returned with feedback."
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 22,
+          "questionText": "The proposal will consist mostly of",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) topics.",
+            "B) methods.",
+            "C) results."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 23,
+          "questionText": "For the practice paper, the tutor has directed the students to make sure to",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) pay attention to time limits.",
+            "B) write at least 6,000 words.",
+            "C) keep on topic."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 24,
+          "questionText": "There is no need to _____ lots of people.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Interview"
+        },
+        {
+          "questionNumber": 25,
+          "questionText": "Pay attention to the _____ of the final report.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Format"
+        },
+        {
+          "questionNumber": 26,
+          "questionText": "Prepare _____, one for the teacher, another for the students themselves.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "2 copies"
+        },
+        {
+          "questionNumber": 27,
+          "questionText": "The deadline of the final paper is _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "May 11"
+        },
+        {
+          "questionNumber": 28,
+          "questionText": "The students can _____ their topics before the beginning of April.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Change"
+        },
+        {
+          "questionNumber": 29,
+          "questionText": "Students deciding to change topics must deliver a _____ to the research in advance.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Note"
+        },
+        {
+          "questionNumber": 30,
+          "questionText": "At the beginning of the report, the hypothesis and an outline of the _____ are needed.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Procedure"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 9. Section 4",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-9-section-4.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 31,
+          "questionText": "The _____ customers must travel affects the probability that they will buy the product.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Distance"
+        },
+        {
+          "questionNumber": 32,
+          "questionText": "Advertising slogans are easier to remember if there is a _____ played with them.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Sound"
+        },
+        {
+          "questionNumber": 33,
+          "questionText": "Mandy's Candy Store appeals to people's sense of _____ to draw in customers.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Smell"
+        },
+        {
+          "questionNumber": 34,
+          "questionText": "To an ad campaign for digital products, it is _____ that is extremely important.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Flexibility"
+        },
+        {
+          "questionNumber": 35,
+          "questionText": "The customer's _____ after he or she experiences the ad is most important.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Reaction"
+        },
+        {
+          "questionNumber": 36,
+          "questionText": "On international flights, it is wise for the advertisement to be displayed in the common _____ of most passengers.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Languages"
+        },
+        {
+          "questionNumber": 37,
+          "questionText": "Very few young people buy _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Newspaper"
+        },
+        {
+          "questionNumber": 38,
+          "questionText": "The UNESCO website would be a good place to advertise for companies aiming to improve the _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Environment"
+        },
+        {
+          "questionNumber": 39,
+          "questionText": "One good location to place ads for sunscreen is the _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Swimming pool"
+        },
+        {
+          "questionNumber": 40,
+          "questionText": "A good scene for a water purification commercial would be _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "National park"
+        }
+      ]
+    }
+  ]
+}

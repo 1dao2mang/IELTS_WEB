@@ -1,0 +1,443 @@
+{
+  "title": "IELTS Listening Sample 10",
+  "description": "Full listening test with 4 sections (Sample 10)",
+  "level": "INTERMEDIATE",
+  "source": "Sample",
+  "sections": [
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 10. Section 1",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-10-section-1.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 1,
+          "questionText": "Street address: 45 _____ Court",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Elsinore"
+        },
+        {
+          "questionNumber": 2,
+          "questionText": "Contact phone number",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "077896245"
+        },
+        {
+          "questionNumber": 3,
+          "questionText": "Current part-time job",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Waiter"
+        },
+        {
+          "questionNumber": 4,
+          "questionText": "Previous job at Ridgemont High School",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Baseball coach"
+        },
+        {
+          "questionNumber": 5,
+          "questionText": "Additional relevant work experience",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Rescue diver"
+        },
+        {
+          "questionNumber": 6,
+          "questionText": "Relevant skills/qualifications: CPR certification & _____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Diving experience"
+        },
+        {
+          "questionNumber": 7,
+          "questionText": "CPR certification expiration date",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "October"
+        },
+        {
+          "questionNumber": 8,
+          "questionText": "Preferred weekly shift",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Saturday mornings"
+        },
+        {
+          "questionNumber": 9,
+          "questionText": "Time available to start work",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "6"
+        },
+        {
+          "questionNumber": 10,
+          "questionText": "Advertisement source",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Radio"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 10. Section 2",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-10-section-2.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 11,
+          "questionText": "The lecture was organised by",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) City of Nottingham.",
+            "B) University of Nottingham Students' Union.",
+            "C) Nottingham Police Department."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 12,
+          "questionText": "The majority of crime on campus is",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) drugs and alcohol.",
+            "B) violence.",
+            "C) theft."
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 13,
+          "questionText": "The campus crime rate has ____________ so far this year.",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) increased.",
+            "B) decreased.",
+            "C) stayed the same."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 14,
+          "questionText": "Why is there added concern about crime?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Exaggeration in media.",
+            "B) Crime TV shows.",
+            "C) Factual news articles."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 15,
+          "questionText": "Carlos says if you are the victim of crime, you should",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) run away.",
+            "B) resist.",
+            "C) seek help."
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 16,
+          "questionText": "What is the primary method for increasing safety?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Informing students and staff of safety precautions.",
+            "B) Offering free self-defense courses to students.",
+            "C) Reminding students to carry a mobile phone at all times."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 17,
+          "questionText": "If a student must work late, it is most important to",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) not return home until the morning.",
+            "B) go back with a friend.",
+            "C) bring a mobile phone."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 18,
+          "questionText": "It is dangerous to",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) drive home late at night.",
+            "B) carry a knife.",
+            "C) carry pepper spray."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 19,
+          "questionText": "Students who complete self-defense course are",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) more aware of dangers.",
+            "B) mentally tougher.",
+            "C) walking more confidently."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 20,
+          "questionText": "A university is",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) not surrounded by walls.",
+            "B) patrolled by military.",
+            "C) completely safe."
+          ],
+          "correctAnswer": "A"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 10. Section 3",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-10-section-3.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 21,
+          "questionText": "Information on the test is from",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) the teacher.",
+            "B) a class.",
+            "C) a handout."
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 22,
+          "questionText": "This assignment is important because",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) it will become a permanent record.",
+            "B) it is a must for passing 11th grade English.",
+            "C) it will affect the English level next year."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 23,
+          "questionText": "Bobby chooses football as project topic because",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) he often plays football.",
+            "B) his father loves football.",
+            "C) he is interested in football."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 24,
+          "questionText": "What problems do the speakers identify for this project?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) too vague",
+            "B) too factual",
+            "C) too unreliable",
+            "D) too noisy",
+            "E) too long",
+            "F) too short",
+            "G) too complicated",
+            "H) too simple"
+          ],
+          "correctAnswer": "D"
+        },
+        {
+          "questionNumber": 25,
+          "questionText": "What problems do the speakers identify for this project?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) too vague",
+            "B) too factual",
+            "C) too unreliable",
+            "D) too noisy",
+            "E) too long",
+            "F) too short",
+            "G) too complicated",
+            "H) too simple"
+          ],
+          "correctAnswer": "F"
+        },
+        {
+          "questionNumber": 26,
+          "questionText": "What problems do the speakers identify for this project?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) too vague",
+            "B) too factual",
+            "C) too unreliable",
+            "D) too noisy",
+            "E) too long",
+            "F) too short",
+            "G) too complicated",
+            "H) too simple"
+          ],
+          "correctAnswer": "G"
+        },
+        {
+          "questionNumber": 27,
+          "questionText": "What problems do the speakers identify for this project?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) too vague",
+            "B) too factual",
+            "C) too unreliable",
+            "D) too noisy",
+            "E) too long",
+            "F) too short",
+            "G) too complicated",
+            "H) too simple"
+          ],
+          "correctAnswer": "E"
+        },
+        {
+          "questionNumber": 28,
+          "questionText": "What problems do the speakers identify for this project?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) too vague",
+            "B) too factual",
+            "C) too unreliable",
+            "D) too noisy",
+            "E) too long",
+            "F) too short",
+            "G) too complicated",
+            "H) too simple"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 29,
+          "questionText": "What problems do the speakers identify for this project?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) too vague",
+            "B) too factual",
+            "C) too unreliable",
+            "D) too noisy",
+            "E) too long",
+            "F) too short",
+            "G) too complicated",
+            "H) too simple"
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 30,
+          "questionText": "What problems do the speakers identify for this project?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) too vague",
+            "B) too factual",
+            "C) too unreliable",
+            "D) too noisy",
+            "E) too long",
+            "F) too short",
+            "G) too complicated",
+            "H) too simple"
+          ],
+          "correctAnswer": "B"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 10. Section 4",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-10-section-4.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 31,
+          "questionText": "Lecturers often feel more nervous if a speech is _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Important"
+        },
+        {
+          "questionNumber": 32,
+          "questionText": "Many think the ability to make a good public speaking is _____ .",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "A gift"
+        },
+        {
+          "questionNumber": 33,
+          "questionText": "The audience will only remember the _____ sentence of speech.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Last"
+        },
+        {
+          "questionNumber": 34,
+          "questionText": "Ensure that your speech is _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Well-organised"
+        },
+        {
+          "questionNumber": 35,
+          "questionText": "Don't start your speech until audience is _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Paying attention"
+        },
+        {
+          "questionNumber": 36,
+          "questionText": "You can make your main ideas or notes on cards or a _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Sheet of paper"
+        },
+        {
+          "questionNumber": 37,
+          "questionText": "You do not need to write down the _____ speech.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Entire/Full"
+        },
+        {
+          "questionNumber": 38,
+          "questionText": "You can just write _____ ideas.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "One or two"
+        },
+        {
+          "questionNumber": 39,
+          "questionText": "Remember to _____ yourself to see how long your speech will be.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Time"
+        },
+        {
+          "questionNumber": 40,
+          "questionText": "Don't just _____ a script.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Read"
+        }
+      ]
+    }
+  ]
+}
