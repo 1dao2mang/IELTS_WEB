@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { testService } from '@/services/test.service'
 import { getExercisesByType } from '@/data/mockData'
 import type { Exercise, SkillType } from '@/types'
+import type { ITestDTO } from '@/types/dto'
 
 interface TestStore {
   exercises: Record<SkillType, Exercise[]>
@@ -38,7 +39,7 @@ export const useTestStore = create<TestStore>((set, get) => ({
       // If BE returns a valid array of tests
       if (res && res.data && Array.isArray(res.data) && res.data.length > 0) {
         // Map backend model to FE model 
-        const mappedData: Exercise[] = res.data.map((item: any) => ({
+        const mappedData: Exercise[] = res.data.map((item: ITestDTO) => ({
           id: String(item.id),
           type: type,
           title: item.title || 'Untitled Exercise',

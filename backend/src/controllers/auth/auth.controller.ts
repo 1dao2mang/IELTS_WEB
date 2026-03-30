@@ -6,258 +6,235 @@ import prisma from "../../config/database.config";
 import { jwtConfig } from "../../config/jwt.config";
 import { AuthRequest } from "../../middlewares/auth.middleware";
 import { ValidationRequest } from "../../middlewares/validation.middleware";
+import { catchAsync } from "../../utils/helpers/catch-async.helper";
 
 export class AuthController {
   // POST /api/auth/register
-  async register(req: ValidationRequest, res: Response, next: NextFunction) {
-    try {
-      const { email, password, fullName } = req.validatedBody || req.body;
+  register = catchAsync(async (req: ValidationRequest, res: Response, next: NextFunction) => {
+    const { email, password, fullName } = req.validatedBody || req.body;
 
-      // Check if user exists
-      const existingUser = await prisma.user.findUnique({
-        where: { email },
-      });
+    // Check if user exists
+    const existingUser = await prisma.user.findUnique({
+      where: { email },
+    });
 
-      if (existingUser) {
-        return res.status(400).json({
-          success: false,
-          error: {
-            code: "USER_EXISTS",
-            message: "Email already exists",
-          },
-        });
-      }
-
-      // Hash password
-      const saltRounds = 12;
-      const passwordHash = await bcrypt.hash(password, saltRounds);
-
-      // Create user with profile
-      const user = await prisma.user.create({
-        data: {
-          email,
-          passwordHash,
-          role: "student",
-          profile: {
-            create: {
-              fullName: fullName || email.split("@")[0],
-            },
-          },
-        },
-        include: { profile: true },
-      });
-
-      // Generate JWT tokens
-      const accessToken = (jwt.sign as any)(
-        { userId: user.id.toString(), email: user.email },
-        jwtConfig.accessTokenSecret,
-        { expiresIn: jwtConfig.accessTokenExpiry }
-      );
-
-      const refreshToken = (jwt.sign as any)(
-        { userId: user.id.toString() },
-        jwtConfig.refreshTokenSecret,
-        { expiresIn: jwtConfig.refreshTokenExpiry }
-      );
-
-      return res.status(201).json({
-        success: true,
-        message: "User registered successfully",
-        data: {
-          user: {
-            id: Number(user.id),
-            email: user.email,
-            fullName: user.profile?.fullName,
-            role: user.role,
-          },
-          tokens: {
-            accessToken,
-            refreshToken,
-          },
+    if (existingUser) {
+      return res.status(400).json({
+        success: false,
+        error: {
+          code: "USER_EXISTS",
+          message: "Email already exists",
         },
       });
-    } catch (error) {
-      return next(error);
     }
-  }
 
-  // POST /api/auth/login
-  async login(req: ValidationRequest, res: Response, next: NextFunction) {
-    try {
-      const { email, password } = req.validatedBody || req.body;
+    // Hash password
+    const saltRounds = 12;
+    const passwordHash = await bcrypt.hash(password, saltRounds);
 
-      const user = await prisma.user.findUnique({
-        where: { email },
-        include: { profile: true },
-      });
-
-      if (!user) {
-        return res.status(401).json({
-          success: false,
-          error: {
-            code: "INVALID_CREDENTIALS",
-            message: "Invalid email or password",
-          },
-        });
-      }
-
-      // Verify password using bcrypt
-      const isPasswordValid = await bcrypt.compare(password, user.passwordHash);
-      if (!isPasswordValid) {
-        return res.status(401).json({
-          success: false,
-          error: {
-            code: "INVALID_CREDENTIALS",
-            message: "Invalid email or password",
-          },
-        });
-      }
-
-      // Generate JWT tokens
-      const accessToken = (jwt.sign as any)(
-        { userId: user.id.toString(), email: user.email },
-        jwtConfig.accessTokenSecret,
-        { expiresIn: jwtConfig.accessTokenExpiry }
-      );
-
-      const refreshToken = (jwt.sign as any)(
-        { userId: user.id.toString() },
-        jwtConfig.refreshTokenSecret,
-        { expiresIn: jwtConfig.refreshTokenExpiry }
-      );
-
-      return res.json({
-        success: true,
-        message: "Login successful",
-        data: {
-          user: {
-            id: Number(user.id),
-            email: user.email,
-            fullName: user.profile?.fullName,
-            role: user.role,
-          },
-          tokens: {
-            accessToken,
-            refreshToken,
+    // Create user with profile
+    const user = await prisma.user.create({
+      data: {
+        email,
+        passwordHash,
+        role: "student",
+        profile: {
+          create: {
+            fullName: fullName || email.split("@")[0],
           },
         },
-      });
-    } catch (error) {
-      return next(error);
-    }
-  }
+      },
+      include: { profile: true },
+    });
 
-  // POST /api/auth/logout
-  async logout(_req: Request, res: Response, next: NextFunction) {
-    try {
-      return res.json({
-        success: true,
-        message: "Logout successful",
-      });
-    } catch (error) {
-      return next(error);
-    }
-  }
+    // Generate JWT tokens
+    const accessToken = (jwt.sign as any)(
+      { userId: user.id.toString(), email: user.email },
+      jwtConfig.accessTokenSecret,
+      { expiresIn: jwtConfig.accessTokenExpiry }
+    );
 
-  // GET /api/auth/me
-  async getCurrentUser(req: AuthRequest, res: Response, next: NextFunction) {
-    try {
-      const userId = req.user?.id;
+    const refreshToken = (jwt.sign as any)(
+      { userId: user.id.toString() },
+      jwtConfig.refreshTokenSecret,
+      { expiresIn: jwtConfig.refreshTokenExpiry }
+    );
 
-      if (!userId) {
-        return res.status(401).json({
-          success: false,
-          error: {
-            code: "UNAUTHORIZED",
-            message: "User not authenticated",
-          },
-        });
-      }
-
-      const user = await prisma.user.findUnique({
-        where: { id: BigInt(userId) },
-        include: { profile: true },
-      });
-
-      if (!user) {
-        return res.status(404).json({
-          success: false,
-          error: {
-            code: "USER_NOT_FOUND",
-            message: "User not found",
-          },
-        });
-      }
-
-      return res.json({
-        success: true,
-        data: {
+    return res.status(201).json({
+      success: true,
+      message: "User registered successfully",
+      data: {
+        user: {
           id: Number(user.id),
           email: user.email,
           fullName: user.profile?.fullName,
           role: user.role,
-          createdAt: user.createdAt,
+        },
+        tokens: {
+          accessToken,
+          refreshToken,
+        },
+      },
+    });
+  });
+
+  // POST /api/auth/login
+  login = catchAsync(async (req: ValidationRequest, res: Response, next: NextFunction) => {
+    const { email, password } = req.validatedBody || req.body;
+
+    const user = await prisma.user.findUnique({
+      where: { email },
+      include: { profile: true },
+    });
+
+    if (!user) {
+      return res.status(401).json({
+        success: false,
+        error: {
+          code: "INVALID_CREDENTIALS",
+          message: "Invalid email or password",
         },
       });
-    } catch (error) {
-      return next(error);
     }
-  }
+
+    // Verify password using bcrypt
+    const isPasswordValid = await bcrypt.compare(password, user.passwordHash);
+    if (!isPasswordValid) {
+      return res.status(401).json({
+        success: false,
+        error: {
+          code: "INVALID_CREDENTIALS",
+          message: "Invalid email or password",
+        },
+      });
+    }
+
+    // Generate JWT tokens
+    const accessToken = (jwt.sign as any)(
+      { userId: user.id.toString(), email: user.email },
+      jwtConfig.accessTokenSecret,
+      { expiresIn: jwtConfig.accessTokenExpiry }
+    );
+
+    const refreshToken = (jwt.sign as any)(
+      { userId: user.id.toString() },
+      jwtConfig.refreshTokenSecret,
+      { expiresIn: jwtConfig.refreshTokenExpiry }
+    );
+
+    return res.json({
+      success: true,
+      message: "Login successful",
+      data: {
+        user: {
+          id: Number(user.id),
+          email: user.email,
+          fullName: user.profile?.fullName,
+          role: user.role,
+        },
+        tokens: {
+          accessToken,
+          refreshToken,
+        },
+      },
+    });
+  });
+
+  // POST /api/auth/logout
+  logout = catchAsync(async (_req: Request, res: Response, next: NextFunction) => {
+    return res.json({
+      success: true,
+      message: "Logout successful",
+    });
+  });
+
+  // GET /api/auth/me
+  getCurrentUser = catchAsync(async (req: AuthRequest, res: Response, next: NextFunction) => {
+    const userId = req.user?.id;
+
+    if (!userId) {
+      return res.status(401).json({
+        success: false,
+        error: {
+          code: "UNAUTHORIZED",
+          message: "User not authenticated",
+        },
+      });
+    }
+
+    const user = await prisma.user.findUnique({
+      where: { id: BigInt(userId) },
+      include: { profile: true },
+    });
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        error: {
+          code: "USER_NOT_FOUND",
+          message: "User not found",
+        },
+      });
+    }
+
+    return res.json({
+      success: true,
+      data: {
+        id: Number(user.id),
+        email: user.email,
+        fullName: user.profile?.fullName,
+        role: user.role,
+        createdAt: user.createdAt,
+      },
+    });
+  });
 
   // POST /api/auth/forgot-password
-  async forgotPassword(
+  forgotPassword = catchAsync(async (
     req: ValidationRequest,
     res: Response,
     next: NextFunction
-  ) {
-    try {
-      const { email } = req.validatedBody || req.body;
+  ) => {
+    const { email } = req.validatedBody || req.body;
 
-      // Check if user exists
-      const user = await prisma.user.findUnique({
-        where: { email },
+    // Check if user exists
+    const user = await prisma.user.findUnique({
+      where: { email },
+    });
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        error: {
+          code: "USER_NOT_FOUND",
+          message: "User not found",
+        },
       });
-
-      if (!user) {
-        return res.status(404).json({
-          success: false,
-          error: {
-            code: "USER_NOT_FOUND",
-            message: "User not found",
-          },
-        });
-      }
-
-      // TODO: Implement email sending functionality
-      // Generate reset token and send email
-
-      return res.json({
-        success: true,
-        message: "Password reset email sent",
-      });
-    } catch (error) {
-      return next(error);
     }
-  }
+
+    // TODO: Implement email sending functionality
+    // Generate reset token and send email
+
+    return res.json({
+      success: true,
+      message: "Password reset email sent",
+    });
+  });
 
   // POST /api/auth/reset-password
-  async resetPassword(
+  resetPassword = catchAsync(async (
     req: ValidationRequest,
     res: Response,
     next: NextFunction
-  ) {
-    try {
-      const { token: _token, newPassword: _newPassword } = req.validatedBody || req.body;
+  ) => {
+    const { token: _token, newPassword: _newPassword } = req.validatedBody || req.body;
 
-      // TODO: Verify reset token and implement password reset
-      // For now, just return success
+    // TODO: Verify reset token and implement password reset
+    // For now, just return success
 
-      return res.json({
-        success: true,
-        message: "Password reset successful",
-      });
-    } catch (error) {
-      return next(error);
-    }
-  }
+    return res.json({
+      success: true,
+      message: "Password reset successful",
+    });
+  });
 }

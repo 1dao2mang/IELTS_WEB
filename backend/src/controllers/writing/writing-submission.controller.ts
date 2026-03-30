@@ -2,6 +2,7 @@
 import { Request, Response, NextFunction } from "express";
 import prisma from "../../config/database.config";
 import { WritingScoringService } from "../../services/writing/writing-scoring.service";
+import { catchAsync } from "../../utils/helpers/catch-async.helper";
 
 export class WritingSubmissionController {
   private scoringService: WritingScoringService;
@@ -11,38 +12,34 @@ export class WritingSubmissionController {
   }
 
   // POST /api/writing/submissions/submit
-  async submitWriting(req: Request, res: Response, next: NextFunction) {
-    try {
-      const { testAttemptId, writingTaskId, content } = req.body;
+  submitWriting = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+    const { testAttemptId, writingTaskId, content } = req.body;
 
-      const submission = await prisma.writingSubmission.create({
-        data: {
-          testAttemptId: BigInt(testAttemptId),
-          writingTaskId: BigInt(writingTaskId),
-          content,
-        },
-      });
-
-      // Trigger AI evaluation asynchronously (don't await)
-      this.evaluateSubmissionAsync(
-        submission.id,
+    const submission = await prisma.writingSubmission.create({
+      data: {
+        testAttemptId: BigInt(testAttemptId),
+        writingTaskId: BigInt(writingTaskId),
         content,
-        BigInt(writingTaskId)
-      ).catch((error) => {
-        console.error("❌ AI evaluation failed:", error.message);
-      });
+      },
+    });
 
-      return res.json({
-        success: true,
-        message: "Writing submitted successfully. AI evaluation in progress...",
-        data: {
-          submissionId: Number(submission.id),
-        },
-      });
-    } catch (error) {
-      return next(error);
-    }
-  }
+    // Trigger AI evaluation asynchronously (don't await)
+    this.evaluateSubmissionAsync(
+      submission.id,
+      content,
+      BigInt(writingTaskId)
+    ).catch((error) => {
+      console.error("❌ AI evaluation failed:", error.message);
+    });
+
+    return res.json({
+      success: true,
+      message: "Writing submitted successfully. AI evaluation in progress...",
+      data: {
+        submissionId: Number(submission.id),
+      },
+    });
+  });
 
   /**
    * Evaluate submission asynchronously
@@ -109,123 +106,111 @@ export class WritingSubmissionController {
   }
 
   // GET /api/writing/submissions/:submissionId
-  async getSubmission(req: Request, res: Response, next: NextFunction) {
-    try {
-      const { submissionId } = req.params;
+  getSubmission = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+    const { submissionId } = req.params;
 
-      const submission = await prisma.writingSubmission.findUnique({
-        where: { id: BigInt(submissionId) },
+    const submission = await prisma.writingSubmission.findUnique({
+      where: { id: BigInt(submissionId) },
+    });
+
+    if (!submission) {
+      return res.status(404).json({
+        success: false,
+        error: { code: "NOT_FOUND", message: "Submission not found" },
       });
-
-      if (!submission) {
-        return res.status(404).json({
-          success: false,
-          error: { code: "NOT_FOUND", message: "Submission not found" },
-        });
-      }
-
-      return res.json({
-        success: true,
-        data: {
-          id: Number(submission.id),
-          content: submission.content,
-          submittedAt: submission.submittedAt,
-          bandScore: submission.bandScore
-            ? Number(submission.bandScore)
-            : null,
-        },
-      });
-    } catch (error) {
-      return next(error);
     }
-  }
+
+    return res.json({
+      success: true,
+      data: {
+        id: Number(submission.id),
+        content: submission.content,
+        submittedAt: submission.submittedAt,
+        bandScore: submission.bandScore
+          ? Number(submission.bandScore)
+          : null,
+      },
+    });
+  });
 
   // GET /api/writing/submissions/:submissionId/feedback
-  async getFeedback(req: Request, res: Response, next: NextFunction) {
-    try {
-      const { submissionId } = req.params;
+  getFeedback = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+    const { submissionId } = req.params;
 
-      const submission = await prisma.writingSubmission.findUnique({
-        where: { id: BigInt(submissionId) },
+    const submission = await prisma.writingSubmission.findUnique({
+      where: { id: BigInt(submissionId) },
+    });
+
+    if (!submission) {
+      return res.status(404).json({
+        success: false,
+        error: { code: "NOT_FOUND", message: "Submission not found" },
       });
-
-      if (!submission) {
-        return res.status(404).json({
-          success: false,
-          error: { code: "NOT_FOUND", message: "Submission not found" },
-        });
-      }
-
-      // Parse feedback if it exists
-      let feedback = null;
-      if (submission.feedback) {
-        try {
-          feedback = JSON.parse(submission.feedback);
-        } catch {
-          feedback = { note: submission.feedback };
-        }
-      }
-
-      return res.json({
-        success: true,
-        data: {
-          feedback: feedback || "Evaluation in progress...",
-          bandScore: submission.bandScore
-            ? Number(submission.bandScore)
-            : null,
-        },
-      });
-    } catch (error) {
-      return next(error);
     }
-  }
+
+    // Parse feedback if it exists
+    let feedback = null;
+    if (submission.feedback) {
+      try {
+        feedback = JSON.parse(submission.feedback);
+      } catch {
+        feedback = { note: submission.feedback };
+      }
+    }
+
+    return res.json({
+      success: true,
+      data: {
+        feedback: feedback || "Evaluation in progress...",
+        bandScore: submission.bandScore
+          ? Number(submission.bandScore)
+          : null,
+      },
+    });
+  });
 
   // POST /api/writing/submissions/:submissionId/evaluate
   // Manually trigger AI evaluation for existing submission
-  async triggerEvaluation(req: Request, res: Response, next: NextFunction) {
-    try {
-      const { submissionId } = req.params;
+  triggerEvaluation = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+    const { submissionId } = req.params;
 
-      const submission = await prisma.writingSubmission.findUnique({
-        where: { id: BigInt(submissionId) },
+    const submission = await prisma.writingSubmission.findUnique({
+      where: { id: BigInt(submissionId) },
+    });
+
+    if (!submission) {
+      return res.status(404).json({
+        success: false,
+        error: { code: "NOT_FOUND", message: "Submission not found" },
       });
+    }
 
-      if (!submission) {
-        return res.status(404).json({
-          success: false,
-          error: { code: "NOT_FOUND", message: "Submission not found" },
-        });
-      }
-
-      // Check if already evaluated
-      if (submission.bandScore) {
-        return res.json({
-          success: true,
-          message: "Already evaluated",
-          data: {
-            bandScore: Number(submission.bandScore),
-          },
-        });
-      }
-
-      // Trigger evaluation async
-      this.evaluateSubmissionAsync(
-        submission.id,
-        submission.content,
-        submission.writingTaskId
-      ).catch((error) => {
-        console.error("❌ Manual evaluation failed:", error.message);
-      });
-
+    // Check if already evaluated
+    if (submission.bandScore) {
       return res.json({
         success: true,
-        message: "AI evaluation triggered. Poll /feedback endpoint for results.",
+        message: "Already evaluated",
         data: {
-          submissionId: Number(submission.id),
+          bandScore: Number(submission.bandScore),
         },
       });
-    } catch (error) {
-      return next(error);
     }
-  }
+
+    // Trigger evaluation async
+    this.evaluateSubmissionAsync(
+      submission.id,
+      submission.content,
+      submission.writingTaskId
+    ).catch((error) => {
+      console.error("❌ Manual evaluation failed:", error.message);
+    });
+
+    return res.json({
+      success: true,
+      message: "AI evaluation triggered. Poll /feedback endpoint for results.",
+      data: {
+        submissionId: Number(submission.id),
+      },
+    });
+  });
 }

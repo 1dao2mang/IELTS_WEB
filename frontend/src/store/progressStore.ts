@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { progressService } from '@/services/progress.service'
 import type { SkillType } from '@/types'
+import type { IAttemptDTO } from '@/types/dto'
 
 /** Progress tracking for an exercise (different from Exercise in types/) */
 interface ExerciseProgress {
@@ -47,10 +48,10 @@ export const useProgressStore = create<ProgressStore>((set, get) => ({
       const res = await progressService.getAttempts()
       if (res && res.data && Array.isArray(res.data)) {
         const { exercises } = get()
-        const backendExercises: ExerciseProgress[] = res.data.map((attempt: any) => ({
-          id: String(attempt.testId || attempt.id),
+        const backendExercises: ExerciseProgress[] = res.data.map((attempt: IAttemptDTO) => ({
+          id: String(attempt.testId || attempt.id || ''),
           type: (attempt.skill || 'listening') as SkillType,
-          title: attempt.testTitle || `Exercise ${attempt.id}`,
+          title: attempt.testTitle || `Exercise ${String(attempt.id || '')}`,
           completed: true,
           score: attempt.score || 0,
           completedAt: attempt.completedAt || new Date().toISOString()
