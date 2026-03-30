@@ -42,9 +42,11 @@ export const useProgressStore = create<ProgressStore>((set, get) => ({
 
   addExercise: exercise => {
     const { exercises } = get()
-    // Prevent duplicate ids
-    if (exercises.some(ex => ex.id === exercise.id)) return
-    const updated = [...exercises, exercise]
+    const existing = exercises.find(ex => ex.id === exercise.id)
+    // Upsert — update if already present, else append
+    const updated = existing
+      ? exercises.map(ex => (ex.id === exercise.id ? { ...ex, ...exercise } : ex))
+      : [...exercises, exercise]
     saveProgress(updated)
     set({ exercises: updated })
   },

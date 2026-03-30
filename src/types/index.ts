@@ -6,22 +6,37 @@ export interface User {
   createdAt: Date
 }
 
-export interface Exercise {
-  id: string
-  type: 'listening' | 'reading' | 'writing' | 'speaking'
-  title: string
-  description: string
-  difficulty: 'Beginner' | 'Intermediate' | 'Advanced'
-  duration?: number
-  questions?: number
-}
-
 export interface Question {
   id: number | string
   type: 'multiple-choice' | 'fill-blank' | 'true-false' | 'heading-match' | 'true-false-notgiven'
   question: string
   options?: string[]
   correctAnswer: string | number | boolean
+}
+
+export interface Exercise {
+  id: string
+  type: SkillType
+  title: string
+  description: string
+  difficulty: DifficultyLevel
+  duration?: number
+  /** Text passage for reading, transcript for listening */
+  passage?: string
+  /** Writing prompt text */
+  prompt?: string
+  /** Model answer for writing exercises */
+  modelAnswer?: string
+  /** Speaking cue card text */
+  cueCard?: string
+  /** Follow-up questions for speaking */
+  followUpQuestions?: string[]
+  /** Sample answers for speaking */
+  sampleAnswers?: string[]
+  /** Evaluation criteria for writing */
+  criteria?: string[]
+  /** Questions for this exercise (listening/reading) */
+  questions: Question[]
 }
 
 export interface ExerciseResult {

@@ -1,234 +1,99 @@
-import { useState, useMemo, useEffect } from 'react'
-import { Card, Button, Input } from '@/components'
-import { PenTool } from 'lucide-react'
+import { useState } from 'react'
+import { PenTool, Clock, ChevronRight, Lightbulb, FileText } from 'lucide-react'
+import { writingExercises } from '../data/mockData'
+import { ExerciseView } from '../components/ExerciseView'
+import type { Exercise } from '../types'
+
+const tips = [
+  { icon: FileText, text: 'Plan your essay for 5 minutes before writing.' },
+  { icon: Clock, text: 'Allocate 20 min for Task 1 and 40 min for Task 2.' },
+  { icon: Lightbulb, text: 'Use linking words to improve coherence and cohesion.' },
+]
 
 export const WritingPage = () => {
-  const [essayTitle, setEssayTitle] = useState('')
-  const [essayContent, setEssayContent] = useState('')
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success'>('idle')
-
-  const wordCount = useMemo(() => {
-    const trimmed = essayContent.trim()
-    return trimmed === '' ? 0 : trimmed.split(/\s+/).length
-  }, [essayContent])
-
-  const handleSaveDraft = () => {
-    localStorage.setItem(
-      'ielts_writing_draft',
-      JSON.stringify({
-        title: essayTitle,
-        content: essayContent,
-        savedAt: new Date().toISOString(),
-      })
-    )
-    alert('Draft saved successfully!')
-  }
-
-  const handleSubmit = () => {
-    if (!essayContent.trim()) return
-    setSubmitStatus('submitting')
-    // Simulate submission
-    setTimeout(() => {
-      setSubmitStatus('success')
-      setTimeout(() => {
-        setEssayTitle('')
-        setEssayContent('')
-        setSubmitStatus('idle')
-      }, 2000)
-    }, 1000)
-  }
-
-  // Load draft on mount
-  useEffect(() => {
-    try {
-      const draft = localStorage.getItem('ielts_writing_draft')
-      if (draft) {
-        const parsed = JSON.parse(draft)
-        setEssayTitle(parsed.title || '')
-        setEssayContent(parsed.content || '')
-      }
-    } catch {
-      /* ignore invalid draft */
-    }
-  }, [])
-
-  const tasks = [
-    {
-      id: 1,
-      type: 'Task 1',
-      title: 'Academic - Bar Chart Analysis',
-      description:
-        'Describe the information shown in the bar chart comparing energy consumption across countries.',
-      wordCount: 150,
-      timeLimit: '20 min',
-      difficulty: 'Intermediate',
-    },
-    {
-      id: 2,
-      type: 'Task 1',
-      title: 'General Training - Formal Letter',
-      description: 'Write a letter to your manager requesting time off for a family event.',
-      wordCount: 150,
-      timeLimit: '20 min',
-      difficulty: 'Beginner',
-    },
-    {
-      id: 3,
-      type: 'Task 2',
-      title: 'Opinion Essay - Technology in Education',
-      description:
-        'Some people believe technology has made learning easier. To what extent do you agree or disagree?',
-      wordCount: 250,
-      timeLimit: '40 min',
-      difficulty: 'Advanced',
-    },
-  ]
+  const [selectedExercise, setSelectedExercise] = useState<Exercise | null>(null)
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="text-center mb-12">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-purple-100 text-purple-600 mb-4">
-          <PenTool className="h-10 w-10" />
-        </div>
-        <h1 className="text-4xl font-bold mb-4">IELTS Writing Practice</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Develop your writing skills with Task 1 and Task 2 practice exercises
-        </p>
-      </div>
+    <div className="min-h-screen">
+      {/* ─── Hero ─────────────────────────── */}
+      <section className="hero-gradient hero-writing relative pt-32 pb-20 sm:pt-36 sm:pb-24 px-4">
+        <div className="orb orb-violet w-[400px] h-[400px] -top-32 -left-32 animate-float opacity-40" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-        <Card title="Task 1">
-          <ul className="space-y-2 text-gray-700">
-            <li>• Academic: graphs, charts, diagrams</li>
-            <li>• General: letters (formal/informal)</li>
-            <li>• 150 words minimum</li>
-            <li>• 20 minutes recommended</li>
-            <li>• Describe, compare, summarize</li>
-          </ul>
-        </Card>
-        <Card title="Task 2">
-          <ul className="space-y-2 text-gray-700">
-            <li>• Essay writing</li>
-            <li>• Opinion, discussion, problems</li>
-            <li>• 250 words minimum</li>
-            <li>• 40 minutes recommended</li>
-            <li>• Clear argument structure</li>
-          </ul>
-        </Card>
-        <Card title="Tips">
-          <ul className="space-y-2 text-gray-700">
-            <li>• Plan before writing</li>
-            <li>• Use paragraphs effectively</li>
-            <li>• Check grammar and spelling</li>
-            <li>• Manage your time</li>
-            <li>• Answer all parts of question</li>
-          </ul>
-        </Card>
-      </div>
-
-      <section className="mb-12">
-        <h2 className="text-3xl font-bold mb-6">Writing Tasks</h2>
-        <div className="space-y-6">
-          {tasks.map(task => (
-            <Card key={task.id} hover>
-              <div className="flex items-start justify-between">
-                <div className="flex-1">
-                  <div className="flex items-center space-x-3 mb-2">
-                    <span
-                      className={`px-3 py-1 rounded-full text-sm font-medium ${
-                        task.type === 'Task 1'
-                          ? 'bg-blue-100 text-blue-700'
-                          : 'bg-purple-100 text-purple-700'
-                      }`}
-                    >
-                      {task.type}
-                    </span>
-                    <span
-                      className={`px-2 py-1 rounded text-xs ${
-                        task.difficulty === 'Beginner'
-                          ? 'bg-green-100 text-green-700'
-                          : task.difficulty === 'Intermediate'
-                            ? 'bg-yellow-100 text-yellow-700'
-                            : 'bg-red-100 text-red-700'
-                      }`}
-                    >
-                      {task.difficulty}
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{task.title}</h3>
-                  <p className="text-gray-600 mb-3">{task.description}</p>
-                  <div className="flex items-center space-x-4 text-sm text-gray-600">
-                    <span>Minimum: {task.wordCount} words</span>
-                    <span>•</span>
-                    <span>Time: {task.timeLimit}</span>
-                  </div>
-                </div>
-                <Button
-                  className="ml-4"
-                  onClick={() => {
-                    setEssayTitle(task.title)
-                    setEssayContent('')
-                    document.getElementById('writing-area')?.scrollIntoView({ behavior: 'smooth' })
-                  }}
-                >
-                  Start Writing
-                </Button>
-              </div>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <section id="writing-area">
-        <Card title="Writing Area" className="bg-gray-50">
-          <div className="space-y-4">
-            <Input
-              label="Essay Title"
-              placeholder="Enter your essay title..."
-              value={essayTitle}
-              onChange={e => setEssayTitle(e.target.value)}
-            />
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Your Essay</label>
-              <textarea
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
-                rows={12}
-                placeholder="Start writing your response here..."
-                value={essayContent}
-                onChange={e => setEssayContent(e.target.value)}
-              />
+        <div className="max-w-4xl mx-auto relative z-10">
+          <div className="flex items-center space-x-4 mb-6">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center shadow-glow-violet">
+              <PenTool className="h-7 w-7 text-white" />
             </div>
-            <div className="flex items-center justify-between">
-              <span
-                className={`text-sm font-medium ${
-                  wordCount >= 250
-                    ? 'text-green-600'
-                    : wordCount >= 150
-                      ? 'text-yellow-600'
-                      : 'text-gray-600'
-                }`}
-              >
-                Word count: {wordCount}
-              </span>
-              <div className="space-x-2">
-                <Button variant="outline" onClick={handleSaveDraft} disabled={!essayContent.trim()}>
-                  Save Draft
-                </Button>
-                <Button
-                  onClick={handleSubmit}
-                  disabled={!essayContent.trim() || submitStatus !== 'idle'}
-                >
-                  {submitStatus === 'submitting'
-                    ? 'Submitting...'
-                    : submitStatus === 'success'
-                      ? '✓ Submitted!'
-                      : 'Submit'}
-                </Button>
-              </div>
+            <div>
+              <h1 className="text-3xl sm:text-4xl font-display font-bold text-heading">Writing</h1>
+              <p className="text-body text-sm mt-0.5">{writingExercises.length} exercises available</p>
             </div>
           </div>
-        </Card>
+          <p className="text-body max-w-2xl leading-relaxed">
+            Develop clear, structured writing for both Task 1 and Task 2. Practice summarizing data, building arguments, and expressing your opinions effectively.
+          </p>
+        </div>
       </section>
+
+      <div className="max-w-5xl mx-auto px-4 py-14 sm:py-20 space-y-14">
+        {/* ─── Tips ────────────────────────── */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {tips.map((tip, i) => (
+            <div
+              key={i}
+              className="glass-hover flex items-start space-x-3 p-5 opacity-0 animate-fade-in-up"
+              style={{ animationDelay: `${i * 100 + 100}ms` }}
+            >
+              <div className="w-9 h-9 rounded-lg bg-violet-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                <tip.icon className="h-4 w-4 text-violet-400" />
+              </div>
+              <p className="text-sm text-body leading-relaxed">{tip.text}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* ─── Exercise List ───────────────── */}
+        <div>
+          <h2 className="text-xl font-display font-semibold text-heading mb-6">Available Exercises</h2>
+          <div className="space-y-3">
+            {writingExercises.map((ex, i) => (
+              <button
+                key={ex.id}
+                onClick={() => setSelectedExercise(ex)}
+                className="w-full group gradient-border-card glass-hover flex items-center justify-between p-5 text-left opacity-0 animate-fade-in-up"
+                style={{ animationDelay: `${i * 80 + 200}ms` }}
+              >
+                <div className="flex items-center space-x-4 min-w-0">
+                  <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center shrink-0">
+                    <PenTool className="h-5 w-5 text-violet-400" />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="text-sm font-medium text-heading truncate group-hover:text-violet-400 transition-colors">
+                      {ex.title}
+                    </h3>
+                    <p className="text-xs text-sub mt-0.5 truncate">{ex.description}</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-3 shrink-0 ml-4">
+                  <span className="hidden sm:inline text-xs text-faint px-2.5 py-1 rounded-lg bg-surface-subtle border border-subtle">
+                    {ex.difficulty}
+                  </span>
+                  <ChevronRight className="h-4 w-4 text-faint group-hover:text-violet-400 group-hover:translate-x-0.5 transition-all" />
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {selectedExercise && (
+        <ExerciseView
+          exercise={selectedExercise}
+          onClose={() => setSelectedExercise(null)}
+        />
+      )}
     </div>
   )
 }
+
+

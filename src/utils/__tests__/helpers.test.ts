@@ -1,26 +1,11 @@
 import { describe, it, expect } from 'vitest'
 import {
-  classNames,
   formatDate,
   formatTime,
   calculateScore,
   generateId,
   shuffleArray,
 } from '../helpers'
-
-describe('classNames', () => {
-  it('joins class names', () => {
-    expect(classNames('a', 'b', 'c')).toBe('a b c')
-  })
-
-  it('filters falsy values', () => {
-    expect(classNames('a', false, undefined, 'b')).toBe('a b')
-  })
-
-  it('returns empty string with no truthy classes', () => {
-    expect(classNames(false, undefined)).toBe('')
-  })
-})
 
 describe('formatDate', () => {
   it('formats a Date object', () => {

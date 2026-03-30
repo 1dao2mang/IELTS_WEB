@@ -1,187 +1,124 @@
-import { useState, type FormEvent, type ChangeEvent } from 'react'
-import { Card, Button, Input } from '@/components'
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react'
-
-type FormStatus = 'idle' | 'submitting' | 'success' | 'error'
+import { useState } from 'react'
+import { Mail, MessageSquare, Send, MapPin, Clock } from 'lucide-react'
 
 export const ContactPage = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  })
-  const [status, setStatus] = useState<FormStatus>('idle')
-  const [errors, setErrors] = useState<Record<string, string>>({})
+  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [sent, setSent] = useState(false)
 
-  const validate = (): boolean => {
-    const newErrors: Record<string, string> = {}
-    if (!formData.name.trim()) newErrors.name = 'Name is required'
-    if (!formData.email.trim()) newErrors.email = 'Email is required'
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
-      newErrors.email = 'Please enter a valid email'
-    if (!formData.subject.trim()) newErrors.subject = 'Subject is required'
-    if (!formData.message.trim()) newErrors.message = 'Message is required'
-
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
-
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!validate()) return
-
-    setStatus('submitting')
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500))
-      setStatus('success')
-      setFormData({ name: '', email: '', subject: '', message: '' })
-      setTimeout(() => setStatus('idle'), 3000)
-    } catch {
-      setStatus('error')
-      setTimeout(() => setStatus('idle'), 3000)
-    }
-  }
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-    // Clear error on change
-    if (errors[name]) {
-      setErrors(prev => {
-        const next = { ...prev }
-        delete next[name]
-        return next
-      })
-    }
+    setSent(true)
+    setTimeout(() => setSent(false), 3000)
+    setForm({ name: '', email: '', message: '' })
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as
-          possible.
-        </p>
-      </div>
+    <div className="min-h-screen">
+      {/* ─── Hero ─────────────────────────── */}
+      <section className="hero-gradient relative pt-32 pb-20 sm:pt-36 sm:pb-24 px-4">
+        <div className="orb orb-cyan w-[350px] h-[350px] -top-28 -right-28 animate-float opacity-35" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-        <Card>
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-600 mb-3">
-              <Mail className="h-6 w-6" />
-            </div>
-            <h3 className="font-semibold mb-2">Email</h3>
-            <p className="text-gray-600 text-sm">info@ieltsweb.com</p>
-            <p className="text-gray-600 text-sm">support@ieltsweb.com</p>
+        <div className="max-w-3xl mx-auto text-center relative z-10">
+          <h1 className="text-3xl sm:text-5xl font-display font-bold text-heading">
+            Get in <span className="gradient-text">Touch</span>
+          </h1>
+          <p className="mt-5 text-body max-w-lg mx-auto leading-relaxed">
+            Have a question, suggestion, or need help with your IELTS preparation? We'd love to hear from you.
+          </p>
+        </div>
+      </section>
+
+      <div className="max-w-4xl mx-auto px-4 py-14 sm:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          {/* ─── Info ──────────────────────── */}
+          <div className="md:col-span-2 space-y-5">
+            {[
+              { icon: Mail, title: 'Email', value: 'support@ieltsweb.com' },
+              { icon: MapPin, title: 'Location', value: 'Available worldwide, online' },
+              { icon: Clock, title: 'Response', value: 'Within 24 hours' },
+            ].map((info, i) => (
+              <div
+                key={i}
+                className="glass-hover flex items-start space-x-4 p-5 opacity-0 animate-fade-in-up"
+                style={{ animationDelay: `${i * 100 + 100}ms` }}
+              >
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center shrink-0">
+                  <info.icon className="h-5 w-5 text-cyan-400" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-medium text-heading">{info.title}</h3>
+                  <p className="text-xs text-muted mt-0.5">{info.value}</p>
+                </div>
+              </div>
+            ))}
           </div>
-        </Card>
 
-        <Card>
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-600 mb-3">
-              <Phone className="h-6 w-6" />
-            </div>
-            <h3 className="font-semibold mb-2">Phone</h3>
-            <p className="text-gray-600 text-sm">+1 (234) 567-890</p>
-            <p className="text-gray-600 text-sm">Mon-Fri 9am-6pm EST</p>
-          </div>
-        </Card>
+          {/* ─── Form ─────────────────────── */}
+          <div className="md:col-span-3">
+            <form onSubmit={handleSubmit} className="glass p-7 space-y-5">
+              <div className="flex items-center space-x-3 mb-2">
+                <MessageSquare className="h-5 w-5 text-cyan-400" />
+                <h2 className="text-lg font-display font-semibold text-heading">Send a Message</h2>
+              </div>
 
-        <Card>
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 text-primary-600 mb-3">
-              <MapPin className="h-6 w-6" />
-            </div>
-            <h3 className="font-semibold mb-2">Office</h3>
-            <p className="text-gray-600 text-sm">123 Learning Street</p>
-            <p className="text-gray-600 text-sm">Education City, EC 12345</p>
-          </div>
-        </Card>
-      </div>
+              <div>
+                <label htmlFor="contact-name" className="block text-xs font-medium text-body mb-1.5">Name</label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  required
+                  value={form.name}
+                  onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+                  className="input-glow"
+                  placeholder="Your full name"
+                />
+              </div>
 
-      <div className="max-w-2xl mx-auto">
-        <Card title="Send us a Message">
-          {status === 'success' && (
-            <div className="mb-4 flex items-center gap-2 p-3 bg-green-50 text-green-700 rounded-lg">
-              <CheckCircle className="h-5 w-5" />
-              <span>Message sent successfully! We'll get back to you soon.</span>
-            </div>
-          )}
-          {status === 'error' && (
-            <div className="mb-4 flex items-center gap-2 p-3 bg-red-50 text-red-700 rounded-lg">
-              <AlertCircle className="h-5 w-5" />
-              <span>Something went wrong. Please try again.</span>
-            </div>
-          )}
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <Input
-              label="Name"
-              name="name"
-              type="text"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Your full name"
-              error={errors.name}
-              required
-            />
+              <div>
+                <label htmlFor="contact-email" className="block text-xs font-medium text-body mb-1.5">Email</label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  required
+                  value={form.email}
+                  onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                  className="input-glow"
+                  placeholder="you@example.com"
+                />
+              </div>
 
-            <Input
-              label="Email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="your.email@example.com"
-              error={errors.email}
-              required
-            />
+              <div>
+                <label htmlFor="contact-message" className="block text-xs font-medium text-body mb-1.5">Message</label>
+                <textarea
+                  id="contact-message"
+                  required
+                  rows={5}
+                  value={form.message}
+                  onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+                  className="input-glow resize-none"
+                  placeholder="How can we help?"
+                />
+              </div>
 
-            <Input
-              label="Subject"
-              name="subject"
-              type="text"
-              value={formData.subject}
-              onChange={handleChange}
-              placeholder="What is this regarding?"
-              error={errors.subject}
-              required
-            />
+              <button
+                type="submit"
+                className="btn-gradient w-full py-3 text-sm inline-flex items-center justify-center space-x-2"
+              >
+                <Send className="h-4 w-4" />
+                <span>{sent ? 'Message Sent!' : 'Send Message'}</span>
+              </button>
 
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={6}
-                value={formData.message}
-                onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent ${
-                  errors.message ? 'border-red-500 focus:ring-red-500' : 'border-gray-300'
-                }`}
-                placeholder="Tell us more about your inquiry..."
-                required
-              />
-              {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
-            </div>
-
-            <Button type="submit" fullWidth size="lg" disabled={status === 'submitting'}>
-              {status === 'submitting' ? (
-                <>Sending...</>
-              ) : (
-                <>
-                  <Send className="h-5 w-5 mr-2" />
-                  Send Message
-                </>
+              {sent && (
+                <p className="text-xs text-emerald-400 text-center animate-fade-in">
+                  Thanks! We'll get back to you within 24 hours.
+                </p>
               )}
-            </Button>
-          </form>
-        </Card>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   )
 }
+
+

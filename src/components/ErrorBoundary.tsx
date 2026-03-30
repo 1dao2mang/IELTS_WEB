@@ -21,7 +21,11 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error('ErrorBoundary caught an error:', error, errorInfo)
+    // In production, send to an error reporting service (e.g. Sentry).
+    // For now, only log in development.
+    if (import.meta.env.DEV) {
+      console.error('ErrorBoundary caught an error:', error, errorInfo)
+    }
   }
 
   handleReset = () => {
@@ -42,9 +46,12 @@ export class ErrorBoundary extends Component<Props, State> {
             <p className="text-gray-600 mb-6">
               An unexpected error occurred. Please try again or refresh the page.
             </p>
-            {this.state.error && (
+            {/* Only show error details in development — never leak to production users */}
+            {import.meta.env.DEV && this.state.error && (
               <details className="mb-6 text-left bg-red-50 rounded-lg p-4">
-                <summary className="text-red-700 font-medium cursor-pointer">Error details</summary>
+                <summary className="text-red-700 font-medium cursor-pointer">
+                  Error details (dev only)
+                </summary>
                 <pre className="mt-2 text-sm text-red-600 whitespace-pre-wrap break-words">
                   {this.state.error.message}
                 </pre>

@@ -1,131 +1,99 @@
-import { Card, Button } from '@/components'
-import { BookText, Clock } from 'lucide-react'
+import { useState } from 'react'
+import { BookOpen, Clock, ChevronRight, Lightbulb, ScanEye } from 'lucide-react'
+import { readingExercises } from '../data/mockData'
+import { ExerciseView } from '../components/ExerciseView'
+import type { Exercise } from '../types'
+
+const tips = [
+  { icon: ScanEye, text: 'Skim the passage first for general understanding.' },
+  { icon: Clock, text: 'Spend no more than 20 minutes per passage section.' },
+  { icon: Lightbulb, text: 'Underline keywords in questions before reading.' },
+]
 
 export const ReadingPage = () => {
-  const passages = [
-    {
-      id: 1,
-      title: 'The History of Artificial Intelligence',
-      type: 'Academic',
-      timeLimit: '20 min',
-      difficulty: 'Intermediate',
-      questions: 13,
-      topics: ['Technology', 'History'],
-    },
-    {
-      id: 2,
-      title: 'Sustainable Tourism Practices',
-      type: 'Academic',
-      timeLimit: '20 min',
-      difficulty: 'Advanced',
-      questions: 14,
-      topics: ['Environment', 'Tourism'],
-    },
-    {
-      id: 3,
-      title: 'Work-Life Balance in Modern Society',
-      type: 'General Training',
-      timeLimit: '15 min',
-      difficulty: 'Beginner',
-      questions: 10,
-      topics: ['Lifestyle', 'Work'],
-    },
-  ]
+  const [selectedExercise, setSelectedExercise] = useState<Exercise | null>(null)
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="text-center mb-12">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-100 text-green-600 mb-4">
-          <BookText className="h-10 w-10" />
-        </div>
-        <h1 className="text-4xl font-bold mb-4">IELTS Reading Practice</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Master reading comprehension with diverse academic and general training passages
-        </p>
-      </div>
+    <div className="min-h-screen">
+      {/* ─── Hero ─────────────────────────── */}
+      <section className="hero-gradient hero-reading relative pt-32 pb-20 sm:pt-36 sm:pb-24 px-4">
+        <div className="orb orb-emerald w-[400px] h-[400px] -top-32 -right-32 animate-float opacity-40" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-        <Card title="Question Types">
-          <ul className="space-y-2 text-gray-700">
-            <li>• Multiple choice</li>
-            <li>• True/False/Not Given</li>
-            <li>• Matching headings</li>
-            <li>• Sentence completion</li>
-            <li>• Summary completion</li>
-          </ul>
-        </Card>
-        <Card title="Strategies">
-          <ul className="space-y-2 text-gray-700">
-            <li>• Skim for main ideas first</li>
-            <li>• Scan for specific information</li>
-            <li>• Manage your time wisely</li>
-            <li>• Identify keywords</li>
-            <li>• Practice speed reading</li>
-          </ul>
-        </Card>
-        <Card title="Test Format">
-          <ul className="space-y-2 text-gray-700">
-            <li>• 3 sections, 40 questions</li>
-            <li>• 60 minutes total</li>
-            <li>• Academic or General Training</li>
-            <li>• Increasing difficulty</li>
-            <li>• Various text types</li>
-          </ul>
-        </Card>
-      </div>
-
-      <section>
-        <h2 className="text-3xl font-bold mb-6">Reading Passages</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {passages.map(passage => (
-            <Card key={passage.id} hover>
-              <div className="mb-4">
-                <div className="flex items-center justify-between mb-2">
-                  <span
-                    className={`px-3 py-1 rounded-full text-sm font-medium ${
-                      passage.type === 'Academic'
-                        ? 'bg-purple-100 text-purple-700'
-                        : 'bg-blue-100 text-blue-700'
-                    }`}
-                  >
-                    {passage.type}
-                  </span>
-                  <div className="flex items-center text-gray-600 text-sm">
-                    <Clock className="h-4 w-4 mr-1" />
-                    {passage.timeLimit}
-                  </div>
-                </div>
-                <h3 className="text-lg font-semibold mb-2">{passage.title}</h3>
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {passage.topics.map(topic => (
-                    <span
-                      key={topic}
-                      className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
-                    >
-                      {topic}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
-                  <span>{passage.questions} questions</span>
-                  <span
-                    className={`px-2 py-1 rounded ${
-                      passage.difficulty === 'Beginner'
-                        ? 'bg-green-100 text-green-700'
-                        : passage.difficulty === 'Intermediate'
-                          ? 'bg-yellow-100 text-yellow-700'
-                          : 'bg-red-100 text-red-700'
-                    }`}
-                  >
-                    {passage.difficulty}
-                  </span>
-                </div>
-              </div>
-              <Button fullWidth>Start Reading</Button>
-            </Card>
-          ))}
+        <div className="max-w-4xl mx-auto relative z-10">
+          <div className="flex items-center space-x-4 mb-6">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-glow-emerald">
+              <BookOpen className="h-7 w-7 text-white" />
+            </div>
+            <div>
+              <h1 className="text-3xl sm:text-4xl font-display font-bold text-heading">Reading</h1>
+              <p className="text-body text-sm mt-0.5">{readingExercises.length} exercises available</p>
+            </div>
+          </div>
+          <p className="text-body max-w-2xl leading-relaxed">
+            Strengthen your reading comprehension with academic and general training passages. Practice every question type found on the real IELTS exam.
+          </p>
         </div>
       </section>
+
+      <div className="max-w-5xl mx-auto px-4 py-14 sm:py-20 space-y-14">
+        {/* ─── Tips ────────────────────────── */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {tips.map((tip, i) => (
+            <div
+              key={i}
+              className="glass-hover flex items-start space-x-3 p-5 opacity-0 animate-fade-in-up"
+              style={{ animationDelay: `${i * 100 + 100}ms` }}
+            >
+              <div className="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                <tip.icon className="h-4 w-4 text-emerald-400" />
+              </div>
+              <p className="text-sm text-body leading-relaxed">{tip.text}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* ─── Exercise List ───────────────── */}
+        <div>
+          <h2 className="text-xl font-display font-semibold text-heading mb-6">Available Exercises</h2>
+          <div className="space-y-3">
+            {readingExercises.map((ex, i) => (
+              <button
+                key={ex.id}
+                onClick={() => setSelectedExercise(ex)}
+                className="w-full group gradient-border-card glass-hover flex items-center justify-between p-5 text-left opacity-0 animate-fade-in-up"
+                style={{ animationDelay: `${i * 80 + 200}ms` }}
+              >
+                <div className="flex items-center space-x-4 min-w-0">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0">
+                    <BookOpen className="h-5 w-5 text-emerald-400" />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="text-sm font-medium text-heading truncate group-hover:text-emerald-400 transition-colors">
+                      {ex.title}
+                    </h3>
+                    <p className="text-xs text-sub mt-0.5 truncate">{ex.description}</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-3 shrink-0 ml-4">
+                  <span className="hidden sm:inline text-xs text-faint px-2.5 py-1 rounded-lg bg-surface-subtle border border-subtle">
+                    {ex.difficulty}
+                  </span>
+                  <ChevronRight className="h-4 w-4 text-faint group-hover:text-emerald-400 group-hover:translate-x-0.5 transition-all" />
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {selectedExercise && (
+        <ExerciseView
+          exercise={selectedExercise}
+          onClose={() => setSelectedExercise(null)}
+        />
+      )}
     </div>
   )
 }
+
+

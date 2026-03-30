@@ -1,133 +1,99 @@
-import { Card, Button } from '@/components'
-import { Mic, Video } from 'lucide-react'
+import { useState } from 'react'
+import { MessageCircle, Clock, ChevronRight, Lightbulb, Mic } from 'lucide-react'
+import { speakingExercises } from '../data/mockData'
+import { ExerciseView } from '../components/ExerciseView'
+import type { Exercise } from '../types'
+
+const tips = [
+  { icon: Mic, text: 'Record yourself and listen back for improvements.' },
+  { icon: Clock, text: 'Part 2: Use 1 minute to plan, speak for 2 minutes.' },
+  { icon: Lightbulb, text: 'Extend answers naturally — don\'t give one-word replies.' },
+]
 
 export const SpeakingPage = () => {
-  const parts = [
-    {
-      part: 'Part 1',
-      title: 'Introduction & Interview',
-      duration: '4-5 minutes',
-      description:
-        'Answer questions about yourself, your home, family, work, studies, and interests.',
-      topics: ['Work/Studies', 'Home', 'Hobbies', 'Daily Routine'],
-    },
-    {
-      part: 'Part 2',
-      title: 'Individual Long Turn',
-      duration: '3-4 minutes',
-      description: 'Speak about a topic for 1-2 minutes after 1 minute of preparation time.',
-      topics: ['People', 'Places', 'Objects', 'Events'],
-    },
-    {
-      part: 'Part 3',
-      title: 'Two-way Discussion',
-      duration: '4-5 minutes',
-      description: 'Discuss more abstract ideas related to the Part 2 topic.',
-      topics: ['Society', 'Culture', 'Future', 'Opinions'],
-    },
-  ]
-
-  const sampleQuestions = [
-    'Describe your hometown',
-    'What do you do in your free time?',
-    'Describe a memorable journey you have made',
-    'Do you think technology has improved our lives?',
-    'What are the benefits of learning a foreign language?',
-  ]
+  const [selectedExercise, setSelectedExercise] = useState<Exercise | null>(null)
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="text-center mb-12">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-orange-100 text-orange-600 mb-4">
-          <Mic className="h-10 w-10" />
-        </div>
-        <h1 className="text-4xl font-bold mb-4">IELTS Speaking Practice</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Build confidence and fluency for your speaking test
-        </p>
-      </div>
+    <div className="min-h-screen">
+      {/* ─── Hero ─────────────────────────── */}
+      <section className="hero-gradient hero-speaking relative pt-32 pb-20 sm:pt-36 sm:pb-24 px-4">
+        <div className="orb orb-amber w-[400px] h-[400px] -top-32 -right-32 animate-float opacity-40" />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        {parts.map(item => (
-          <Card key={item.part} title={item.part} subtitle={item.title}>
-            <div className="space-y-3">
-              <div className="flex items-center text-sm text-gray-600">
-                <svg className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                {item.duration}
-              </div>
-              <p className="text-gray-700 text-sm">{item.description}</p>
-              <div className="pt-2">
-                <p className="text-xs font-medium text-gray-500 mb-2">Common Topics:</p>
-                <div className="flex flex-wrap gap-1">
-                  {item.topics.map(topic => (
-                    <span
-                      key={topic}
-                      className="px-2 py-1 bg-orange-50 text-orange-700 text-xs rounded"
-                    >
-                      {topic}
-                    </span>
-                  ))}
-                </div>
-              </div>
+        <div className="max-w-4xl mx-auto relative z-10">
+          <div className="flex items-center space-x-4 mb-6">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-glow-amber">
+              <MessageCircle className="h-7 w-7 text-white" />
             </div>
-          </Card>
-        ))}
-      </div>
-
-      <section className="mb-12">
-        <Card title="Tips for Success">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <ul className="space-y-2 text-gray-700">
-              <li>• Speak clearly and at a natural pace</li>
-              <li>• Extend your answers with examples</li>
-              <li>• Use a variety of vocabulary</li>
-              <li>• Don't memorize answers</li>
-            </ul>
-            <ul className="space-y-2 text-gray-700">
-              <li>• Practice pronunciation daily</li>
-              <li>• Record yourself speaking</li>
-              <li>• Think in English</li>
-              <li>• Stay calm and confident</li>
-            </ul>
+            <div>
+              <h1 className="text-3xl sm:text-4xl font-display font-bold text-heading">Speaking</h1>
+              <p className="text-body text-sm mt-0.5">{speakingExercises.length} exercises available</p>
+            </div>
           </div>
-        </Card>
+          <p className="text-body max-w-2xl leading-relaxed">
+            Build confidence and fluency with structured speaking practice. Cover all three parts of the IELTS speaking test with real examiner-style questions.
+          </p>
+        </div>
       </section>
 
-      <section className="mb-12">
-        <h2 className="text-3xl font-bold mb-6">Sample Questions</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {sampleQuestions.map((question, index) => (
-            <Card key={index} hover>
-              <div className="flex items-center justify-between">
-                <p className="text-gray-800 font-medium">{question}</p>
-                <Button size="sm" variant="outline">
-                  <Mic className="h-4 w-4" />
-                </Button>
+      <div className="max-w-5xl mx-auto px-4 py-14 sm:py-20 space-y-14">
+        {/* ─── Tips ────────────────────────── */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {tips.map((tip, i) => (
+            <div
+              key={i}
+              className="glass-hover flex items-start space-x-3 p-5 opacity-0 animate-fade-in-up"
+              style={{ animationDelay: `${i * 100 + 100}ms` }}
+            >
+              <div className="w-9 h-9 rounded-lg bg-amber-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                <tip.icon className="h-4 w-4 text-amber-400" />
               </div>
-            </Card>
+              <p className="text-sm text-body leading-relaxed">{tip.text}</p>
+            </div>
           ))}
         </div>
-      </section>
 
-      <section>
-        <Card className="bg-gradient-to-r from-orange-50 to-yellow-50">
-          <div className="text-center">
-            <Video className="h-12 w-12 text-orange-600 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold mb-2">Practice with AI</h3>
-            <p className="text-gray-700 mb-6">
-              Simulate a real IELTS speaking test with our AI examiner
-            </p>
-            <Button size="lg">Start Mock Interview</Button>
+        {/* ─── Exercise List ───────────────── */}
+        <div>
+          <h2 className="text-xl font-display font-semibold text-heading mb-6">Available Exercises</h2>
+          <div className="space-y-3">
+            {speakingExercises.map((ex, i) => (
+              <button
+                key={ex.id}
+                onClick={() => setSelectedExercise(ex)}
+                className="w-full group gradient-border-card glass-hover flex items-center justify-between p-5 text-left opacity-0 animate-fade-in-up"
+                style={{ animationDelay: `${i * 80 + 200}ms` }}
+              >
+                <div className="flex items-center space-x-4 min-w-0">
+                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0">
+                    <MessageCircle className="h-5 w-5 text-amber-400" />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="text-sm font-medium text-heading truncate group-hover:text-amber-400 transition-colors">
+                      {ex.title}
+                    </h3>
+                    <p className="text-xs text-sub mt-0.5 truncate">{ex.description}</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-3 shrink-0 ml-4">
+                  <span className="hidden sm:inline text-xs text-faint px-2.5 py-1 rounded-lg bg-surface-subtle border border-subtle">
+                    {ex.difficulty}
+                  </span>
+                  <ChevronRight className="h-4 w-4 text-faint group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all" />
+                </div>
+              </button>
+            ))}
           </div>
-        </Card>
-      </section>
+        </div>
+      </div>
+
+      {selectedExercise && (
+        <ExerciseView
+          exercise={selectedExercise}
+          onClose={() => setSelectedExercise(null)}
+        />
+      )}
     </div>
   )
 }
+
+
