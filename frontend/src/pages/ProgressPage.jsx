@@ -3,7 +3,7 @@ import { Headphones, BookOpen, PenTool, MessageCircle, TrendingUp, Target, Award
 const skillData = [
   {
     label: 'Listening',
-    icon,
+    icon: Headphones,
     score: 7.0,
     progress: 65,
     color: 'cyan',
@@ -11,7 +11,7 @@ const skillData = [
   },
   {
     label: 'Reading',
-    icon,
+    icon: BookOpen,
     score: 6.5,
     progress: 55,
     color: 'emerald',
@@ -19,7 +19,7 @@ const skillData = [
   },
   {
     label: 'Writing',
-    icon,
+    icon: PenTool,
     score: 6.0,
     progress: 40,
     color: 'violet',
@@ -27,7 +27,7 @@ const skillData = [
   },
   {
     label: 'Speaking',
-    icon,
+    icon: MessageCircle,
     score: 6.5,
     progress: 50,
     color: 'amber',
