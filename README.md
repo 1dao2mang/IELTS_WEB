@@ -22,7 +22,7 @@ A comprehensive, AI-powered IELTS preparation web application designed to help s
 ## 📐 Architecture
 
 <p align="center">
-  <img src="https://via.placeholder.com/800x400/1e293b/FFFFFF?text=IELTS+WEB+Architecture:+Frontend+(React)+%E2%86%94+Backend+(Express)+%E2%86%94+MySQL+%2B+Gemini+AI" alt="Architecture Diagram"/>
+  <img src="https://placehold.co/800x400/1e293b/FFFFFF/png?text=IELTS+WEB+Architecture%5CnFrontend+(React)+%E2%86%94+Backend+(Express)+%E2%86%94+MySQL+%2B+Gemini+AI" alt="Architecture Diagram"/>
 </p>
 
 ---
