@@ -1,15 +1,14 @@
-
-import clsx from 'clsx'
+import clsx from 'clsx';
 
 export const Input = ({ label, error, className, id, ...props }) => {
-  const inputId = id || props.name
+  const inputId = id || props.name;
 
   return (
     <div>
       {label && (
         <label
           htmlFor={inputId}
-          className="block text-sm font-medium text-gray-300 mb-1.5"
+          className="block text-sm font-semibold text-foreground mb-1.5"
         >
           {label}
         </label>
@@ -17,19 +16,15 @@ export const Input = ({ label, error, className, id, ...props }) => {
       <input
         id={inputId}
         className={clsx(
-          'w-full px-4 py-2.5 bg-white/5 border rounded-xl text-white placeholder-gray-500',
-          'transition-all duration-200',
-          'focus:outline-none focus:ring-2 focus:border-transparent',
-          error
-            ? 'border-red-500/50 focus:ring-red-500/50'
-            : 'border-white/10 focus:ring-cyan-500/50 hover:border-white/20',
+          'input w-full',
+          error && 'border-destructive focus:border-destructive focus:ring-destructive/20',
           className
         )}
         {...props}
       />
       {error && (
-        <p className="mt-1.5 text-sm text-red-400">{error}</p>
+        <p className="mt-1.5 text-sm font-medium text-destructive">{error}</p>
       )}
     </div>
-  )
-}
+  );
+};

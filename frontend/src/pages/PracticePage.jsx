@@ -1,181 +1,176 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Headphones, BookOpen, PenTool, MessageCircle, ArrowRight, Target, Clock, ChevronRight } from 'lucide-react'
-import { useTestStore } from '@/store'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Headphones, BookOpen, PenTool, MessageCircle, ArrowRight, Target, Clock, ChevronRight } from 'lucide-react';
+import { useTestStore } from '@/store';
+import { ExerciseView } from '../components/ExerciseView';
 
 const colorClasses = {
-  cyan: { bg: 'bg-cyan-500/10', text: 'text-cyan-400', glow: 'shadow-glow-cyan' },
-  emerald: { bg: 'bg-emerald-500/10', text: 'text-emerald-400', glow: 'shadow-glow-emerald' },
-  violet: { bg: 'bg-violet-500/10', text: 'text-violet-400', glow: 'shadow-glow-violet' },
-  amber: { bg: 'bg-amber-500/10', text: 'text-amber-400', glow: 'shadow-glow-amber' },
-}
-import { ExerciseView } from '../components/ExerciseView'
+  cyan: { bg: 'bg-cyan-500/10', text: 'text-cyan-600 dark:text-cyan-400' },
+  emerald: { bg: 'bg-emerald-500/10', text: 'text-emerald-600 dark:text-emerald-400' },
+  violet: { bg: 'bg-violet-500/10', text: 'text-violet-600 dark:text-violet-400' },
+  amber: { bg: 'bg-amber-500/10', text: 'text-amber-600 dark:text-amber-400' },
+};
 
 export const PracticePage = () => {
-  const [selectedExercise, setSelectedExercise] = useState<Exercise | null>(null)
-  const [filter, setFilter] = useState<string | null>(null)
-  const { exercises, isLoading, fetchTests } = useTestStore()
+  const [selectedExercise, setSelectedExercise] = useState(null);
+  const [filter, setFilter] = useState(null);
+  const { exercises, isLoading, fetchTests } = useTestStore();
 
   React.useEffect(() => {
-    fetchTests('listening')
-    fetchTests('reading')
-    fetchTests('writing')
-    fetchTests('speaking')
-  }, [fetchTests])
+    fetchTests('listening');
+    fetchTests('reading');
+    fetchTests('writing');
+    fetchTests('speaking');
+  }, [fetchTests]);
 
   const categories = React.useMemo(() => [
     {
       id: 'listening',
       label: 'Listening',
-      icon,
+      icon: Headphones,
       color: 'cyan',
-      gradient: 'from-cyan-500 to-blue-600',
-      exercises: exercises.listening,
+      exercises: exercises.listening || [],
       isLoading: isLoading.listening
     },
     {
       id: 'reading',
       label: 'Reading',
-      icon,
+      icon: BookOpen,
       color: 'emerald',
-      gradient: 'from-emerald-500 to-teal-600',
-      exercises: exercises.reading,
+      exercises: exercises.reading || [],
       isLoading: isLoading.reading
     },
     {
       id: 'writing',
       label: 'Writing',
-      icon,
+      icon: PenTool,
       color: 'violet',
-      gradient: 'from-violet-500 to-purple-600',
-      exercises: exercises.writing,
+      exercises: exercises.writing || [],
       isLoading: isLoading.writing
     },
     {
       id: 'speaking',
       label: 'Speaking',
-      icon,
+      icon: MessageCircle,
       color: 'amber',
-      gradient: 'from-amber-500 to-orange-600',
-      exercises: exercises.speaking,
+      exercises: exercises.speaking || [],
       isLoading: isLoading.speaking
     },
-  ], [exercises, isLoading])
+  ], [exercises, isLoading]);
 
   const filteredCategories = filter
     ? categories.filter(c => c.id === filter)
-    : categories
+    : categories;
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       {/* ─── Hero ─────────────────────────── */}
-      <section className="hero-gradient relative pt-32 pb-20 sm:pt-36 sm:pb-24 px-4">
-        <div className="orb orb-cyan w-[350px] h-[350px] -top-28 -left-28 animate-float opacity-35" />
-        <div className="orb orb-violet w-[300px] h-[300px] -top-10 -right-24 animate-float-delayed opacity-30" />
-
-        <div className="max-w-4xl mx-auto relative z-10">
-          <div className="flex items-center space-x-4 mb-6">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-violet-600 flex items-center justify-center">
-              <Target className="h-7 w-7 text-white" />
-            </div>
-            <div>
-              <h1 className="text-3xl sm:text-4xl font-display font-bold text-heading">Practice Hub</h1>
-              <p className="text-muted text-sm mt-0.5">All exercises in one place</p>
-            </div>
+      <section className="bg-slate-50 dark:bg-slate-900 border-b border-border py-16 md:py-24">
+        <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
+          <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-6">
+            <Target className="h-8 w-8" />
           </div>
-          <p className="text-body max-w-2xl leading-relaxed">
+          <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">Practice Hub</h1>
+          <p className="text-muted-foreground text-lg mb-4">
+            All exercises in one place
+          </p>
+          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Browse and practice exercises across all four IELTS skills. Filter by skill type and track your progress as you complete each one.
           </p>
         </div>
       </section>
 
-      <div className="max-w-5xl mx-auto px-4 py-14 sm:py-20">
+      <div className="max-w-5xl mx-auto px-4 py-16">
         {/* ─── Filters ────────────────────── */}
-        <div className="flex flex-wrap items-center gap-2 mb-10">
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-16">
           <button
             onClick={() => setFilter(null)}
-            className={`px-4 py-2 text-xs font-medium rounded-lg border transition-all duration-200 ${
+            className={`px-5 py-2.5 text-sm font-semibold rounded-lg border transition-colors ${
               !filter
-                ? 'bg-theme-card border-theme-border text-heading'
-                : 'border-theme-border text-muted hover:text-heading hover:bg-theme-card-hover'
+                ? 'bg-primary text-white border-primary shadow-sm'
+                : 'bg-white dark:bg-slate-800 border-border text-muted-foreground hover:text-foreground hover:bg-slate-50 dark:hover:bg-slate-700'
             }`}
           >
             All Skills
           </button>
           {categories.map(cat => {
-            const c = colorClasses[cat.color]
+            const c = colorClasses[cat.color];
             return (
               <button
                 key={cat.id}
                 onClick={() => setFilter(cat.id)}
-                className={`px-4 py-2 text-xs font-medium rounded-lg border transition-all duration-200 flex items-center space-x-1.5 ${
+                className={`px-5 py-2.5 text-sm font-semibold rounded-lg border transition-colors flex items-center space-x-2 ${
                   filter === cat.id
                     ? `${c.bg} border-transparent ${c.text}`
-                    : 'border-theme-border text-muted hover:text-heading hover:bg-theme-card-hover'
+                    : 'bg-white dark:bg-slate-800 border-border text-muted-foreground hover:text-foreground hover:bg-slate-50 dark:hover:bg-slate-700'
                 }`}
               >
-                <cat.icon className="h-3.5 w-3.5" />
+                <cat.icon className="h-4 w-4" />
                 <span>{cat.label}</span>
               </button>
-            )
+            );
           })}
         </div>
 
         {/* ─── Category Sections ──────────── */}
         <div className="space-y-16">
           {filteredCategories.map(cat => {
-            const c = colorClasses[cat.color]
+            const c = colorClasses[cat.color];
             return (
               <section key={cat.id}>
-                <div className="flex items-center justify-between mb-5">
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-border">
                   <div className="flex items-center space-x-3">
-                    <div className={`w-8 h-8 rounded-lg ${c.bg} flex items-center justify-center`}>
-                      <cat.icon className={`h-4 w-4 ${c.text}`} />
+                    <div className={`w-10 h-10 rounded-xl ${c.bg} flex items-center justify-center`}>
+                      <cat.icon className={`h-5 w-5 ${c.text}`} />
                     </div>
-                    <h2 className="text-lg font-display font-semibold text-heading">{cat.label}</h2>
-                    <span className="text-xs text-muted">({cat.exercises.length})</span>
+                    <div>
+                        <h2 className="text-xl font-bold text-foreground leading-tight">{cat.label}</h2>
+                        <span className="text-sm font-medium text-muted-foreground">{cat.exercises.length} exercises</span>
+                    </div>
                   </div>
                   <Link
                     to={`/${cat.id}`}
-                    className={`text-xs font-medium ${c.text} hover:underline flex items-center space-x-1`}
+                    className={`text-sm font-semibold ${c.text} hover:underline flex items-center space-x-1`}
                   >
                     <span>View all</span>
-                    <ArrowRight className="h-3 w-3" />
+                    <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
 
-                <div className="space-y-2.5">
+                <div className="space-y-4">
                   {cat.isLoading ? (
-                    <div className={`text-sm py-4 ${c.text} animate-pulse`}>Loading {cat.label} exercises...</div>
+                    <div className={`text-sm py-4 ${c.text} font-medium animate-pulse text-center`}>Loading {cat.label} exercises...</div>
                   ) : cat.exercises.map(ex => (
                     <button
                       key={ex.id}
                       onClick={() => setSelectedExercise(ex)}
-                      className="w-full group gradient-border-card glass-hover flex items-center justify-between p-4 sm:p-5 text-left"
+                      className="w-full card card-clickable group flex items-center justify-between p-5 text-left"
                     >
-                      <div className="flex items-center space-x-3 min-w-0">
-                        <div className={`w-9 h-9 rounded-lg ${c.bg} flex items-center justify-center shrink-0`}>
-                          <cat.icon className={`h-4 w-4 ${c.text}`} />
+                      <div className="flex items-center space-x-4 min-w-0">
+                        <div className={`w-12 h-12 rounded-xl ${c.bg} flex items-center justify-center shrink-0`}>
+                          <cat.icon className={`h-6 w-6 ${c.text}`} />
                         </div>
                         <div className="min-w-0">
-                          <h3 className={`text-sm font-medium text-heading truncate group-hover:${c.text} transition-colors`}>
+                          <h3 className={`text-lg font-bold text-foreground truncate group-hover:${c.text} transition-colors`}>
                             {ex.title}
                           </h3>
-                          <div className="flex items-center space-x-3 mt-0.5">
-                            <span className="text-xs text-muted flex items-center space-x-1">
-                              <Clock className="h-3 w-3" />
+                          <div className="flex items-center space-x-4 mt-1">
+                            <span className="text-sm text-muted-foreground flex items-center space-x-1">
+                              <Clock className="h-4 w-4" />
                               <span>{ex.duration}m</span>
                             </span>
-                            <span className="text-xs text-muted">{ex.difficulty}</span>
+                            <span className="text-sm font-medium text-muted-foreground px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-border">
+                                {ex.difficulty}
+                            </span>
                           </div>
                         </div>
                       </div>
-                      <ChevronRight className="h-4 w-4 text-muted group-hover:text-heading group-hover:translate-x-0.5 transition-all shrink-0 ml-3" />
+                      <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-foreground transition-colors shrink-0 ml-4" />
                     </button>
                   ))}
                 </div>
               </section>
-            )
+            );
           })}
         </div>
       </div>
@@ -187,6 +182,6 @@ export const PracticePage = () => {
         />
       )}
     </div>
-  )
-}
+  );
+};
 
