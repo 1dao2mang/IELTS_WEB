@@ -1,0 +1,22 @@
+{
+  "title": "IELTS Writing Practice Test 7",
+  "description": "Writing task on work and employment",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "WRITING",
+      "title": "Writing Task 1 & 2",
+      "writingTasks": [
+        {
+          "taskType": "TASK_1",
+          "prompt": "The map below shows the layout of a university campus. Describe the main features and locations of key buildings."
+        },
+        {
+          "taskType": "TASK_2",
+          "prompt": "Some people believe that a successful career depends on working for large multinational companies, while others argue that small businesses are more rewarding. Discuss both views and give your own opinion."
+        }
+      ]
+    }
+  ]
+}

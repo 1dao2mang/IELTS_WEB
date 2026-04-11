@@ -1,0 +1,22 @@
+{
+  "title": "IELTS Writing Practice Test 8",
+  "description": "Writing task on modern challenges",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "WRITING",
+      "title": "Writing Task 1 & 2",
+      "writingTasks": [
+        {
+          "taskType": "TASK_1",
+          "prompt": "The pie charts below show the percentage of time spent on different activities by two age groups. Describe the main differences."
+        },
+        {
+          "taskType": "TASK_2",
+          "prompt": "In many countries, the number of crimes committed by teenagers has increased. Some believe this is due to increased poverty and social deprivation, while others suggest it is caused by the breakdown of family life. What is your opinion?"
+        }
+      ]
+    }
+  ]
+}

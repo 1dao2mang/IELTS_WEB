@@ -1,0 +1,83 @@
+{
+  "title": "IELTS Reading Practice Test 1",
+  "description": "Full academic reading test with three passages",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "READING",
+      "title": "Reading Passage 1",
+      "passages": [
+        {
+          "title": "Passage 1",
+          "content": "The rise of artificial intelligence has fundamentally changed how we approach problem-solving in various industries. From healthcare diagnostics to financial forecasting, AI systems have demonstrated remarkable capabilities. However, concerns about job displacement and algorithmic bias remain valid. Experts argue that society must establish clear regulatory frameworks while continuing to invest in AI research and development. The future success of artificial intelligence depends on our ability to balance innovation with ethical considerations."
+        },
+        {
+          "title": "Passage 2",
+          "content": "Climate change represents one of the most pressing challenges of our time. Scientific evidence overwhelmingly shows that human activities are warming the planet. Rising temperatures are causing sea levels to rise, extreme weather patterns to intensify, and ecosystems to collapse. Governments worldwide have committed to reducing carbon emissions through the Paris Agreement. However, individual actions such as reducing energy consumption and supporting renewable energy initiatives are equally important. The transition to a sustainable future requires cooperation between governments, businesses, and citizens."
+        },
+        {
+          "title": "Passage 3",
+          "content": "The human brain remains one of the greatest mysteries in science. Recent advances in neuroscience have revealed the brain's remarkable plasticity, or its ability to reorganize itself throughout life. This discovery challenges the long-held belief that the brain's structure is fixed after childhood. Neuroplasticity has profound implications for learning, recovery from injury, and treatment of neurological disorders. Scientists continue to investigate how environmental factors, exercise, and education influence brain development and cognitive function."
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 1,
+          "questionText": "According to the first passage, what has been a major concern regarding artificial intelligence?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) High costs of implementation",
+            "B) Job displacement and algorithmic bias",
+            "C) Lack of research funding",
+            "D) Insufficient computing power"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 2,
+          "questionText": "The second passage suggests that addressing climate change requires action at multiple levels. True or False?",
+          "questionType": "TRUE_FALSE_NOTGIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "correctAnswer": "TRUE"
+        },
+        {
+          "questionNumber": 3,
+          "questionText": "Which passage discusses the brain's ability to change throughout life?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Passage 1",
+            "B) Passage 2",
+            "C) Passage 3",
+            "D) All passages"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 4,
+          "questionText": "According to the passage, neuroplasticity has implications for all of the following EXCEPT:",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Learning and education",
+            "B) Recovery from injury",
+            "C) Gravitational forces",
+            "D) Treatment of neurological disorders"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 5,
+          "questionText": "The Paris Agreement mentioned in Passage 2 is primarily concerned with what?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Reducing military spending",
+            "B) Promoting renewable energy",
+            "C) Reducing carbon emissions",
+            "D) Establishing trade agreements"
+          ],
+          "correctAnswer": "C"
+        }
+      ]
+    }
+  ]
+}

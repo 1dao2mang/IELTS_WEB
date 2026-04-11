@@ -1,0 +1,22 @@
+{
+  "title": "IELTS Writing Practice Test 10",
+  "description": "Writing task on social responsibility",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "WRITING",
+      "title": "Writing Task 1 & 2",
+      "writingTasks": [
+        {
+          "taskType": "TASK_1",
+          "prompt": "The table below provides information about average house prices in five different cities over a 20-year period. Summarise the information and make relevant comparisons."
+        },
+        {
+          "taskType": "TASK_2",
+          "prompt": "Some people believe that modern technology is making people socially isolated, while others think it is bringing people together. Discuss both views and give your own opinion."
+        }
+      ]
+    }
+  ]
+}

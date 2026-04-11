@@ -1,68 +1,15 @@
 {
-  "name": "ielts-web",
+  "name": "ielts-monorepo",
+  "version": "1.0.0",
   "private": true,
-  "version": "1.0.1",
-  "type": "module",
-  "description": "IELTS Learning Platform - Practice Listening, Reading, Writing, and Speaking",
-  "author": "khoazanay",
-  "license": "MIT",
-  "keywords": [
-    "ielts",
-    "english-learning",
-    "test-preparation",
-    "react",
-    "typescript",
-    "vite"
+  "workspaces": [
+    "frontend",
+    "backend"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/khoazanay/ielts-web.git"
-  },
-  "bugs": {
-    "url": "https://github.com/khoazanay/ielts-web/issues"
-  },
-  "homepage": "https://github.com/khoazanay/ielts-web#readme",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "lint": "eslint \"src/**/*.{ts,tsx}\" --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
-    "format": "prettier --write \"src/**/*.{ts,tsx,json,css,md}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,json,css,md}\"",
-    "type-check": "tsc --noEmit",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
-  },
-  "dependencies": {
-    "clsx": "^2.0.0",
-    "lucide-react": "^0.294.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.20.0",
-    "zustand": "^4.4.7"
-  },
-  "devDependencies": {
-    "@testing-library/jest-dom": "^6.1.5",
-    "@testing-library/react": "^14.1.2",
-    "@types/node": "^22.0.0",
-    "@types/react": "^18.2.43",
-    "@types/react-dom": "^18.2.17",
-    "@typescript-eslint/eslint-plugin": "^8.57.0",
-    "@typescript-eslint/parser": "^8.57.0",
-    "@vitejs/plugin-react": "^4.2.1",
-    "@vitest/coverage-v8": "^1.1.0",
-    "autoprefixer": "^10.4.16",
-    "eslint": "^8.55.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "jsdom": "^23.0.1",
-    "postcss": "^8.4.32",
-    "prettier": "^3.1.1",
-    "tailwindcss": "^3.3.6",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.8",
-    "vitest": "^1.1.0"
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev": "npx concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "install:all": "npm install"
   }
 }

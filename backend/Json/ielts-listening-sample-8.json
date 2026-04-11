@@ -1,0 +1,398 @@
+{
+  "title": "IELTS Listening Sample 8",
+  "description": "Full listening test with 4 sections (Sample 8)",
+  "level": "INTERMEDIATE",
+  "source": "Sample",
+  "sections": [
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 8. Section 1",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-8-section-1.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 1,
+          "questionText": "First name",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Keiko"
+        },
+        {
+          "questionNumber": 2,
+          "questionText": "Passport number",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "JO6337"
+        },
+        {
+          "questionNumber": 3,
+          "questionText": "Course enrolled",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Advanced English studies"
+        },
+        {
+          "questionNumber": 4,
+          "questionText": "Length of the course",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "5 months"
+        },
+        {
+          "questionNumber": 5,
+          "questionText": "Homestay time",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "About 4 months"
+        },
+        {
+          "questionNumber": 6,
+          "questionText": "Which kind of family does the girl prefer? (Choose TWO)",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) A big family with many young children",
+            "B) A family without smoker or drinkers",
+            "C) A family without any pets",
+            "D) A family with many animals or pets"
+          ],
+          "correctAnswer": "B,D"
+        },
+        {
+          "questionNumber": 7,
+          "questionText": "Her favourite food is _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Seafood"
+        },
+        {
+          "questionNumber": 8,
+          "questionText": "Now, she just plays _____ with her friends at weekends.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Tennis"
+        },
+        {
+          "questionNumber": 9,
+          "questionText": "She would rather _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Take the train"
+        },
+        {
+          "questionNumber": 10,
+          "questionText": "She can get the information about the homestay family _____ .",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "This afternoon"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 8. Section 2",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-8-section-2.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 11,
+          "questionText": "Normal visas last _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "90 days"
+        },
+        {
+          "questionNumber": 12,
+          "questionText": "You need to pay _____ for the visa.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "30 pounds"
+        },
+        {
+          "questionNumber": 13,
+          "questionText": "Some consulates require you to provide a letter to _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Confirm your nationality"
+        },
+        {
+          "questionNumber": 14,
+          "questionText": "You can get information of major embassies on _____ of the student handbook.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Page 13"
+        },
+        {
+          "questionNumber": 15,
+          "questionText": "If you carry a lot of money, you need to complete a _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Currency form"
+        },
+        {
+          "questionNumber": 16,
+          "questionText": "Remember to declare all your items on a _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Tourist export form"
+        },
+        {
+          "questionNumber": 17,
+          "questionText": "The health certificate you need is the _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "BM276"
+        },
+        {
+          "questionNumber": 18,
+          "questionText": "To get a youth fare card, you should show your _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "International student card"
+        },
+        {
+          "questionNumber": 19,
+          "questionText": "You are advised to take at least _____ passport photos with you.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "12"
+        },
+        {
+          "questionNumber": 20,
+          "questionText": "You should take _____ or _____ with you.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Yen, Australian dollar"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 8. Section 3",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-8-section-3.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 21,
+          "questionText": "Her occupation is _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Cashier"
+        },
+        {
+          "questionNumber": 22,
+          "questionText": "The woman usually spends about _____ when she goes shopping.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "50 pounds"
+        },
+        {
+          "questionNumber": 23,
+          "questionText": "She often goes to _____ because she finds them convenient.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Big department stores"
+        },
+        {
+          "questionNumber": 24,
+          "questionText": "According to the woman, _____ is/are her most difficult thing(s) to buy.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Jeans"
+        },
+        {
+          "questionNumber": 25,
+          "questionText": "50% of the people being interviewed spend _____ a month.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "45 pounds"
+        },
+        {
+          "questionNumber": 26,
+          "questionText": "15% of the people being interviewed spend _____ a month.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "75 pounds"
+        },
+        {
+          "questionNumber": 27,
+          "questionText": "35% of the people being interviewed spend _____ a month.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "20 pounds"
+        },
+        {
+          "questionNumber": 28,
+          "questionText": "Most of the people being interviewed think that _________ is/are most difficult to buy. (Mark THREE letters)",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Books",
+            "B) Study materials",
+            "C) Foods",
+            "D) Trousers",
+            "E) Shoes",
+            "F) Sportswear"
+          ],
+          "correctAnswer": "D"
+        },
+        {
+          "questionNumber": 29,
+          "questionText": "Most of the people being interviewed think that _________ is/are most difficult to buy. (Mark THREE letters)",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Books",
+            "B) Study materials",
+            "C) Foods",
+            "D) Trousers",
+            "E) Shoes",
+            "F) Sportswear"
+          ],
+          "correctAnswer": "E"
+        },
+        {
+          "questionNumber": 30,
+          "questionText": "Most of the people being interviewed think that _________ is/are most difficult to buy. (Mark THREE letters)",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Books",
+            "B) Study materials",
+            "C) Foods",
+            "D) Trousers",
+            "E) Shoes",
+            "F) Sportswear"
+          ],
+          "correctAnswer": "F"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 8. Section 4",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-8-section-4.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 31,
+          "questionText": "What does the lecturer provide for those who are interested in doing extra reading?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Personal consultation sessions.",
+            "B) Extra materials, such as a booklist.",
+            "C) Mid-term examination.",
+            "D) Free glasses."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 32,
+          "questionText": "In the past, time management meant you needed to",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) reduce your stress.",
+            "B) plan for every hour of the week.",
+            "C) own a good watch.",
+            "D) set goals and try to achieve these goals."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 33,
+          "questionText": "Today, wise time management means you need to",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) set goals and work in a systematic way.",
+            "B) work faster.",
+            "C) set an overview of your assignment.",
+            "D) make a list, plan for everything and try to stick to this plan."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 34,
+          "questionText": "In this college, students are assigned ____________ at the end of each semester.",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) team projects.",
+            "B) final term examinations.",
+            "C) essays.",
+            "D) time management courses."
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 35,
+          "questionText": "One sign the lecturer mentions that students feel under pressure is",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) library books go missing.",
+            "B) students get angry for no reason.",
+            "C) lower class attendance rates.",
+            "D) trouble at the library."
+          ],
+          "correctAnswer": "D"
+        },
+        {
+          "questionNumber": 36,
+          "questionText": "What kind of suggestion does the lecturer give to the students?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Making a very detailed plan of their daily activities.",
+            "B) Not being so stressed just because there is an assignment.",
+            "C) A regular one-hour session in their personal timetables.",
+            "D) Wearing comfortable shoes."
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 37,
+          "questionText": "According to the lecturer, there are three kinds of planners. They are:",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) one weekly planner, one daily planner and one hour planner.",
+            "B) one yearly planner, one weekly planner and one daily planner.",
+            "C) one term planner, one monthly planner and one weekly planner.",
+            "D) one term planner, one weekly and one daily planner."
+          ],
+          "correctAnswer": "D"
+        },
+        {
+          "questionNumber": 38,
+          "questionText": "If you want to set an overview of your time, you should need at least",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) one week.",
+            "B) half a week.",
+            "C) one month.",
+            "D) one term."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 39,
+          "questionText": "The daily planner of time is mainly concerned with",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) the detailed planning.",
+            "B) how to plan all available time.",
+            "C) TV schedules.",
+            "D) an overview of everything you need to do for several days."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 40,
+          "questionText": "According to the lecturer, wise time management may have the following benefit:",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) having more time to spend on relaxation and other activities.",
+            "B) improving your performance in the final term assignment.",
+            "C) helping you write better essays.",
+            "D) improving your memory."
+          ],
+          "correctAnswer": "A"
+        }
+      ]
+    }
+  ]
+}

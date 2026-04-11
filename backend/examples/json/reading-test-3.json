@@ -1,0 +1,83 @@
+{
+  "title": "IELTS Reading Practice Test 3",
+  "description": "Academic reading on education and learning",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "READING",
+      "title": "Reading Passage 3",
+      "passages": [
+        {
+          "title": "Passage 1",
+          "content": "The traditional education system faces challenges in preparing students for the modern workforce. Employers increasingly seek soft skills such as critical thinking, creativity, and communication alongside technical expertise. Many educational institutions are reforming curricula to emphasize practical application and interdisciplinary learning. Online education platforms offer flexible learning opportunities that cater to diverse learner needs. However, concerns about quality control and equitable access to digital resources persist. The future of education likely involves a blend of traditional classroom instruction and digital learning tools."
+        },
+        {
+          "title": "Passage 2",
+          "content": "Lifelong learning has become essential in the rapidly changing job market. Professionals must continuously update their skills to remain competitive. Microlearning, which delivers educational content in small, focused modules, is gaining popularity as a time-efficient learning approach. Many companies now offer professional development programs to support employee growth. Learning management systems and online courses make upskilling accessible to a broader audience. Investment in continuous learning benefits both individuals and organizations through improved performance and innovation."
+        },
+        {
+          "title": "Passage 3",
+          "content": "Educational equity remains a critical issue worldwide. Students from disadvantaged backgrounds often lack access to quality education and learning resources. Technology offers potential solutions through online education and open educational resources. However, digital divides persist in developing nations where internet access and devices are limited. Governments and non-profit organizations are working to bridge these gaps through infrastructure development and subsidized technology programs. Achieving educational equity requires sustained commitment and adequate funding from multiple stakeholders."
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 11,
+          "questionText": "What soft skills are mentioned as increasingly valued by employers?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Only technical expertise",
+            "B) Only communication skills",
+            "C) Critical thinking, creativity, and communication",
+            "D) Only physical abilities"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 12,
+          "questionText": "According to the second passage, lifelong learning is important due to what factor?",
+          "questionType": "TRUE_FALSE_NOTGIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "correctAnswer": "TRUE"
+        },
+        {
+          "questionNumber": 13,
+          "questionText": "Microlearning delivers educational content in which format?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Long comprehensive modules",
+            "B) Small, focused modules",
+            "C) Video lectures only",
+            "D) Textbooks exclusively"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 14,
+          "questionText": "What is a primary barrier to educational equity mentioned in the third passage?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Too many educational programs",
+            "B) Excessive funding",
+            "C) Lack of access to quality education and resources",
+            "D) Overqualified teachers"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 15,
+          "questionText": "Which of the following is NOT mentioned as a solution to educational equity issues?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Online education",
+            "B) Open educational resources",
+            "C) Infrastructure development",
+            "D) Restricting technology access"
+          ],
+          "correctAnswer": "D"
+        }
+      ]
+    }
+  ]
+}

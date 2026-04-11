@@ -1,0 +1,83 @@
+{
+  "title": "IELTS Reading Practice Test 7",
+  "description": "Academic reading on psychology and behavior",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "READING",
+      "title": "Reading Passage 7",
+      "passages": [
+        {
+          "title": "Passage 1",
+          "content": "Cognitive biases significantly influence human decision-making processes. Confirmation bias leads people to seek information supporting existing beliefs. Anchoring bias causes individuals to rely too heavily on initial information. Loss aversion makes people fear losses more than they value equivalent gains. Understanding these biases is crucial for making rational decisions in personal and professional contexts. Debiasing techniques such as seeking diverse perspectives and systematic evaluation can mitigate cognitive bias effects."
+        },
+        {
+          "title": "Passage 2",
+          "content": "Emotional intelligence plays a vital role in personal relationships and professional success. Individuals with high emotional intelligence effectively recognize and manage their own emotions. They demonstrate empathy and social awareness when interacting with others. Emotional intelligence can be developed through practice and self-reflection. Workplaces are increasingly recognizing emotional intelligence as essential for leadership and team dynamics. Training programs in emotional intelligence improve workplace communication and reduce conflicts."
+        },
+        {
+          "title": "Passage 3",
+          "content": "Motivation research reveals that intrinsic motivation often produces better outcomes than extrinsic rewards. Autonomy, competence, and relatedness are key components of intrinsic motivation. External rewards may undermine intrinsic motivation in some situations. Self-determination theory provides frameworks for understanding human motivation across different contexts. Educational and organizational systems that support intrinsic motivation foster greater satisfaction and performance. Balancing intrinsic and extrinsic motivation requires understanding individual needs and preferences."
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 31,
+          "questionText": "What does confirmation bias lead people to do?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Question all beliefs",
+            "B) Seek information supporting existing beliefs",
+            "C) Accept all new information",
+            "D) Ignore all information"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 32,
+          "questionText": "According to the passage, emotional intelligence is fixed and cannot be developed. True or False?",
+          "questionType": "TRUE_FALSE_NOTGIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "correctAnswer": "FALSE"
+        },
+        {
+          "questionNumber": 33,
+          "questionText": "What are the key components of intrinsic motivation mentioned?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Money and status only",
+            "B) Autonomy, competence, and relatedness",
+            "C) Punishment and reward",
+            "D) Fear and anxiety"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 34,
+          "questionText": "According to the passage, loss aversion causes people to:",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Seek constant change",
+            "B) Fear losses more than value equivalent gains",
+            "C) Ignore financial matters",
+            "D) Always take risks"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 35,
+          "questionText": "What benefit do debiasing techniques provide?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Eliminate all emotions",
+            "B) Prevent all mistakes",
+            "C) Mitigate cognitive bias effects",
+            "D) Guarantee perfect decisions"
+          ],
+          "correctAnswer": "C"
+        }
+      ]
+    }
+  ]
+}

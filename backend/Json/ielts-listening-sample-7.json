@@ -1,0 +1,393 @@
+{
+  "title": "IELTS Listening Sample 7",
+  "description": "Full listening test with 4 sections (Sample 7)",
+  "level": "INTERMEDIATE",
+  "source": "Sample",
+  "sections": [
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 7. Section 1",
+      "instructions": "Listen to the audio and answer the questions. Write NO MORE THAN THREE WORDS AND/OR A NUMBER for each answer.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-7-section-1.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 1,
+          "questionText": "Visit places which have: historical interest; good _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Shopping"
+        },
+        {
+          "questionNumber": 2,
+          "questionText": "Visit places which have: historical interest; good _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Guided tours"
+        },
+        {
+          "questionNumber": 3,
+          "questionText": "Special trips organised for groups of _____ people.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "More than 12"
+        },
+        {
+          "questionNumber": 4,
+          "questionText": "To reserve a seat: sign name on the _____ 3 days in advance.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Notice board"
+        },
+        {
+          "questionNumber": 5,
+          "questionText": "Weekend trip: St Ives date",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "13th February"
+        },
+        {
+          "questionNumber": 6,
+          "questionText": "Weekend trip: London optional extra",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Tower of London"
+        },
+        {
+          "questionNumber": 7,
+          "questionText": "Weekend trip place on 3rd March",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Bristol"
+        },
+        {
+          "questionNumber": 8,
+          "questionText": "Weekend trip: Bath optional extra",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "American museum"
+        },
+        {
+          "questionNumber": 9,
+          "questionText": "For further information: Read the _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "student newspaper"
+        },
+        {
+          "questionNumber": 10,
+          "questionText": "Social Assistant: Jane _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Yentob"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 7. Section 2",
+      "instructions": "Listen to the audio and answer the questions. Write NO MORE THAN TWO WORDS for each answer.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-7-section-2.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 11,
+          "questionText": "Riverside Village was a good place to start an industry because it had water, raw materials and fuels such as _____ and _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Coal, firewood"
+        },
+        {
+          "questionNumber": 12,
+          "questionText": "The metal industry was established at Riverside Village by _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Local craftsmen"
+        },
+        {
+          "questionNumber": 13,
+          "questionText": "There were over _____ water-powered mills in the area in the eighteenth century.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "160"
+        },
+        {
+          "questionNumber": 14,
+          "questionText": "_____ Road",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Woodside"
+        },
+        {
+          "questionNumber": 15,
+          "questionText": "The _____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Ticket office"
+        },
+        {
+          "questionNumber": 16,
+          "questionText": "The _____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Gift shop"
+        },
+        {
+          "questionNumber": 17,
+          "questionText": "The Engine Room: _____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Workshop"
+        },
+        {
+          "questionNumber": 18,
+          "questionText": "The Grinding Shop: _____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Showroom"
+        },
+        {
+          "questionNumber": 19,
+          "questionText": "The Yard: _____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Cafe"
+        },
+        {
+          "questionNumber": 20,
+          "questionText": "The _____ for the workers",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Cottages"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 7. Section 3",
+      "instructions": "Listen to the audio and answer all the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-7-section-3.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 21,
+          "questionText": "Melanie says she has not started the assignment because",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) she was doing work for another course",
+            "B) it was a really big assignment",
+            "C) she hasn’t spent time in the library"
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 22,
+          "questionText": "The lecturer says that reasonable excuses for extensions are",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) planning problems",
+            "B) problems with assignment deadlines",
+            "C) personal illness or accident"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 23,
+          "questionText": "What recommendations does Dr Johnson make about the journal articles?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) must read",
+            "B) useful",
+            "C) limited value",
+            "D) read first section",
+            "E) read research methods",
+            "F) read conclusion",
+            "G) don’t read"
+          ],
+          "correctAnswer": "E"
+        },
+        {
+          "questionNumber": 24,
+          "questionText": "What recommendations does Dr Johnson make about the journal articles?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) must read",
+            "B) useful",
+            "C) limited value",
+            "D) read first section",
+            "E) read research methods",
+            "F) read conclusion",
+            "G) don’t read"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 25,
+          "questionText": "What recommendations does Dr Johnson make about the journal articles?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) must read",
+            "B) useful",
+            "C) limited value",
+            "D) read first section",
+            "E) read research methods",
+            "F) read conclusion",
+            "G) don’t read"
+          ],
+          "correctAnswer": "G"
+        },
+        {
+          "questionNumber": 26,
+          "questionText": "What recommendations does Dr Johnson make about the journal articles?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) must read",
+            "B) useful",
+            "C) limited value",
+            "D) read first section",
+            "E) read research methods",
+            "F) read conclusion",
+            "G) don’t read"
+          ],
+          "correctAnswer": "F"
+        },
+        {
+          "questionNumber": 27,
+          "questionText": "What recommendations does Dr Johnson make about the journal articles?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) must read",
+            "B) useful",
+            "C) limited value",
+            "D) read first section",
+            "E) read research methods",
+            "F) read conclusion",
+            "G) don’t read"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 28,
+          "questionText": "Label the chart: Reasons for changing accommodation.",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) uncooperative landlord",
+            "B) environment",
+            "C) space",
+            "D) noisy neighbours",
+            "E) near city",
+            "F) work location",
+            "G) transport",
+            "H) rent"
+          ],
+          "correctAnswer": "D"
+        },
+        {
+          "questionNumber": 29,
+          "questionText": "Label the chart: Reasons for changing accommodation.",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) uncooperative landlord",
+            "B) environment",
+            "C) space",
+            "D) noisy neighbours",
+            "E) near city",
+            "F) work location",
+            "G) transport",
+            "H) rent"
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 30,
+          "questionText": "Label the chart: Reasons for changing accommodation.",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) uncooperative landlord",
+            "B) environment",
+            "C) space",
+            "D) noisy neighbours",
+            "E) near city",
+            "F) work location",
+            "G) transport",
+            "H) rent"
+          ],
+          "correctAnswer": "B"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 7. Section 4",
+      "instructions": "Listen to the audio and answer all the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-7-section-4.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 31,
+          "questionText": "Ways of planning our _____ better.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Cities"
+        },
+        {
+          "questionNumber": 32,
+          "questionText": "They can make cities more or less _____ in summer.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Windy"
+        },
+        {
+          "questionNumber": 33,
+          "questionText": "They can make inland cities more _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Humid"
+        },
+        {
+          "questionNumber": 34,
+          "questionText": "They can make local areas more _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Shady"
+        },
+        {
+          "questionNumber": 35,
+          "questionText": "Less _____ (local impact).",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Dangerous"
+        },
+        {
+          "questionNumber": 36,
+          "questionText": "Trees evaporate water through their _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Leaves"
+        },
+        {
+          "questionNumber": 37,
+          "questionText": "Tall buildings cause more wind at _____ level.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Ground"
+        },
+        {
+          "questionNumber": 38,
+          "questionText": "Trees _____ the wind force.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Filter"
+        },
+        {
+          "questionNumber": 39,
+          "questionText": "_____ frequency noise passes through trees.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Low"
+        },
+        {
+          "questionNumber": 40,
+          "questionText": "Trees require a lot of sunlight, water and _____ to grow.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Room"
+        }
+      ]
+    }
+  ]
+}

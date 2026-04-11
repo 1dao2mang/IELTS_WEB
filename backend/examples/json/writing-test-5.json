@@ -1,0 +1,22 @@
+{
+  "title": "IELTS Writing Practice Test 5",
+  "description": "Writing task on tourism and travel",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "WRITING",
+      "title": "Writing Task 1 & 2",
+      "writingTasks": [
+        {
+          "taskType": "TASK_1",
+          "prompt": "The diagram below shows the process of paper recycling. Describe the process."
+        },
+        {
+          "taskType": "TASK_2",
+          "prompt": "Tourism is becoming increasingly important to many countries, but it also brings problems. What are the advantages and disadvantages of tourism on countries and individuals?"
+        }
+      ]
+    }
+  ]
+}
