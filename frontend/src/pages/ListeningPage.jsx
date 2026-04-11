@@ -1,92 +1,83 @@
-import { useState, useEffect } from 'react'
-import { Headphones, Clock, ChevronRight, Volume2, Lightbulb } from 'lucide-react'
-import { useTestStore } from '@/store'
-import { ExerciseView } from '../components/ExerciseView'
+import { useState, useEffect } from 'react';
+import { Headphones, Clock, ChevronRight, Volume2, Lightbulb } from 'lucide-react';
+import { useTestStore } from '@/store';
+import { ExerciseView } from '../components/ExerciseView';
 
 const tips = [
-  { icon, text: 'Listen for keywords first, then focus on context.' },
-  { icon, text: 'Use the 30-second preview to scan questions.' },
-  { icon, text: 'Practice with British, American & Australian accents.' },
-]
+  { icon: Lightbulb, text: 'Listen for keywords first, then focus on context.' },
+  { icon: Clock, text: 'Use the 30-second preview to scan questions.' },
+  { icon: Volume2, text: 'Practice with British, American & Australian accents.' },
+];
 
 export const ListeningPage = () => {
-  const [selectedExercise, setSelectedExercise] = useState<Exercise | null>(null)
-  const { exercises, isLoading, fetchTests } = useTestStore()
+  const [selectedExercise, setSelectedExercise] = useState(null);
+  const { exercises, isLoading, fetchTests } = useTestStore();
 
   useEffect(() => {
-    fetchTests('listening')
-  }, [fetchTests])
+    fetchTests('listening');
+  }, [fetchTests]);
 
-  const listeningExercises = exercises.listening
+  const listeningExercises = exercises.listening || [];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       {/* ─── Hero ─────────────────────────── */}
-      <section className="hero-gradient hero-listening relative pt-32 pb-20 sm:pt-36 sm:pb-24 px-4">
-        <div className="orb orb-cyan w-[400px] h-[400px] -top-32 -left-32 animate-float opacity-40" />
-
-        <div className="max-w-4xl mx-auto relative z-10">
-          <div className="flex items-center space-x-4 mb-6">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-glow-cyan">
-              <Headphones className="h-7 w-7 text-white" />
-            </div>
-            <div>
-              <h1 className="text-3xl sm:text-4xl font-display font-bold text-heading">Listening</h1>
-              <p className="text-body text-sm mt-0.5">{listeningExercises.length} exercises available</p>
-            </div>
+      <section className="bg-slate-50 dark:bg-slate-900 border-b border-border py-16 md:py-24">
+        <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
+          <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-6">
+            <Headphones className="h-8 w-8" />
           </div>
-          <p className="text-body max-w-2xl leading-relaxed">
+          <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">Listening</h1>
+          <p className="text-muted-foreground text-lg mb-4">
+            {listeningExercises.length} exercises available
+          </p>
+          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Develop your listening comprehension with authentic IELTS-style audio exercises. Each exercise targets specific question types you'll encounter on exam day.
           </p>
         </div>
       </section>
 
-      <div className="max-w-5xl mx-auto px-4 py-14 sm:py-20 space-y-14">
+      <div className="max-w-5xl mx-auto px-4 py-16 space-y-16">
         {/* ─── Tips ────────────────────────── */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {tips.map((tip, i) => (
-            <div
-              key={i}
-              className="glass-hover flex items-start space-x-3 p-5 opacity-0 animate-fade-in-up"
-              style={{ animationDelay: `${i * 100 + 100}ms` }}
-            >
-              <div className="w-9 h-9 rounded-lg bg-cyan-500/10 flex items-center justify-center shrink-0 mt-0.5">
-                <tip.icon className="h-4 w-4 text-cyan-400" />
+            <div key={i} className="card bg-white dark:bg-slate-800 flex items-start space-x-4 p-6 hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                <tip.icon className="h-5 w-5 text-primary" />
               </div>
-              <p className="text-sm text-body leading-relaxed">{tip.text}</p>
+              <p className="text-sm font-medium text-foreground leading-relaxed pt-1">{tip.text}</p>
             </div>
           ))}
         </div>
 
         {/* ─── Exercise List ───────────────── */}
         <div>
-          <h2 className="text-xl font-display font-semibold text-heading mb-6">Available Exercises</h2>
-          <div className="space-y-3">
+          <h2 className="text-2xl font-bold text-foreground mb-6">Available Exercises</h2>
+          <div className="space-y-4">
             {isLoading.listening ? (
-              <div className="text-center py-8 text-cyan-400 animate-pulse">Loading exercises...</div>
+              <div className="text-center py-12 text-muted-foreground font-medium animate-pulse">Loading listening tests...</div>
             ) : listeningExercises.map((ex, i) => (
               <button
                 key={ex.id}
                 onClick={() => setSelectedExercise(ex)}
-                className="w-full group gradient-border-card glass-hover flex items-center justify-between p-5 text-left opacity-0 animate-fade-in-up"
-                style={{ animationDelay: `${i * 80 + 200}ms` }}
+                className="w-full card card-clickable group flex items-center justify-between p-6 text-left"
               >
-                <div className="flex items-center space-x-4 min-w-0">
-                  <div className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center shrink-0">
-                    <Headphones className="h-5 w-5 text-cyan-400" />
+                <div className="flex items-center space-x-5 min-w-0">
+                  <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800 border border-border flex items-center justify-center shrink-0 group-hover:bg-primary/5 transition-colors">
+                    <Headphones className="h-6 w-6 text-primary" />
                   </div>
                   <div className="min-w-0">
-                    <h3 className="text-sm font-medium text-heading truncate group-hover:text-cyan-400 transition-colors">
+                    <h3 className="text-lg font-bold text-foreground truncate group-hover:text-primary transition-colors">
                       {ex.title}
                     </h3>
-                    <p className="text-xs text-sub mt-0.5 truncate">{ex.description}</p>
+                    <p className="text-sm text-muted-foreground mt-1 truncate">{ex.description}</p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-3 shrink-0 ml-4">
-                  <span className="hidden sm:inline text-xs text-faint px-2.5 py-1 rounded-lg bg-surface-subtle border border-subtle">
+                <div className="flex items-center space-x-4 shrink-0 ml-4">
+                  <span className="hidden sm:inline text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-muted-foreground border border-border">
                     {ex.difficulty}
                   </span>
-                  <ChevronRight className="h-4 w-4 text-faint group-hover:text-cyan-400 group-hover:translate-x-0.5 transition-all" />
+                  <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
                 </div>
               </button>
             ))}
@@ -94,7 +85,6 @@ export const ListeningPage = () => {
         </div>
       </div>
 
-      {/* Exercise overlay */}
       {selectedExercise && (
         <ExerciseView
           exercise={selectedExercise}
@@ -102,6 +92,6 @@ export const ListeningPage = () => {
         />
       )}
     </div>
-  )
-}
+  );
+};
 
