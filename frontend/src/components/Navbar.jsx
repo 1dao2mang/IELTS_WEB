@@ -13,7 +13,7 @@ const links = [
   { label: 'Progress', path: '/progress' },
 ];
 
-export const Navbar = () => {
+export const Navbar = ({ className = '' }) => {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -34,7 +34,7 @@ export const Navbar = () => {
         scrolled
           ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-border shadow-sm'
           : 'bg-transparent border-transparent'
-      }`}
+      } ${className}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">

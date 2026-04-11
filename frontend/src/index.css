@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,48 +6,37 @@
 
 @layer base {
   :root {
-    /* Primary: blue-600 */
-    --color-primary: 221.2 83.2% 53.3%;
-    --color-on-primary: 0 0% 100%;
-    /* Secondary: indigo-500 */
-    --color-secondary: 238.7 83.5% 66.7%;
-    /* Accent: emerald-600 */
-    --color-accent: 159.6 75.1% 39.4%;
-    /* Background: slate-50 */
-    --color-background: 210 40% 98%;
-    /* Foreground: slate-900 */
-    --color-foreground: 222.2 84% 4.9%;
-    /* Muted: slate-100 */
-    --color-muted: 210 40% 96.1%;
-    /* Border: slate-200 */
-    --color-border: 214.3 31.8% 91.4%;
-    /* Destructive: red-600 */
-    --color-destructive: 0 84.2% 60.2%;
-    --color-ring: 221.2 83.2% 53.3%;
+    /* High-Tech Off-White Dark Mode Ready */
+    --color-background: 210 40% 98%;      /* #FAFAFA / #F8FAFC */
+    --color-foreground: 222.2 84% 4.9%;   /* #0F172A */
     
-    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
-    --shadow-xl: 0 20px 25px rgba(0,0,0,0.15);
+    /* Primary Canvas */
+    --color-primary: 224 76% 48%;         /* #1D4ED8 */
+    --color-on-primary: 0 0% 100%;
+    --color-secondary: 238.7 83.5% 66.7%; /* #6366F1 / #4D7CFF (high tech SaaS) */
+    
+    /* Accent & Destructive */
+    --color-accent: 159.6 75.1% 39.4%;    /* #059669 */
+    --color-muted: 210 40% 96.1%;
+    --color-border: 214.3 31.8% 91.4%;
+    --color-destructive: 0 84.2% 60.2%;
+    --color-ring: 224 76% 48%;
+
+    --radius: 1rem;
   }
 
   [data-theme='dark'] {
-    /* Primary: blue-500 */
-    --color-primary: 217.2 91.2% 59.8%;
-    --color-on-primary: 0 0% 100%;
-    /* Secondary: indigo-400 */
-    --color-secondary: 238.7 83.5% 66.7%;
-    /* Accent: emerald-500 */
-    --color-accent: 152.4 79% 41.8%;
-    /* Background: slate-950 */
-    --color-background: 222.2 84% 4.9%;
-    /* Foreground: slate-50 */
+    /* Cinematic Deep Dark */
+    --color-background: 240 10% 4%;       /* #0a0a0f */
     --color-foreground: 210 40% 98%;
-    /* Muted: slate-800 */
+    
+    --color-primary: 217.2 91.2% 59.8%;   /* #3B82F6 */
+    --color-on-primary: 0 0% 100%;
+    --color-secondary: 238.7 83.5% 66.7%;
+    
+    --color-accent: 152.4 79% 41.8%;
     --color-muted: 217.2 32.6% 17.5%;
-    /* Border: slate-700 */
-    --color-border: 214.3 31.8% 91.4%;
-    /* Destructive: red-500 */
+    --color-border: 215 28% 17%;          /* #1E293B */
     --color-destructive: 0 84.2% 60.2%;
     --color-ring: 217.2 91.2% 59.8%;
   }
@@ -64,47 +53,62 @@
 
   body {
     font-family: 'Inter', system-ui, sans-serif;
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: hsl(var(--color-background));
+    color: hsl(var(--color-foreground));
+    transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease;
   }
 }
 
 @layer components {
-  /* Buttons */
-  .btn-primary {
-    @apply bg-accent text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 cursor-pointer shadow-md hover:opacity-90 hover:-translate-y-[1px];
+  /* Orbs for ambient background lighting */
+  .orb {
+    @apply absolute rounded-[45%] mix-blend-multiply dark:mix-blend-lighten filter blur-[80px] sm:blur-[120px] pointer-events-none;
   }
+  .orb-cyan { @apply bg-cyan-400 dark:bg-cyan-600; }
+  .orb-violet { @apply bg-violet-400 dark:bg-violet-600; }
+  .orb-amber { @apply bg-amber-400 dark:bg-amber-600; }
+  .orb-emerald { @apply bg-emerald-400 dark:bg-emerald-600; }
 
-  .btn-secondary {
-    @apply bg-transparent text-primary border-2 border-primary px-6 py-3 rounded-lg font-semibold transition-all duration-200 cursor-pointer hover:bg-primary/5 hover:-translate-y-[1px];
-  }
-
-  /* Cards */
-  .card {
-    @apply bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md transition-all duration-200;
-  }
-
-  .card:hover {
-    @apply shadow-lg -translate-y-[2px];
+  /* Gradient Text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
   }
   
-  .card-clickable {
-    @apply cursor-pointer;
+  .text-gradient-gold {
+     @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-500;
   }
 
+  /* High-Tech Glass Panel */
+  .glass-panel {
+    @apply bg-white/70 dark:bg-slate-900/40 backdrop-blur-2xl border border-white/50 dark:border-white/10 rounded-[var(--radius)] shadow-soft dark:shadow-card;
+  }
+
+  /* Interactive Card */
+  .card {
+    @apply glass-panel transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-medium dark:hover:shadow-[0_8px_30px_rgba(255,255,255,0.05)];
+  }
+
+  /* Premium Buttons */
+  .btn-gradient {
+    @apply relative overflow-hidden bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-xl font-bold shadow-soft transition-all duration-300 hover:shadow-glow-blue hover:scale-[1.02] active:scale-95;
+  }
+  
+  .btn-gradient::after {
+    @apply content-[''] absolute inset-0 bg-white/20 opacity-0 transition-opacity duration-300 pointer-events-none hover:opacity-100;
+  }
+
+  /* Legacy Fallbacks modified to premium */
+  .btn-primary { @apply btn-gradient px-6 py-3 rounded-lg text-base; }
+  .btn-secondary { @apply bg-transparent text-primary border border-primary/30 backdrop-blur px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-primary/10 hover:-translate-y-[1px]; }
+  
   /* Inputs */
   .input {
-    @apply px-4 py-3 border border-border rounded-lg bg-white dark:bg-slate-900 text-foreground transition-colors duration-200 focus:outline-none focus:border-primary focus:ring-[3px] focus:ring-primary/20;
+    @apply px-4 py-3 border border-border/60 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm rounded-lg text-foreground transition-all duration-300 focus:outline-none focus:border-primary focus:ring-[3px] focus:ring-primary/20 dark:focus:ring-primary/30;
   }
 
-  /* Modals */
-  .modal-overlay {
-    @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4;
-  }
-
-  .modal {
-    @apply bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-xl max-w-lg w-full max-h-[90vh] overflow-y-auto;
+  /* Nav Glass */
+  .nav-glass {
+    @apply bg-white/60 dark:bg-[#0a0a0f]/60 backdrop-blur-xl border-b border-white/20 dark:border-white/10;
   }
 }
 
