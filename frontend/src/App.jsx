@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import { MainLayout } from '@/layouts'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { ScrollToTop } from '@/components/ScrollToTop'
@@ -47,7 +47,7 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <HashRouter>
         <ScrollToTop />
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
@@ -65,7 +65,7 @@ function App() {
             </Route>
           </Routes>
         </Suspense>
-      </BrowserRouter>
+      </HashRouter>
     </ErrorBoundary>
   )
 }
