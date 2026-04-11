@@ -21,9 +21,37 @@ A comprehensive, AI-powered IELTS preparation web application designed to help s
 
 ## 📐 Architecture
 
-<p align="center">
-  <img src="https://placehold.co/800x400/1e293b/FFFFFF/png?text=IELTS+WEB+Architecture%5CnFrontend+(React)+%E2%86%94+Backend+(Express)+%E2%86%94+MySQL+%2B+Gemini+AI" alt="Architecture Diagram"/>
-</p>
+```mermaid
+graph TD
+    classDef client fill:#e2e8f0,stroke:#64748b,stroke-width:2px,color:#0f172a
+    classDef express fill:#bae6fd,stroke:#0284c7,stroke-width:2px,color:#0f172a
+    classDef middleware fill:#f0f9ff,stroke:#0ea5e9,stroke-width:1px,color:#0f172a,stroke-dasharray: 5 5
+    classDef database fill:#fecdd3,stroke:#e11d48,stroke-width:2px,color:#0f172a
+    classDef external fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#0f172a
+
+    Client["🌐 Client (React 18 + Zustand)"]:::client
+
+    subgraph Backend["Node.js / Express.js Application"]
+        direction TB
+        Middlewares["⚙️ Middlewares (Auth, Validations)"]:::middleware
+        Controllers["🎛️ Controllers & API Routes"]:::express
+        Services["🛠️ Services (Business Logics, AI Feedback)"]:::express
+        ORM["🏗️ Prisma ORM"]:::express
+
+        Middlewares --> Controllers
+        Controllers --> Services
+        Services --> ORM
+    end
+
+    DB[("🗄️ MySQL Database")]:::database
+    Gemini["🤖 Google Gemini AI (Evaluation)"]:::external
+    R2["☁️ Cloudflare R2 / S3 (Media Storage)"]:::external
+
+    Client -. "HTTP/REST API" .-> Middlewares
+    ORM --> DB
+    Services -. "API Calls" .-> Gemini
+    Services -. "Upload/Stream" .-> R2
+```
 
 ---
 
