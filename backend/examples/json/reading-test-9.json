@@ -1,0 +1,83 @@
+{
+  "title": "IELTS Reading Practice Test 9",
+  "description": "Academic reading on language and communication",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "READING",
+      "title": "Reading Passage 9",
+      "passages": [
+        {
+          "title": "Passage 1",
+          "content": "Language evolution is a continuous process shaped by cultural and technological changes. New words and expressions emerge to reflect societal developments and innovations. Slang and colloquialisms spread rapidly through social media platforms. Digital communication has introduced new linguistic features including abbreviations and emoji usage. Professional language standards evolve to accommodate inclusive terminology. Understanding language evolution helps us appreciate how communication adapts to changing needs."
+        },
+        {
+          "title": "Passage 2",
+          "content": "Multilingualism has become increasingly valuable in globalized societies. Bilingual and multilingual individuals demonstrate cognitive advantages including enhanced problem-solving abilities. Language learning improves memory and executive function. Communities with multilingual populations benefit from increased cultural understanding and economic opportunities. However, language preservation remains challenging as dominant languages threaten minority languages. Educational policies supporting multilingual development enhance social cohesion and economic competitiveness."
+        },
+        {
+          "title": "Passage 3",
+          "content": "Nonverbal communication conveys meaning as powerfully as verbal language. Body language, facial expressions, and tone of voice significantly influence message interpretation. Cultural differences in nonverbal communication can cause misunderstandings in cross-cultural interactions. Awareness of nonverbal communication patterns improves interpersonal relationships and professional effectiveness. Virtual communication platforms have limited nonverbal cues, potentially affecting communication quality. Developing awareness of nonverbal communication enhances emotional intelligence and relationship building."
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 41,
+          "questionText": "What does the passage suggest about new words in language?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Never emerge",
+            "B) Only for technical purposes",
+            "C) Emerge to reflect societal developments",
+            "D) Are always considered incorrect"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 42,
+          "questionText": "According to the passage, multilingual individuals have cognitive disadvantages. True or False?",
+          "questionType": "TRUE_FALSE_NOTGIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "correctAnswer": "FALSE"
+        },
+        {
+          "questionNumber": 43,
+          "questionText": "Which factors influence message interpretation according to the passage?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Only written words",
+            "B) Only verbal content",
+            "C) Body language, facial expressions, and tone",
+            "D) Only professional settings"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 44,
+          "questionText": "What cognitive benefits does language learning provide?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Reduces memory capacity",
+            "B) Improves memory and executive function",
+            "C) Impairs decision-making",
+            "D) Slows processing speed"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 45,
+          "questionText": "According to the passage, what is a challenge for language preservation?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Too many new words",
+            "B) Threat from dominant languages",
+            "C) Lack of written records",
+            "D) Insufficient speakers"
+          ],
+          "correctAnswer": "B"
+        }
+      ]
+    }
+  ]
+}

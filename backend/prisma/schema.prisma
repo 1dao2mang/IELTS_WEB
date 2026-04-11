@@ -1,0 +1,500 @@
+// This is your Prisma schema file
+// Learn more: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// ==========================================
+// 1. AUTH & USER
+// ==========================================
+
+model User {
+  id           BigInt    @id @default(autoincrement())
+  email        String    @unique @db.VarChar(255)
+  passwordHash String    @map("password_hash") @db.VarChar(255)
+  role         String    @default("student") @db.VarChar(50)
+  isActive     Boolean   @default(true) @map("is_active")
+  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt    DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  // Relations
+  profile          UserProfile?
+  userRoles        UserRole[]
+  testAttempts     TestAttempt[]
+  userSkillProgress UserSkillProgress[]
+  bookmarks        Bookmark[]
+  userBadges       UserBadge[]
+  activityLogs     ActivityLog[]
+
+  @@map("users")
+}
+
+model UserProfile {
+  userId       BigInt    @id @map("user_id")
+  fullName     String?   @map("full_name") @db.VarChar(255)
+  avatarUrl    String?   @map("avatar_url") @db.VarChar(500)
+  country      String?   @db.VarChar(100)
+  targetBand   Decimal?  @map("target_band") @db.Decimal(3, 1)
+  bio          String?   @db.Text
+  dateOfBirth  DateTime? @map("date_of_birth") @db.Date
+  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt    DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_profiles")
+}
+
+model Role {
+  id          Int    @id @default(autoincrement())
+  name        String @unique @db.VarChar(50)
+  description String? @db.VarChar(255)
+
+  // Relations
+  userRoles UserRole[]
+
+  @@map("roles")
+}
+
+model UserRole {
+  userId BigInt @map("user_id")
+  roleId Int    @map("role_id")
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([userId, roleId])
+  @@map("user_roles")
+}
+
+// ==========================================
+// 2. CORE: SKILLS, TESTS, SECTIONS
+// ==========================================
+
+model Skill {
+  id   Int    @id @default(autoincrement())
+  code String @unique @db.VarChar(50)
+  name String @db.VarChar(100)
+
+  // Relations
+  testSections      TestSection[]
+  testAttempts      TestAttempt[]
+  userSkillProgress UserSkillProgress[]
+  speakingTopics    SpeakingTopic[]
+
+  @@map("skills")
+}
+
+model Test {
+  id          BigInt    @id @default(autoincrement())
+  title       String    @db.VarChar(255)
+  description String?   @db.Text
+  level       String?   @db.VarChar(50)
+  source      String?   @db.VarChar(255)
+  publishedAt DateTime? @map("published_at") @db.Date
+  isActive    Boolean   @default(true) @map("is_active")
+  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt   DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  // Relations
+  testSections TestSection[]
+  testAttempts TestAttempt[]
+  bookmarks    Bookmark[]
+
+  @@map("tests")
+}
+
+model TestSection {
+  id           BigInt   @id @default(autoincrement())
+  testId       BigInt   @map("test_id")
+  skillId      Int      @map("skill_id")
+  sectionIndex Int      @map("section_index")
+  title        String?  @db.VarChar(255)
+  instructions String?  @db.Text
+  durationSec  Int?     @map("duration_sec")
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt    DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  // Relations
+  test           Test            @relation(fields: [testId], references: [id], onDelete: Cascade)
+  skill          Skill           @relation(fields: [skillId], references: [id], onDelete: Restrict)
+  passages       Passage[]
+  audioFiles     AudioFile[]
+  questionGroups QuestionGroup[]
+  writingTasks   WritingTask[]
+
+  @@index([testId], map: "idx_test_sections_test")
+  @@index([skillId], map: "idx_test_sections_skill")
+  @@map("test_sections")
+}
+
+// ==========================================
+// 3. PASSAGES & AUDIO (READING / LISTENING)
+// ==========================================
+
+model Passage {
+  id            BigInt   @id @default(autoincrement())
+  testSectionId BigInt   @map("test_section_id")
+  title         String?  @db.VarChar(255)
+  content       String?  @db.LongText
+  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt     DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  // Relations
+  testSection    TestSection     @relation(fields: [testSectionId], references: [id], onDelete: Cascade)
+  questionGroups QuestionGroup[]
+
+  @@index([testSectionId], map: "idx_passages_section")
+  @@map("passages")
+}
+
+model AudioFile {
+  id            BigInt   @id @default(autoincrement())
+  testSectionId BigInt   @map("test_section_id")
+  url           String   @db.VarChar(500)
+  transcript    String?  @db.LongText
+  durationSec   Int?     @map("duration_sec")
+  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt     DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  // Relations
+  testSection    TestSection     @relation(fields: [testSectionId], references: [id], onDelete: Cascade)
+  questionGroups QuestionGroup[]
+
+  @@index([testSectionId], map: "idx_audio_section")
+  @@map("audio_files")
+}
+
+// ==========================================
+// 4. QUESTION GROUPS / QUESTIONS / OPTIONS / ANSWERS
+// ==========================================
+
+model QuestionGroup {
+  id            BigInt   @id @default(autoincrement())
+  testSectionId BigInt   @map("test_section_id")
+  groupTitle    String?  @map("group_title") @db.VarChar(255)
+  instructions  String?  @db.Text
+  passageId     BigInt?  @map("passage_id")
+  audioId       BigInt?  @map("audio_id")
+  questionRange String?  @map("question_range") @db.VarChar(50)
+  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt     DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  // Relations
+  testSection TestSection @relation(fields: [testSectionId], references: [id], onDelete: Cascade)
+  passage     Passage?    @relation(fields: [passageId], references: [id], onDelete: SetNull)
+  audio       AudioFile?  @relation(fields: [audioId], references: [id], onDelete: SetNull)
+  questions   Question[]
+
+  @@index([testSectionId], map: "idx_qgroups_section")
+  @@map("question_groups")
+}
+
+model Question {
+  id              BigInt   @id @default(autoincrement())
+  questionGroupId BigInt   @map("question_group_id")
+  questionIndex   Int      @map("question_index")
+  questionType    String   @map("question_type") @db.VarChar(50)
+  prompt          String   @db.Text
+  score           Decimal  @default(1.0) @db.Decimal(4, 2)
+  extraData       Json?    @map("extra_data")
+  createdAt       DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt       DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  // Relations
+  questionGroup    QuestionGroup      @relation(fields: [questionGroupId], references: [id], onDelete: Cascade)
+  questionOptions  QuestionOption[]
+  questionAnswers  QuestionAnswer[]
+  questionAttempts QuestionAttempt[]
+  bookmarks        Bookmark[]
+
+  @@index([questionGroupId], map: "idx_questions_group")
+  @@map("questions")
+}
+
+model QuestionOption {
+  id         BigInt   @id @default(autoincrement())
+  questionId BigInt   @map("question_id")
+  optionKey  String?  @map("option_key") @db.VarChar(10)
+  content    String   @db.Text
+  isCorrect  Boolean  @default(false) @map("is_correct")
+  createdAt  DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt  DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  // Relations
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@index([questionId], map: "idx_qoptions_question")
+  @@map("question_options")
+}
+
+model QuestionAnswer {
+  id         BigInt   @id @default(autoincrement())
+  questionId BigInt   @map("question_id")
+  answerText String   @map("answer_text") @db.VarChar(255)
+  matchType  String?  @default("exact") @map("match_type") @db.VarChar(50)
+  createdAt  DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt  DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  // Relations
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@index([questionId], map: "idx_qanswers_question")
+  @@map("question_answers")
+}
+
+// ==========================================
+// 5. WRITING
+// ==========================================
+
+model WritingTask {
+  id            BigInt   @id @default(autoincrement())
+  testSectionId BigInt   @map("test_section_id")
+  taskType      String   @map("task_type") @db.VarChar(20)
+  prompt        String   @db.LongText
+  imageUrl      String?  @map("image_url") @db.VarChar(500)
+  bandReference Decimal? @map("band_reference") @db.Decimal(3, 1)
+  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt     DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  // Relations
+  testSection         TestSection          @relation(fields: [testSectionId], references: [id], onDelete: Cascade)
+  writingSubmissions  WritingSubmission[]
+
+  @@index([testSectionId], map: "idx_writing_section")
+  @@map("writing_tasks")
+}
+
+model WritingBandDescriptor {
+  id          BigInt  @id @default(autoincrement())
+  taskType    String  @map("task_type") @db.VarChar(20)
+  bandScore   Decimal @map("band_score") @db.Decimal(3, 1)
+  criteria    String  @db.VarChar(100)
+  description String  @db.Text
+
+  @@map("writing_band_descriptors")
+}
+
+// ==========================================
+// 6. SPEAKING
+// ==========================================
+
+model SpeakingTopic {
+  id          BigInt   @id @default(autoincrement())
+  skillId     Int      @map("skill_id")
+  part        Int
+  topicTitle  String?  @map("topic_title") @db.VarChar(255)
+  description String?  @db.Text
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  // Relations
+  skill           Skill            @relation(fields: [skillId], references: [id], onDelete: Restrict)
+  speakingPrompts SpeakingPrompt[]
+
+  @@index([skillId], map: "idx_speaking_topics_skill")
+  @@map("speaking_topics")
+}
+
+model SpeakingPrompt {
+  id                BigInt   @id @default(autoincrement())
+  topicId           BigInt   @map("topic_id")
+  questionIndex     Int?     @map("question_index")
+  questionText      String   @map("question_text") @db.Text
+  suggestedTimeSec  Int?     @map("suggested_time_sec")
+  createdAt         DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt         DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  // Relations
+  topic           SpeakingTopic    @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  speakingRecords SpeakingRecord[]
+
+  @@index([topicId], map: "idx_speaking_prompts_topic")
+  @@map("speaking_prompts")
+}
+
+// ==========================================
+// 7. PRACTICE & ATTEMPTS
+// ==========================================
+
+model TestAttempt {
+  id            BigInt    @id @default(autoincrement())
+  userId        BigInt    @map("user_id")
+  testId        BigInt    @map("test_id")
+  skillId       Int       @map("skill_id")
+  mode          String    @default("practice") @db.VarChar(20)
+  startedAt     DateTime  @default(now()) @map("started_at") @db.Timestamp(0)
+  completedAt   DateTime? @map("completed_at") @db.Timestamp(0)
+  totalScore    Decimal?  @map("total_score") @db.Decimal(5, 2)
+  bandScore     Decimal?  @map("band_score") @db.Decimal(3, 1)
+  status        String    @default("in_progress") @db.VarChar(20)
+  createdAt     DateTime  @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt     DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  // Relations
+  user                User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  test                Test                 @relation(fields: [testId], references: [id], onDelete: Cascade)
+  skill               Skill                @relation(fields: [skillId], references: [id], onDelete: Restrict)
+  questionAttempts    QuestionAttempt[]
+  writingSubmissions  WritingSubmission[]
+  speakingRecords     SpeakingRecord[]
+
+  @@index([userId], map: "idx_attempts_user")
+  @@index([testId], map: "idx_attempts_test")
+  @@index([skillId], map: "idx_attempts_skill")
+  @@map("test_attempts")
+}
+
+model QuestionAttempt {
+  id             BigInt    @id @default(autoincrement())
+  testAttemptId  BigInt    @map("test_attempt_id")
+  questionId     BigInt    @map("question_id")
+  userAnswer     String?   @map("user_answer") @db.Text
+  isCorrect      Boolean?  @map("is_correct")
+  scoreObtained  Decimal?  @map("score_obtained") @db.Decimal(4, 2)
+  answeredAt     DateTime  @default(now()) @map("answered_at") @db.Timestamp(0)
+
+  // Relations
+  testAttempt TestAttempt @relation(fields: [testAttemptId], references: [id], onDelete: Cascade)
+  question    Question    @relation(fields: [questionId], references: [id], onDelete: Restrict)
+
+  @@index([testAttemptId], map: "idx_qattempts_attempt")
+  @@index([questionId], map: "idx_qattempts_question")
+  @@map("question_attempts")
+}
+
+model WritingSubmission {
+  id            BigInt    @id @default(autoincrement())
+  testAttemptId BigInt    @map("test_attempt_id")
+  writingTaskId BigInt    @map("writing_task_id")
+  content       String    @db.LongText
+  bandScore     Decimal?  @map("band_score") @db.Decimal(3, 1)
+  feedback      String?   @db.LongText
+  submittedAt   DateTime  @default(now()) @map("submitted_at") @db.Timestamp(0)
+
+  // Relations
+  testAttempt  TestAttempt  @relation(fields: [testAttemptId], references: [id], onDelete: Cascade)
+  writingTask  WritingTask  @relation(fields: [writingTaskId], references: [id], onDelete: Restrict)
+
+  @@index([testAttemptId], map: "idx_writing_sub_attempt")
+  @@map("writing_submissions")
+}
+
+model SpeakingRecord {
+  id               BigInt    @id @default(autoincrement())
+  testAttemptId    BigInt    @map("test_attempt_id")
+  speakingPromptId BigInt?   @map("speaking_prompt_id")
+  audioUrl         String    @map("audio_url") @db.VarChar(500)
+  transcript       String?   @db.LongText
+  bandScore        Decimal?  @map("band_score") @db.Decimal(3, 1)
+  feedback         String?   @db.LongText
+  status           String    @default("pending") @db.VarChar(20)
+  scoresJson       Json?     @map("scores_json")
+  errorMessage     String?   @map("error_message") @db.Text
+  recordedAt       DateTime  @default(now()) @map("recorded_at") @db.Timestamp(0)
+  processedAt      DateTime? @map("processed_at") @db.Timestamp(0)
+
+  // Relations
+  testAttempt     TestAttempt     @relation(fields: [testAttemptId], references: [id], onDelete: Cascade)
+  speakingPrompt  SpeakingPrompt? @relation(fields: [speakingPromptId], references: [id], onDelete: SetNull)
+
+  @@index([testAttemptId], map: "idx_speaking_records_attempt")
+  @@index([status], map: "idx_speaking_records_status")
+  @@map("speaking_records")
+}
+
+// ==========================================
+// 8. PROGRESS, BOOKMARKS, GAMIFICATION
+// ==========================================
+
+model UserSkillProgress {
+  id            BigInt    @id @default(autoincrement())
+  userId        BigInt    @map("user_id")
+  skillId       Int       @map("skill_id")
+  totalAttempts Int       @default(0) @map("total_attempts")
+  avgScore      Decimal?  @map("avg_score") @db.Decimal(5, 2)
+  avgBand       Decimal?  @map("avg_band") @db.Decimal(3, 1)
+  lastAttemptAt DateTime? @map("last_attempt_at") @db.Timestamp(0)
+  createdAt     DateTime  @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt     DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  // Relations
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  skill Skill @relation(fields: [skillId], references: [id], onDelete: Restrict)
+
+  @@unique([userId, skillId], map: "uniq_user_skill")
+  @@index([userId], map: "idx_skill_progress_user")
+  @@map("user_skill_progress")
+}
+
+model Bookmark {
+  id         BigInt   @id @default(autoincrement())
+  userId     BigInt   @map("user_id")
+  questionId BigInt?  @map("question_id")
+  testId     BigInt?  @map("test_id")
+  note       String?  @db.Text
+  createdAt  DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+
+  // Relations
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question Question? @relation(fields: [questionId], references: [id], onDelete: SetNull)
+  test     Test?     @relation(fields: [testId], references: [id], onDelete: SetNull)
+
+  @@index([userId], map: "idx_bookmarks_user")
+  @@map("bookmarks")
+}
+
+model Badge {
+  id          BigInt   @id @default(autoincrement())
+  code        String   @unique @db.VarChar(50)
+  name        String   @db.VarChar(100)
+  description String?  @db.VarChar(255)
+  iconUrl     String?  @map("icon_url") @db.VarChar(500)
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+
+  // Relations
+  userBadges UserBadge[]
+
+  @@map("badges")
+}
+
+model UserBadge {
+  id       BigInt   @id @default(autoincrement())
+  userId   BigInt   @map("user_id")
+  badgeId  BigInt   @map("badge_id")
+  earnedAt DateTime @default(now()) @map("earned_at") @db.Timestamp(0)
+
+  // Relations
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  badge Badge @relation(fields: [badgeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, badgeId], map: "uniq_user_badge")
+  @@index([userId], map: "idx_user_badges_user")
+  @@map("user_badges")
+}
+
+// ==========================================
+// 9. LOG / FUTURE EXTENSIONS (OPTIONAL)
+// ==========================================
+
+model ActivityLog {
+  id        BigInt   @id @default(autoincrement())
+  userId    BigInt?  @map("user_id")
+  action    String   @db.VarChar(100)
+  metadata  Json?
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+
+  // Relations
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId], map: "idx_logs_user")
+  @@map("activity_logs")
+}

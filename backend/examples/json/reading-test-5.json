@@ -1,0 +1,83 @@
+{
+  "title": "IELTS Reading Practice Test 5",
+  "description": "Academic reading on health and medicine",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "READING",
+      "title": "Reading Passage 5",
+      "passages": [
+        {
+          "title": "Passage 1",
+          "content": "Mental health awareness has gained significant attention in recent years. Depression and anxiety disorders affect millions worldwide, yet they remain stigmatized in many societies. Workplace mental health programs are becoming standard as employers recognize the impact of mental well-being on productivity. Early intervention and professional support significantly improve treatment outcomes. Teletherapy and mental health apps are expanding access to mental health services in underserved areas. Investment in mental health research and treatment facilities is crucial for public health."
+        },
+        {
+          "title": "Passage 2",
+          "content": "Preventive medicine focuses on disease prevention rather than treatment. Regular health screenings and vaccinations can prevent serious diseases from developing. Lifestyle modifications including exercise, balanced diet, and stress management are fundamental to preventive care. Public health campaigns promoting healthy behaviors have shown measurable improvements in population health outcomes. Healthcare systems are shifting resources toward preventive care as it is often more cost-effective than treating advanced diseases. Education about prevention empowers individuals to take responsibility for their health."
+        },
+        {
+          "title": "Passage 3",
+          "content": "Personalized medicine uses genetic and molecular information to tailor treatments to individual patients. Genetic testing can identify disease risk factors and guide preventive measures. Pharmacogenomics allows medications to be selected based on individual genetic profiles, improving efficacy and reducing adverse effects. However, privacy concerns and ethical issues surround genetic data handling. Cost remains a barrier to widespread adoption of personalized medicine approaches. As technology advances and costs decrease, personalized medicine will likely become standard clinical practice."
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 21,
+          "questionText": "What does the first passage indicate about mental health in the workplace?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Has no relevance to productivity",
+            "B) Should not be discussed at work",
+            "C) Mental health programs are becoming standard",
+            "D) Only affects individual workers"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 22,
+          "questionText": "According to the passage, preventive medicine is more cost-effective than treating advanced diseases. True or False?",
+          "questionType": "TRUE_FALSE_NOTGIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "correctAnswer": "TRUE"
+        },
+        {
+          "questionNumber": 23,
+          "questionText": "Which tools are expanding access to mental health services?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Only hospital visits",
+            "B) Teletherapy and mental health apps",
+            "C) Television programs only",
+            "D) Books exclusively"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 24,
+          "questionText": "What advantage does pharmacogenomics offer according to the passage?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Lower medication prices",
+            "B) Universal treatment for all patients",
+            "C) Selection based on genetic profiles for better efficacy",
+            "D) Elimination of all side effects"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 25,
+          "questionText": "What is a barrier to widespread adoption of personalized medicine?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Excessive effectiveness",
+            "B) Cost and privacy concerns",
+            "C) Too many patients requesting it",
+            "D) Lack of scientific evidence"
+          ],
+          "correctAnswer": "B"
+        }
+      ]
+    }
+  ]
+}

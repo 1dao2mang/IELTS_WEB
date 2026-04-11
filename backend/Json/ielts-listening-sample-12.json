@@ -1,0 +1,360 @@
+{
+  "title": "IELTS Listening Sample 12",
+  "description": "Full listening test with 4 sections (Sample 12)",
+  "level": "INTERMEDIATE",
+  "source": "Sample",
+  "sections": [
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 12. Section 1",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-12-section-1.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 1,
+          "questionText": "Jim's share of rent: Peter £110 & Jim £_____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "80"
+        },
+        {
+          "questionNumber": 2,
+          "questionText": "Car parking: in the _____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Garage"
+        },
+        {
+          "questionNumber": 3,
+          "questionText": "A place to buy things",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Supermarket"
+        },
+        {
+          "questionNumber": 4,
+          "questionText": "The fees they should share: _____ fees",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Petrol"
+        },
+        {
+          "questionNumber": 5,
+          "questionText": "The _____ is needed in the kitchen",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Heater"
+        },
+        {
+          "questionNumber": 6,
+          "questionText": "Jim will buy a _____ at the store",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Toaster"
+        },
+        {
+          "questionNumber": 7,
+          "questionText": "Location of the telephone: in the _____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Kitchen"
+        },
+        {
+          "questionNumber": 8,
+          "questionText": "Move-in date",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "1 June"
+        },
+        {
+          "questionNumber": 9,
+          "questionText": "Watching the game together",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Friday evening"
+        },
+        {
+          "questionNumber": 10,
+          "questionText": "What Jim needs to do before the move-in: take _____ in the morning",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Exam"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 12. Section 2",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-12-section-2.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 11,
+          "questionText": "The program is made for travelers to make _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Money"
+        },
+        {
+          "questionNumber": 12,
+          "questionText": "The program operates in cooperation with _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "School"
+        },
+        {
+          "questionNumber": 13,
+          "questionText": "What is the internship stipulation of each country below?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) home stay",
+            "B) no summer program",
+            "C) minimum time requirement",
+            "D) formal report required",
+            "E) specific time period",
+            "F) agriculture"
+          ],
+          "correctAnswer": "E"
+        },
+        {
+          "questionNumber": 14,
+          "questionText": "What is the internship stipulation of each country below?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) home stay",
+            "B) no summer program",
+            "C) minimum time requirement",
+            "D) formal report required",
+            "E) specific time period",
+            "F) agriculture"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 15,
+          "questionText": "What is the internship stipulation of each country below?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) home stay",
+            "B) no summer program",
+            "C) minimum time requirement",
+            "D) formal report required",
+            "E) specific time period",
+            "F) agriculture"
+          ],
+          "correctAnswer": "F"
+        },
+        {
+          "questionNumber": 16,
+          "questionText": "What is the internship stipulation of each country below?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) home stay",
+            "B) no summer program",
+            "C) minimum time requirement",
+            "D) formal report required",
+            "E) specific time period",
+            "F) agriculture"
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 17,
+          "questionText": "What should you do to get the Global Traveling Certificate?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Record activity every day.",
+            "B) Formal report.",
+            "C) Talk the experience with the assessor."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 18,
+          "questionText": "You can apply for the certificate",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) only after you come back.",
+            "B) while on the trip.",
+            "C) before you leave."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 19,
+          "questionText": "When should you pay the final installment?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) The day before you leave.",
+            "B) One month before you return.",
+            "C) Before you can get your plane ticket."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 20,
+          "questionText": "Before your application, you need",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) to take a health check.",
+            "B) to attend the workshop.",
+            "C) to meet people with whom you will work."
+          ],
+          "correctAnswer": "A"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 12. Section 3",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-12-section-3.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 21,
+          "questionText": "Topic",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Student Loans"
+        },
+        {
+          "questionNumber": 22,
+          "questionText": "Check at the",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Finance Office"
+        },
+        {
+          "questionNumber": 23,
+          "questionText": "Views on",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Smoking"
+        },
+        {
+          "questionNumber": 24,
+          "questionText": "Interview the manager of",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Supermarket"
+        },
+        {
+          "questionNumber": 25,
+          "questionText": "Practice of",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Natural Medicine"
+        },
+        {
+          "questionNumber": 26,
+          "questionText": "Find relevant information from the",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Careers Office"
+        },
+        {
+          "questionNumber": 27,
+          "questionText": "How to deliver the plan",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Email attachment"
+        },
+        {
+          "questionNumber": 28,
+          "questionText": "Date of giving the presentation",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "5 November"
+        },
+        {
+          "questionNumber": 29,
+          "questionText": "Schedule of items due: First Phase",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Data analysis"
+        },
+        {
+          "questionNumber": 30,
+          "questionText": "Final Phase: Group",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Presentation"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 12. Section 4",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-12-section-4.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 31,
+          "questionText": "Commissioned by: _____ firm called Foster and Partners.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Law"
+        },
+        {
+          "questionNumber": 32,
+          "questionText": "Its shape is like a _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Cigar"
+        },
+        {
+          "questionNumber": 33,
+          "questionText": "It can reduce the carbon _____ of the city.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Footprint"
+        },
+        {
+          "questionNumber": 34,
+          "questionText": "It lets _____ pass through the building.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Light"
+        },
+        {
+          "questionNumber": 35,
+          "questionText": "One false story claims the exterior is partly made of _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Grass"
+        },
+        {
+          "questionNumber": 36,
+          "questionText": "Architectural concept: links _____ with the workplace.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Nature"
+        },
+        {
+          "questionNumber": 37,
+          "questionText": "Relies less on _____ for temperature control.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Air-conditioning"
+        },
+        {
+          "questionNumber": 38,
+          "questionText": "The atria are known as _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Lungs"
+        },
+        {
+          "questionNumber": 39,
+          "questionText": "Entertainment place at the top is the _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Clubroom"
+        },
+        {
+          "questionNumber": 40,
+          "questionText": "The entire _____ will be designed with more eco-friendly buildings in future.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "City"
+        }
+      ]
+    }
+  ]
+}

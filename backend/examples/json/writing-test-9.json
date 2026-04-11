@@ -1,0 +1,22 @@
+{
+  "title": "IELTS Writing Practice Test 9",
+  "description": "Writing task on urban development",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "WRITING",
+      "title": "Writing Task 1 & 2",
+      "writingTasks": [
+        {
+          "taskType": "TASK_1",
+          "prompt": "The graph below shows the number of international visitors to three different countries between 2000 and 2015. Summarise the information and make comparisons."
+        },
+        {
+          "taskType": "TASK_2",
+          "prompt": "Modern cities are growing rapidly. Some people think this is a positive development while others argue that it creates significant problems. Discuss both views and give your own opinion."
+        }
+      ]
+    }
+  ]
+}

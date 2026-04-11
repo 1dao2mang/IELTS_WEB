@@ -1,0 +1,22 @@
+{
+  "title": "IELTS Writing Practice Test 1",
+  "description": "Writing task for formal essay on technology",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "WRITING",
+      "title": "Writing Task 1 & 2",
+      "writingTasks": [
+        {
+          "taskType": "TASK_1",
+          "prompt": "The chart below shows the results of a survey about people's main reasons for using the internet. Summarise the information by selecting and reporting the main features, and make comparisons where relevant."
+        },
+        {
+          "taskType": "TASK_2",
+          "prompt": "Some people think that technology is making us more isolated and lonely, while others believe it brings us closer together. Discuss both views and give your own opinion."
+        }
+      ]
+    }
+  ]
+}

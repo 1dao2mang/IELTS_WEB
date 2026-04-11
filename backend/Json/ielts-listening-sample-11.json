@@ -1,0 +1,415 @@
+{
+  "title": "IELTS Listening Sample 11",
+  "description": "Full listening test with 4 sections (Sample 11)",
+  "level": "INTERMEDIATE",
+  "source": "Sample",
+  "sections": [
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 11. Section 1",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-11-section-1.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 1,
+          "questionText": "Name: Anna _____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Grieg"
+        },
+        {
+          "questionNumber": 2,
+          "questionText": "Date of birth",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "March 15th"
+        },
+        {
+          "questionNumber": 3,
+          "questionText": "Address: 4 _____ St.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Ellendale"
+        },
+        {
+          "questionNumber": 4,
+          "questionText": "Post code",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "W5 2AT"
+        },
+        {
+          "questionNumber": 5,
+          "questionText": "Number of previous burglaries",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "0"
+        },
+        {
+          "questionNumber": 6,
+          "questionText": "Time of apartment tenancy",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "8 months"
+        },
+        {
+          "questionNumber": 7,
+          "questionText": "Number of occupants",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "1"
+        },
+        {
+          "questionNumber": 8,
+          "questionText": "Entry point of burglar",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Back door"
+        },
+        {
+          "questionNumber": 9,
+          "questionText": "Serial number of lost computer",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "G4168770"
+        },
+        {
+          "questionNumber": 10,
+          "questionText": "Material of stolen purse",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Silver-colored cloth"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 11. Section 2",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-11-section-2.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 11,
+          "questionText": "What is the project that Mark and Gina want to start?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Business school requirements.",
+            "B) Directions to the business school.",
+            "C) Explaining the business school experience."
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 12,
+          "questionText": "Who is the target audience?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Business students.",
+            "B) Business school applicants.",
+            "C) Summer school attendees."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 13,
+          "questionText": "How will they convey the information?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Summer course lecture.",
+            "B) Informational video.",
+            "C) Pamphlet in the mail."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 14,
+          "questionText": "They want to do this project because",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) students worry about their studies.",
+            "B) they want to obtain a good grade.",
+            "C) they want to attract future business school applicants."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 15,
+          "questionText": "Academics: _____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Teaching methods"
+        },
+        {
+          "questionNumber": 16,
+          "questionText": "_____ (social places)",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Accomodation"
+        },
+        {
+          "questionNumber": 17,
+          "questionText": "Accommodation: _____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Flats"
+        },
+        {
+          "questionNumber": 18,
+          "questionText": "Social activity: _____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Disco"
+        },
+        {
+          "questionNumber": 19,
+          "questionText": "Social activity: _____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "International Evening"
+        },
+        {
+          "questionNumber": 20,
+          "questionText": "Conclusion: nearly _____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Two minutes"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 11. Section 3",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-11-section-3.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 21,
+          "questionText": "The subjects in questionnaire are",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) tourists in the hotel in this area.",
+            "B) local residents.",
+            "C) people who are living in this area."
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 22,
+          "questionText": "The results of the questionnaire should be",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) directly entered into the computer.",
+            "B) scored by hand.",
+            "C) submitted directly to Professor Curran."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 23,
+          "questionText": "Why should John give a copy of plans to the professor?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) To receive a good grade.",
+            "B) To get advice.",
+            "C) To earn high praise."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 24,
+          "questionText": "How will the instructions be presented?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Given by a group representative.",
+            "B) Given by all members of the group.",
+            "C) Given by the professor."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 25,
+          "questionText": "What does Dani suggest to John when those subjects receive the questionnaire?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Divide into 2 parts to argue.",
+            "B) Focus on the opinion of the interviewees.",
+            "C) Take consideration of both sides."
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 26,
+          "questionText": "Why is this project particularly important to John?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) To earn respect from professors in the department.",
+            "B) To raise his grade.",
+            "C) To impress his professor."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 27,
+          "questionText": "What is the source of each one below in this survey?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) radio",
+            "B) council meeting",
+            "C) the television",
+            "D) newspaper",
+            "E) journal",
+            "F) the Internet"
+          ],
+          "correctAnswer": "E"
+        },
+        {
+          "questionNumber": 28,
+          "questionText": "What is the source of each one below in this survey?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) radio",
+            "B) council meeting",
+            "C) the television",
+            "D) newspaper",
+            "E) journal",
+            "F) the Internet"
+          ],
+          "correctAnswer": "D"
+        },
+        {
+          "questionNumber": 29,
+          "questionText": "What is the source of each one below in this survey?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) radio",
+            "B) council meeting",
+            "C) the television",
+            "D) newspaper",
+            "E) journal",
+            "F) the Internet"
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 30,
+          "questionText": "What is the source of each one below in this survey?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) radio",
+            "B) council meeting",
+            "C) the television",
+            "D) newspaper",
+            "E) journal",
+            "F) the Internet"
+          ],
+          "correctAnswer": "B"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 11. Section 4",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-11-section-4.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 31,
+          "questionText": "Why did the lecturer choose to focus on the Pleasanton Town Market?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) It was the first ever Town Market.",
+            "B) It has been covered extensively in local history classes.",
+            "C) It is often mentioned in some literature of the library."
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 32,
+          "questionText": "The Town Market originally made a large profit selling",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) handcrafts.",
+            "B) vegetables.",
+            "C) animals."
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 33,
+          "questionText": "The money that the marketers made contributes to local",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) reconstruction.",
+            "B) development.",
+            "C) defense."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 34,
+          "questionText": "Market sales plummeted due to lack of viable",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) agriculture.",
+            "B) transport.",
+            "C) city planning."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 35,
+          "questionText": "Major John C. Wiley decided the Clock tower would be used as a ____________ in the early stages of the uprising.",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) clock",
+            "B) grounds for battle",
+            "C) jail"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 36,
+          "questionText": "Research Methods (reference section): _____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Market"
+        },
+        {
+          "questionNumber": 37,
+          "questionText": "_____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Interviews"
+        },
+        {
+          "questionNumber": 38,
+          "questionText": "Bias makes it _____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Useless"
+        },
+        {
+          "questionNumber": 39,
+          "questionText": "_____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Photographs"
+        },
+        {
+          "questionNumber": 40,
+          "questionText": "Newspaper archives: _____",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Crime"
+        }
+      ]
+    }
+  ]
+}

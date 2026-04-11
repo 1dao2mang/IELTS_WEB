@@ -1,0 +1,83 @@
+{
+  "title": "IELTS Reading Practice Test 6",
+  "description": "Academic reading on environment and conservation",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "READING",
+      "title": "Reading Passage 6",
+      "passages": [
+        {
+          "title": "Passage 1",
+          "content": "Biodiversity loss is accelerating at unprecedented rates due to habitat destruction and climate change. Species extinction threatens ecosystem stability and human food security. Protected areas and conservation programs aim to preserve biodiversity hotspots. International cooperation through treaties and conventions strengthens conservation efforts. Indigenous communities play crucial roles in ecosystem management and conservation practices. However, balancing conservation with economic development remains challenging in developing nations."
+        },
+        {
+          "title": "Passage 2",
+          "content": "Renewable energy sources are becoming increasingly competitive with fossil fuels. Solar and wind power capacity has grown exponentially in recent years. Energy storage technology improvements enable greater renewable energy integration into electrical grids. However, transitioning away from fossil fuels requires significant infrastructure investment. Policy support and government incentives are essential for accelerating renewable energy adoption. The economic benefits of renewable energy include job creation and reduced healthcare costs from improved air quality."
+        },
+        {
+          "title": "Passage 3",
+          "content": "Plastic pollution has become a global crisis threatening marine ecosystems and human health. Microplastics have been found in food chains and human tissues. Regulations limiting single-use plastics are being implemented worldwide. Companies are developing biodegradable alternatives and circular economy models. Consumer awareness and behavior change are driving demand for sustainable products. Comprehensive strategies addressing plastic production, consumption, and disposal are necessary to solve this crisis."
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 26,
+          "questionText": "What is a consequence of accelerating biodiversity loss according to the passage?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Increased agricultural production",
+            "B) Improved ecosystem stability",
+            "C) Threatened food security",
+            "D) Better weather patterns"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 27,
+          "questionText": "The passage indicates that indigenous communities have minimal impact on conservation. True or False?",
+          "questionType": "TRUE_FALSE_NOTGIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "correctAnswer": "FALSE"
+        },
+        {
+          "questionNumber": 28,
+          "questionText": "What technology improvement has enabled greater renewable energy integration?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Computer processing speed",
+            "B) Energy storage technology",
+            "C) Telecommunication systems",
+            "D) Transportation networks"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 29,
+          "questionText": "According to the passage, where have microplastics been detected?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Only in oceans",
+            "B) Only in soil",
+            "C) In food chains and human tissues",
+            "D) Only in atmosphere"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 30,
+          "questionText": "Which economic benefit of renewable energy is mentioned in the passage?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Reduced housing costs",
+            "B) Job creation and improved air quality",
+            "C) Lower food prices",
+            "D) Reduced insurance costs"
+          ],
+          "correctAnswer": "B"
+        }
+      ]
+    }
+  ]
+}

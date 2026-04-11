@@ -1,0 +1,83 @@
+{
+  "title": "IELTS Reading Practice Test 2",
+  "description": "Academic reading test on technology and society",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "READING",
+      "title": "Reading Passage 2",
+      "passages": [
+        {
+          "title": "Passage 1",
+          "content": "Digital transformation has become a necessity rather than an option for modern organizations. Companies that embrace technology gain competitive advantages through improved efficiency and customer engagement. However, rapid digitalization poses challenges including cybersecurity risks and employee adaptation difficulties. Organizations must invest in training programs and robust security infrastructure. The digital revolution also raises questions about data privacy and the ethical use of personal information collected by tech companies."
+        },
+        {
+          "title": "Passage 2",
+          "content": "Remote work has fundamentally altered workplace dynamics. The COVID-19 pandemic accelerated the adoption of remote work arrangements globally. Studies show that remote workers often report higher job satisfaction and better work-life balance. However, concerns exist about social isolation and reduced team collaboration. Technology enables remote work but cannot fully replace face-to-face interactions. Forward-thinking companies are adopting hybrid work models that combine office and remote work arrangements."
+        },
+        {
+          "title": "Passage 3",
+          "content": "E-commerce has revolutionized retail and consumer behavior. Online shopping offers convenience and access to a wider product selection. Environmental concerns arise from increased packaging waste and carbon emissions from delivery services. Online retailers are responding by implementing sustainable packaging solutions and carbon-neutral delivery options. The growth of e-commerce has also created new job opportunities in logistics and digital marketing, offsetting some job losses in traditional retail."
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 6,
+          "questionText": "What is a challenge mentioned in the first passage regarding digital transformation?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Lack of internet connectivity",
+            "B) Cybersecurity risks and employee adaptation",
+            "C) Excessive funding",
+            "D) Outdated infrastructure"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 7,
+          "questionText": "According to the second passage, remote work was accelerated by the COVID-19 pandemic. True or False?",
+          "questionType": "TRUE_FALSE_NOTGIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "correctAnswer": "TRUE"
+        },
+        {
+          "questionNumber": 8,
+          "questionText": "Which of the following is NOT mentioned as an environmental concern in the third passage?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Packaging waste",
+            "B) Carbon emissions from delivery",
+            "C) Water pollution",
+            "D) Both A and B are mentioned"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 9,
+          "questionText": "The passage suggests that hybrid work models combine office and remote work. What is the main purpose mentioned?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) To reduce employee costs",
+            "B) To maintain face-to-face interactions while enabling remote work",
+            "C) To eliminate remote work entirely",
+            "D) To increase work hours"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 10,
+          "questionText": "Online retailers are responding to environmental concerns through which means?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Reducing product variety",
+            "B) Increasing prices",
+            "C) Sustainable packaging and carbon-neutral delivery",
+            "D) Closing online stores"
+          ],
+          "correctAnswer": "C"
+        }
+      ]
+    }
+  ]
+}

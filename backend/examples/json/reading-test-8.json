@@ -1,0 +1,83 @@
+{
+  "title": "IELTS Reading Practice Test 8",
+  "description": "Academic reading on urban development and cities",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "READING",
+      "title": "Reading Passage 8",
+      "passages": [
+        {
+          "title": "Passage 1",
+          "content": "Smart cities integrate technology and data analytics to improve urban services and quality of life. Internet of Things sensors enable real-time monitoring of infrastructure, traffic, and environmental conditions. Smart grids optimize energy distribution and reduce consumption. Intelligent transportation systems reduce congestion and improve public transit efficiency. However, smart city development requires significant investment and raises privacy concerns. Data security is paramount as cities become increasingly connected and data-driven."
+        },
+        {
+          "title": "Passage 2",
+          "content": "Urban green spaces provide numerous environmental and health benefits. Parks and gardens improve air quality and reduce urban heat effects. Access to nature promotes physical activity and mental well-being. Green roofs and vertical gardens increase green space in dense urban areas. Urban agriculture initiatives provide fresh produce while building community connections. Planning sustainable cities requires integrating green spaces into urban design and infrastructure."
+        },
+        {
+          "title": "Passage 3",
+          "content": "Housing affordability is a critical challenge in many urban centers worldwide. Rising property prices have priced out lower-income residents from urban areas. Mixed-income housing developments and affordable housing policies attempt to address this issue. Co-housing and shared living arrangements provide alternative housing solutions. Gentrification processes often displace long-term residents when neighborhoods become more desirable. Sustainable urban development must address housing equity and affordability concerns."
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 36,
+          "questionText": "What do Internet of Things sensors enable in smart cities?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Entertainment services",
+            "B) Real-time monitoring of infrastructure and conditions",
+            "C) Online shopping",
+            "D) Social media networking"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 37,
+          "questionText": "According to the passage, green spaces only provide environmental benefits. True or False?",
+          "questionType": "TRUE_FALSE_NOTGIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "correctAnswer": "FALSE"
+        },
+        {
+          "questionNumber": 38,
+          "questionText": "What function do smart grids perform?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Increase energy prices",
+            "B) Optimize energy distribution and reduce consumption",
+            "C) Eliminate electricity entirely",
+            "D) Store only solar energy"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 39,
+          "questionText": "Which alternative housing solution is mentioned in the passage?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Mandatory rent increases",
+            "B) Removal of all housing regulations",
+            "C) Co-housing and shared living arrangements",
+            "D) Elimination of housing options"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 40,
+          "questionText": "What concern does the passage raise about smart city development?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Lack of technology",
+            "B) Data security and privacy concerns",
+            "C) Insufficient investment",
+            "D) Outdated infrastructure"
+          ],
+          "correctAnswer": "B"
+        }
+      ]
+    }
+  ]
+}

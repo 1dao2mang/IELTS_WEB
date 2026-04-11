@@ -1,0 +1,22 @@
+{
+  "title": "IELTS Writing Practice Test 6",
+  "description": "Writing task on culture and traditions",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "WRITING",
+      "title": "Writing Task 1 & 2",
+      "writingTasks": [
+        {
+          "taskType": "TASK_1",
+          "prompt": "The flowchart below shows the stages involved in manufacturing a product. Summarise the information by describing the main stages."
+        },
+        {
+          "taskType": "TASK_2",
+          "prompt": "Some people think that cultural traditions will be lost if they are not protected by law. Others believe that it is natural for cultures to change over time. Discuss both views and give your own opinion."
+        }
+      ]
+    }
+  ]
+}

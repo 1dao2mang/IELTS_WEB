@@ -1,0 +1,217 @@
+// Writing Submission Controller - Handle writing submissions with AI evaluation
+
+const prisma = require("../../config/database.config");
+const { WritingScoringService } = require("../../services/writing/writing-scoring.service");
+const { catchAsync } = require("../../utils/helpers/catch-async.helper");
+
+class WritingSubmissionController {
+  scoringService;
+
+  constructor() {
+    this.scoringService = new WritingScoringService();
+  }
+
+  // POST /api/writing/submissions/submit
+  submitWriting = catchAsync(async (req, res, next) => {
+    const { testAttemptId, writingTaskId, content } = req.body;
+
+    const submission = await prisma.writingSubmission.create({
+      data: {
+        testAttemptId: BigInt(testAttemptId),
+        writingTaskId: BigInt(writingTaskId),
+        content,
+      },
+    });
+
+    // Trigger AI evaluation asynchronously (don't await)
+    this.evaluateSubmissionAsync(
+      submission.id,
+      content,
+      BigInt(writingTaskId)
+    ).catch((error) => {
+      console.error("❌ AI evaluation failed:", error.message);
+    });
+
+    return res.json({
+      success: true,
+      message: "Writing submitted successfully. AI evaluation in progress...",
+      data: {
+        submissionId: Number(submission.id),
+      },
+    });
+  });
+
+  /**
+   * Evaluate submission asynchronously
+   * @*/
+  async evaluateSubmissionAsync(
+    submissionId,
+    content,
+    writingTaskId
+  ) {
+    try {
+      console.log(`🤖 Starting AI evaluation for submission ${submissionId}...`);
+
+      // Get task details
+      const task = await prisma.writingTask.findUnique({
+        where: { id: writingTaskId },
+      });
+
+      if (!task) {
+        throw new Error("Writing task not found");
+      }
+
+      // Determine task type from taskType field
+      const taskType = task.taskType.toLowerCase().includes("2")
+        ? "task2"
+        : "task1";
+
+      // Call AI evaluation
+      const evaluation = await this.scoringService.evaluateWriting(
+        content,
+        taskType,
+        task.prompt
+      );
+
+      // Update submission with results
+      await prisma.writingSubmission.update({
+        where: { id: submissionId },
+        data: {
+          bandScore: evaluation.scores.overall,
+          feedback: JSON.stringify(evaluation),
+        },
+      });
+
+      console.log(
+        `✅ AI evaluation completed for submission ${submissionId}. Band: ${evaluation.scores.overall}`
+      );
+    } catch (error) {
+      console.error(
+        `❌ AI evaluation failed for submission ${submissionId}:`,
+        error.message
+      );
+      
+      // Update submission with error status
+      await prisma.writingSubmission.update({
+        where: { id: submissionId },
+        data: {
+          feedback: JSON.stringify({
+            error: "AI evaluation failed. Please contact support.",
+            message: error.message,
+          }),
+        },
+      });
+    }
+  }
+
+  // GET /api/writing/submissions/:submissionId
+  getSubmission = catchAsync(async (req, res, next) => {
+    const { submissionId } = req.params;
+
+    const submission = await prisma.writingSubmission.findUnique({
+      where: { id: BigInt(submissionId) },
+    });
+
+    if (!submission) {
+      return res.status(404).json({
+        success: false,
+        error: { code: "NOT_FOUND", message: "Submission not found" },
+      });
+    }
+
+    return res.json({
+      success: true,
+      data: {
+        id: Number(submission.id),
+        content: submission.content,
+        submittedAt: submission.submittedAt,
+        bandScore: submission.bandScore
+          ? Number(submission.bandScore)
+          : null,
+      },
+    });
+  });
+
+  // GET /api/writing/submissions/:submissionId/feedback
+  getFeedback = catchAsync(async (req, res, next) => {
+    const { submissionId } = req.params;
+
+    const submission = await prisma.writingSubmission.findUnique({
+      where: { id: BigInt(submissionId) },
+    });
+
+    if (!submission) {
+      return res.status(404).json({
+        success: false,
+        error: { code: "NOT_FOUND", message: "Submission not found" },
+      });
+    }
+
+    // Parse feedback if it exists
+    let feedback = null;
+    if (submission.feedback) {
+      try {
+        feedback = JSON.parse(submission.feedback);
+      } catch {
+        feedback = { note: submission.feedback };
+      }
+    }
+
+    return res.json({
+      success: true,
+      data: {
+        feedback: feedback || "Evaluation in progress...",
+        bandScore: submission.bandScore
+          ? Number(submission.bandScore)
+          : null,
+      },
+    });
+  });
+
+  // POST /api/writing/submissions/:submissionId/evaluate
+  // Manually trigger AI evaluation for existing submission
+  triggerEvaluation = catchAsync(async (req, res, next) => {
+    const { submissionId } = req.params;
+
+    const submission = await prisma.writingSubmission.findUnique({
+      where: { id: BigInt(submissionId) },
+    });
+
+    if (!submission) {
+      return res.status(404).json({
+        success: false,
+        error: { code: "NOT_FOUND", message: "Submission not found" },
+      });
+    }
+
+    // Check if already evaluated
+    if (submission.bandScore) {
+      return res.json({
+        success: true,
+        message: "Already evaluated",
+        data: {
+          bandScore: Number(submission.bandScore),
+        },
+      });
+    }
+
+    // Trigger evaluation async
+    this.evaluateSubmissionAsync(
+      submission.id,
+      submission.content,
+      submission.writingTaskId
+    ).catch((error) => {
+      console.error("❌ Manual evaluation failed:", error.message);
+    });
+
+    return res.json({
+      success: true,
+      message: "AI evaluation triggered. Poll /feedback endpoint for results.",
+      data: {
+        submissionId: Number(submission.id),
+      },
+    });
+  });
+}
+
+module.exports = { WritingSubmissionController };

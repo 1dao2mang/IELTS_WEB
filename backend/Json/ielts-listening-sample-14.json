@@ -1,0 +1,479 @@
+{
+  "title": "IELTS Listening Sample 14",
+  "description": "Full listening test with 4 sections (Sample 14)",
+  "level": "INTERMEDIATE",
+  "source": "Sample",
+  "sections": [
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 14. Section 1",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-14-section-1.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 1,
+          "questionText": "Open in",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "July"
+        },
+        {
+          "questionNumber": 2,
+          "questionText": "Length of exhibition",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Three days"
+        },
+        {
+          "questionNumber": 3,
+          "questionText": "Some cars are available to observe and others are for",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Test driving"
+        },
+        {
+          "questionNumber": 4,
+          "questionText": "The _____ is prohibited to take into the museum.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Camera"
+        },
+        {
+          "questionNumber": 5,
+          "questionText": "Price of the ticket (in advance)",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "110"
+        },
+        {
+          "questionNumber": 6,
+          "questionText": "Transfer to Mark _____ (Box Office Manager).",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Edgeworth"
+        },
+        {
+          "questionNumber": 7,
+          "questionText": "Held in the _____ Palace this year.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Summer"
+        },
+        {
+          "questionNumber": 8,
+          "questionText": "Not far from",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "City centre"
+        },
+        {
+          "questionNumber": 9,
+          "questionText": "Website: www. _____ .com.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Directions"
+        },
+        {
+          "questionNumber": 10,
+          "questionText": "Best way to contact",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Enquiring online"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 14. Section 2",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-14-section-2.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 11,
+          "questionText": "How many patients does the hospital consult every year?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) 3,000.",
+            "B) 5,000.",
+            "C) 11,000."
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 12,
+          "questionText": "When can patients meet the female doctor?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) On weekday mornings.",
+            "B) Three days a week.",
+            "C) Only on Mondays and Fridays."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 13,
+          "questionText": "Who is the expert on treating hearing loss?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Mr. Roberts.",
+            "B) Mr Green.",
+            "C) Mr. Edwards."
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 14,
+          "questionText": "Where are patients recommended to buy their medicine?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) The supermarket in the town.",
+            "B) Pharmacies nearby the city centre.",
+            "C) The health care's pharmacy."
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 15,
+          "questionText": "What will the patients be asked about whether they are willing to do?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Letting one student attend the consultation.",
+            "B) Asking postgraduate students to do treatment.",
+            "C) Meeting students in group discussion."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 16,
+          "questionText": "Label the map below (choose A-H).",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) A",
+            "B) B",
+            "C) C",
+            "D) D",
+            "E) E",
+            "F) F",
+            "G) G",
+            "H) H"
+          ],
+          "correctAnswer": "F"
+        },
+        {
+          "questionNumber": 17,
+          "questionText": "Label the map below (choose A-H).",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) A",
+            "B) B",
+            "C) C",
+            "D) D",
+            "E) E",
+            "F) F",
+            "G) G",
+            "H) H"
+          ],
+          "correctAnswer": "H"
+        },
+        {
+          "questionNumber": 18,
+          "questionText": "Label the map below (choose A-H).",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) A",
+            "B) B",
+            "C) C",
+            "D) D",
+            "E) E",
+            "F) F",
+            "G) G",
+            "H) H"
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 19,
+          "questionText": "Label the map below (choose A-H).",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) A",
+            "B) B",
+            "C) C",
+            "D) D",
+            "E) E",
+            "F) F",
+            "G) G",
+            "H) H"
+          ],
+          "correctAnswer": "D"
+        },
+        {
+          "questionNumber": 20,
+          "questionText": "Label the map below (choose A-H).",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) A",
+            "B) B",
+            "C) C",
+            "D) D",
+            "E) E",
+            "F) F",
+            "G) G",
+            "H) H"
+          ],
+          "correctAnswer": "C"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 14. Section 3",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-14-section-3.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 21,
+          "questionText": "What is the main opinion of each of the following people?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) lightning restrictions",
+            "B) alternative lighting",
+            "C) reduce the number of insects",
+            "D) decline in the number of species",
+            "E) climate changes",
+            "F) impacts on the growth of animals",
+            "G) impacts on water quality"
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 22,
+          "questionText": "What is the main opinion of each of the following people?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) lightning restrictions",
+            "B) alternative lighting",
+            "C) reduce the number of insects",
+            "D) decline in the number of species",
+            "E) climate changes",
+            "F) impacts on the growth of animals",
+            "G) impacts on water quality"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 23,
+          "questionText": "What is the main opinion of each of the following people?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) lightning restrictions",
+            "B) alternative lighting",
+            "C) reduce the number of insects",
+            "D) decline in the number of species",
+            "E) climate changes",
+            "F) impacts on the growth of animals",
+            "G) impacts on water quality"
+          ],
+          "correctAnswer": "F"
+        },
+        {
+          "questionNumber": 24,
+          "questionText": "What is the main opinion of each of the following people?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) lightning restrictions",
+            "B) alternative lighting",
+            "C) reduce the number of insects",
+            "D) decline in the number of species",
+            "E) climate changes",
+            "F) impacts on the growth of animals",
+            "G) impacts on water quality"
+          ],
+          "correctAnswer": "G"
+        },
+        {
+          "questionNumber": 25,
+          "questionText": "What is the main opinion of each of the following people?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) lightning restrictions",
+            "B) alternative lighting",
+            "C) reduce the number of insects",
+            "D) decline in the number of species",
+            "E) climate changes",
+            "F) impacts on the growth of animals",
+            "G) impacts on water quality"
+          ],
+          "correctAnswer": "D"
+        },
+        {
+          "questionNumber": 26,
+          "questionText": "What does Jim think about the difference among species in natural and artificial light?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) It makes no difference.",
+            "B) Species will die out in natural light.",
+            "C) Species will die out in artificial light."
+          ],
+          "correctAnswer": "A"
+        },
+        {
+          "questionNumber": 27,
+          "questionText": "One reason why Jim and Jane felt unsatisfied about the theories discussed in the lecture was that",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) governments didn't increase any spending on them.",
+            "B) most theories had nothing to do with the exam.",
+            "C) many theories lack solid proof in the field."
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 28,
+          "questionText": "Which THREE topics are they interested in studying in the future?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) quality of life tourism",
+            "B) wildlife park animals",
+            "C) migration birds",
+            "D) animals living in rural areas",
+            "E) animals living in tropical climate",
+            "F) the impact of different environment on animals",
+            "G) pandas in the zoo"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 29,
+          "questionText": "Which THREE topics are they interested in studying in the future?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) quality of life tourism",
+            "B) wildlife park animals",
+            "C) migration birds",
+            "D) animals living in rural areas",
+            "E) animals living in tropical climate",
+            "F) the impact of different environment on animals",
+            "G) pandas in the zoo"
+          ],
+          "correctAnswer": "E"
+        },
+        {
+          "questionNumber": 30,
+          "questionText": "Which THREE topics are they interested in studying in the future?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) quality of life tourism",
+            "B) wildlife park animals",
+            "C) migration birds",
+            "D) animals living in rural areas",
+            "E) animals living in tropical climate",
+            "F) the impact of different environment on animals",
+            "G) pandas in the zoo"
+          ],
+          "correctAnswer": "F"
+        }
+      ]
+    },
+    {
+      "type": "LISTENING",
+      "title": "IELTS Listening Sample 14. Section 4",
+      "instructions": "Listen to the audio and answer the questions.",
+      "durationSec": 600,
+      "audioFiles": [
+        {
+          "audioUrl": "https://pub-6222b3be6d754997868e2afffa04cc9b.r2.dev/audio/ielts-listening-sample-14-section-4.mp3",
+          "duration": 600,
+          "transcript": ""
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 31,
+          "questionText": "Which TWO aspects did the new rules at the end of the 19th century focus on? (Choose TWO)",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) cooperation",
+            "B) competition",
+            "C) moral values",
+            "D) player's physical protection",
+            "E) business model"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 32,
+          "questionText": "Which TWO aspects did the new rules at the end of the 19th century focus on? (Choose TWO)",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) cooperation",
+            "B) competition",
+            "C) moral values",
+            "D) player's physical protection",
+            "E) business model"
+          ],
+          "correctAnswer": "D"
+        },
+        {
+          "questionNumber": 33,
+          "questionText": "At present the main reason why UK schools push football education is the pressure from _____.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Parents"
+        },
+        {
+          "questionNumber": 34,
+          "questionText": "Prior to the 19th, football players used different _____ of rules.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Versions"
+        },
+        {
+          "questionNumber": 35,
+          "questionText": "People attempted to standardise the rules from the whole _____ (Cambridge Rules, 1848).",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Country"
+        },
+        {
+          "questionNumber": 36,
+          "questionText": "Attendances were increasing due to the improvement of infrastructure and the _____ system.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Transport"
+        },
+        {
+          "questionNumber": 37,
+          "questionText": "Football became popular and it is regarded as a _____ event.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Social"
+        },
+        {
+          "questionNumber": 38,
+          "questionText": "The football clubs were responsible for most of the _____ and development for the football association.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Funding"
+        },
+        {
+          "questionNumber": 39,
+          "questionText": "_____ against other teams were also organised by the football clubs.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Competitions"
+        },
+        {
+          "questionNumber": 40,
+          "questionText": "In 1910s, _____ football players were approved of in the game.",
+          "questionType": "FILL_IN_THE_BLANK",
+          "correctAnswer": "Professional"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "name": "be-ielts",
+  "version": "1.0.0",
+  "description": "Backend API for IELTS practice web application",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:push": "prisma db push",
+    "prisma:studio": "prisma studio",
+    "import:json": "node import-json.js",
+    "import:batch": "node batch-import.js"
+  },
+  "keywords": [
+    "ielts",
+    "backend",
+    "api",
+    "express",
+    "javascript",
+    "prisma"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.954.0",
+    "@google/generative-ai": "^0.24.1",
+    "@prisma/client": "^6.1.0",
+    "@prisma/extension-accelerate": "^2.0.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-rate-limit": "^7.4.1",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^2.0.0-rc.4",
+    "pdf-parse": "^2.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "axios": "^1.13.2",
+    "form-data": "^4.0.5",
+    "nodemon": "^3.1.7",
+    "prisma": "^6.1.0"
+  }
+}

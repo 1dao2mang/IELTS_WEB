@@ -1,0 +1,3 @@
+@echo off
+echo Starting IELTS Backend Server...
+npm run dev

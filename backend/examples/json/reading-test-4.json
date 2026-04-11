@@ -1,0 +1,83 @@
+{
+  "title": "IELTS Reading Practice Test 4",
+  "description": "Academic reading on business and economics",
+  "level": "INTERMEDIATE",
+  "source": "Cambridge",
+  "sections": [
+    {
+      "type": "READING",
+      "title": "Reading Passage 4",
+      "passages": [
+        {
+          "title": "Passage 1",
+          "content": "Sustainable business practices have shifted from being optional to becoming essential for organizational success. Companies implementing green initiatives often see reduced operational costs through energy efficiency and waste reduction. Consumer demand for environmentally responsible products is driving businesses to adopt sustainable practices. Corporate social responsibility programs enhance brand reputation and employee engagement. However, transitioning to sustainability requires significant initial investment and may face resistance from stakeholders. Long-term benefits include improved profitability, stronger market positioning, and positive environmental impact."
+        },
+        {
+          "title": "Passage 2",
+          "content": "Supply chain resilience has become increasingly important in a globalized economy. The COVID-19 pandemic exposed vulnerabilities in global supply chains, causing significant disruptions. Companies are now diversifying suppliers and investing in supply chain visibility technologies. Local sourcing is gaining traction as a means to reduce transportation costs and environmental impact. Blockchain technology offers potential solutions for supply chain transparency and fraud prevention. Building resilient supply chains requires collaboration between suppliers, manufacturers, and distributors."
+        },
+        {
+          "title": "Passage 3",
+          "content": "The gig economy has transformed employment relationships and labor dynamics. Freelancers and independent contractors now represent a significant portion of the workforce. Gig platforms offer flexibility and autonomy to workers while reducing costs for employers. However, gig workers often lack employment benefits such as health insurance and retirement plans. Labor regulations struggle to keep pace with evolving work arrangements. Policymakers must establish frameworks that balance worker protection with business innovation in the gig economy."
+        }
+      ],
+      "questions": [
+        {
+          "questionNumber": 16,
+          "questionText": "What does the first passage suggest about the cost implications of sustainable practices?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Only increases costs",
+            "B) Has no financial impact",
+            "C) Initial investment required but long-term cost savings",
+            "D) Eliminates all business expenses"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 17,
+          "questionText": "According to the passage, the COVID-19 pandemic revealed weaknesses in global supply chains. True or False?",
+          "questionType": "TRUE_FALSE_NOTGIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "correctAnswer": "TRUE"
+        },
+        {
+          "questionNumber": 18,
+          "questionText": "Which technology is mentioned as offering supply chain transparency?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Artificial Intelligence only",
+            "B) Blockchain technology",
+            "C) Social media platforms",
+            "D) Email systems"
+          ],
+          "correctAnswer": "B"
+        },
+        {
+          "questionNumber": 19,
+          "questionText": "What is a disadvantage of gig economy work mentioned in the passage?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Excessive regulation",
+            "B) Too many employment benefits",
+            "C) Lack of employment benefits like health insurance",
+            "D) Overly structured work environment"
+          ],
+          "correctAnswer": "C"
+        },
+        {
+          "questionNumber": 20,
+          "questionText": "The passage suggests that consumer demand is influencing which business aspect?",
+          "questionType": "MULTIPLE_CHOICE",
+          "options": [
+            "A) Higher prices only",
+            "B) Adoption of sustainable practices",
+            "C) Reduction in product quality",
+            "D) Elimination of jobs"
+          ],
+          "correctAnswer": "B"
+        }
+      ]
+    }
+  ]
+}
