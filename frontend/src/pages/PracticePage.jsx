@@ -63,18 +63,20 @@ export const PracticePage = () => {
     : categories;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-transparent relative z-10 w-full animate-fade-in-up">
       {/* ─── Hero ─────────────────────────── */}
-      <section className="bg-slate-50 dark:bg-slate-900 border-b border-border py-16 md:py-24">
-        <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
-          <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-6">
-            <Target className="h-8 w-8" />
+      <section className="pt-24 pb-16 md:pt-32 md:pb-24 border-b border-border/50">
+        <div className="max-w-4xl mx-auto px-4 relative z-10 text-center animate-fade-in-up">
+          <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary/20 to-secondary/20 shadow-inner flex items-center justify-center mx-auto mb-8">
+            <Target className="h-10 w-10 text-primary drop-shadow-sm" />
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">Practice Hub</h1>
-          <p className="text-muted-foreground text-lg mb-4">
+          <h1 className="text-5xl md:text-6xl font-black tracking-tight text-foreground mb-6">
+            Practice <span className="text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary">Hub</span>
+          </h1>
+          <p className="text-muted-foreground text-xl mb-4 font-medium">
             All exercises in one place
           </p>
-          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-muted-foreground/80 max-w-2xl mx-auto leading-relaxed text-lg">
             Browse and practice exercises across all four IELTS skills. Filter by skill type and track your progress as you complete each one.
           </p>
         </div>
@@ -140,13 +142,14 @@ export const PracticePage = () => {
                 <div className="space-y-4">
                   {cat.isLoading ? (
                     <div className={`text-sm py-4 ${c.text} font-medium animate-pulse text-center`}>Loading {cat.label} exercises...</div>
-                  ) : cat.exercises.map(ex => (
+                  ) : cat.exercises.map((ex, idx) => (
                     <button
                       key={ex.id}
                       onClick={() => setSelectedExercise(ex)}
-                      className="w-full card card-clickable group flex items-center justify-between p-5 text-left"
+                      className="w-full glass-panel group flex items-center justify-between p-6 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-medium animate-fade-in-up"
+                      style={{ animationDelay: `${0.1 * idx}s` }}
                     >
-                      <div className="flex items-center space-x-4 min-w-0">
+                      <div className="flex items-center space-x-5 min-w-0">
                         <div className={`w-12 h-12 rounded-xl ${c.bg} flex items-center justify-center shrink-0`}>
                           <cat.icon className={`h-6 w-6 ${c.text}`} />
                         </div>

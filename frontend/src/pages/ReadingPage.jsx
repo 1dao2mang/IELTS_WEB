@@ -20,19 +20,20 @@ export const ReadingPage = () => {
   const readingExercises = exercises.reading || [];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* ─── Hero ─────────────────────────── */}
-      <section className="bg-slate-50 dark:bg-slate-900 border-b border-border py-16 md:py-24">
-        <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
-          <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-6">
-            <BookOpen className="h-8 w-8" />
+    <div className="min-h-screen bg-transparent relative z-10 w-full animate-fade-in-up">
+      <section className="pt-24 pb-16 md:pt-32 md:pb-24 border-b border-border/50">
+        <div className="max-w-4xl mx-auto px-4 relative z-10 text-center animate-fade-in-up">
+          <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 shadow-inner flex items-center justify-center mx-auto mb-8">
+            <BookOpen className="h-10 w-10 text-emerald-500 drop-shadow-sm" />
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">Reading</h1>
-          <p className="text-muted-foreground text-lg mb-4">
-            {readingExercises.length} exercises available
+          <h1 className="text-5xl md:text-6xl font-black tracking-tight text-foreground mb-6">
+            IELTS <span className="text-transparent bg-clip-text bg-gradient-to-br from-emerald-400 to-teal-600">Reading</span>
+          </h1>
+          <p className="text-muted-foreground text-xl mb-4 font-medium">
+            Master the Reading section
           </p>
-          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Strengthen your reading comprehension with academic and general training passages. Practice every question type found on the real IELTS exam.
+          <p className="text-muted-foreground/80 max-w-2xl mx-auto leading-relaxed text-lg">
+            Practice with academic and general training reading passages. Learn to skim, scan, and identify key information quickly.
           </p>
         </div>
       </section>
@@ -53,16 +54,17 @@ export const ReadingPage = () => {
         {/* ─── Exercise List ───────────────── */}
         <div>
           <h2 className="text-2xl font-bold text-foreground mb-6">Available Exercises</h2>
-          <div className="space-y-4">
-            {isLoading.reading ? (
-              <div className="text-center py-12 text-muted-foreground font-medium animate-pulse">Loading reading tests...</div>
-            ) : readingExercises.map((ex, i) => (
-              <button
-                key={ex.id}
-                onClick={() => setSelectedExercise(ex)}
-                className="w-full card card-clickable group flex items-center justify-between p-6 text-left"
-              >
-                <div className="flex items-center space-x-5 min-w-0">
+              <div className="space-y-4">
+                {isLoading.reading ? (
+                  <div className="text-sm py-4 text-emerald-600 dark:text-emerald-400 font-medium animate-pulse text-center">Loading reading exercises...</div>
+                ) : readingExercises.map((ex, idx) => (
+                  <button
+                    key={ex.id}
+                    onClick={() => setSelectedExercise(ex)}
+                    className="w-full glass-panel group flex items-center justify-between p-6 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-medium animate-fade-in-up"
+                    style={{ animationDelay: `${0.1 * idx}s` }}
+                  >
+                    <div className="flex items-center space-x-5 min-w-0">
                   <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800 border border-border flex items-center justify-center shrink-0 group-hover:bg-primary/5 transition-colors">
                     <BookOpen className="h-6 w-6 text-primary" />
                   </div>
